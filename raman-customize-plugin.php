@@ -8,7 +8,7 @@
  * Version:     1.0.0
  */
 
-defined( 'ABRAATH' ) || exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Define Constants
@@ -17,9 +17,9 @@ defined( 'ABRAATH' ) || exit;
 define( 'RCP_NAME', plugin_basename( __FILE__ ) );
 define( 'RCP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RCP_URI', plugin_dir_url( __FILE__ ) );
-define( 'RCP_TEMPLATE', wp_normalize_path( RA_DIR . 'template-parts/' ) );
-define( 'RCP_ASSETS', trailingslashit( RA_URI . 'assets' ) );
-define( 'RCP_INCS', trailingslashit( RA_DIR . 'includes' ) );
+define( 'RCP_TEMPLATE', wp_normalize_path( RCP_DIR . 'template-parts/' ) );
+define( 'RCP_ASSETS', trailingslashit( RCP_URI . 'assets' ) );
+define( 'RCP_INCS', trailingslashit( RCP_DIR . 'includes' ) );
 
 
 /**
@@ -31,6 +31,7 @@ $includes = array(
     'functions',
     'shortcodes',
 	'post-types',
+	'option-page',
 );
 
 foreach ( $includes as $file ) {
