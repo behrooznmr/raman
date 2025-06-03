@@ -22,6 +22,7 @@ define( 'RCP_ASSETS', trailingslashit( RCP_URI . 'assets' ) );
 define( 'RCP_INCS', trailingslashit( RCP_DIR . 'includes' ) );
 
 
+
 /**
  * Include Files
  */
@@ -32,6 +33,8 @@ $includes = array(
     'shortcodes',
 	'post-types',
 	'option-page',
+	'handler-function',
+
 );
 
 foreach ( $includes as $file ) {

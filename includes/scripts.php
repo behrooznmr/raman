@@ -1,37 +1,37 @@
 <?php
 
 defined( 'ABSPATH' ) || exit;
-update_option('RCP_css_desktop', $_POST['RCP_css_desktop']);
-update_option('RCP_css_tablet', $_POST['RCP_css_tablet']);
-update_option('RCP_css_mobile', $_POST['RCP_css_mobile']);
-update_option('RCP_custom_js', $_POST['RCP_custom_js']);
-update_option('RCP_custom_code_last_modified', time());
-
-define( 'RCP_VERSION', get_option('RCP_custom_code_last_modified', '1.0.0') );
-/**
- * Frontend Assets
- */
-add_action( 'wp_enqueue_scripts', 'RCP_enqueue_scripts' , 9999999 );
-function RCP_enqueue_scripts() {
 
 
-	wp_enqueue_style( 'RCP-front-css', trailingslashit( RCP_ASSETS ) . 'css/front.css', array() , RCP_VERSION  );
-	wp_enqueue_style( 'RCP-custom-css', trailingslashit( RCP_ASSETS ) . 'css/custom.css', array() , RCP_VERSION  );
-
-	wp_enqueue_script( 'RCP-front-js', trailingslashit( RCP_ASSETS ) . "js/front.js", array('jquery'), RCP_VERSION , true );
-	wp_localize_script( 'RCP-front-js', 'rcp_object_values', array(
-		'ajax_url' => admin_url( 'admin-ajax.php' ) ,
-		'nonce'    => wp_create_nonce( 'ajax-action-nonce' )
-	) );
-	wp_enqueue_script( 'RCP-custom-js', trailingslashit( RCP_ASSETS ) . "js/custom.js", array('jquery'), RCP_VERSION, true );
-}
+//update_option('RCP_custom_code_last_modified', time());
 //
-/**
- * Backend Assets
- */
-add_action( 'admin_enqueue_scripts', 'RCP_admin_enqueue_scripts');
-function RCP_admin_enqueue_scripts() {
+//define( 'RCP_VERSION', get_option('RCP_custom_code_last_modified', '1.0.0') );
 
-	wp_enqueue_style( 'RCP-admin-css', trailingslashit( RCP_ASSETS ) . 'css/admin.css', array()  , RCP_VERSION);
-    wp_enqueue_script( 'RCP-admin-js', trailingslashit( RCP_ASSETS ) . 'js/admin.js', array('jquery'), RCP_VERSION, true );
+define( 'RCP_VERSION',rand(9,9999));
+// Frontend Scripts
+add_action( 'wp_enqueue_scripts', 'RCP_enqueue_front_assets', 9999 );
+function RCP_enqueue_front_assets() {
+	wp_enqueue_style( 'RCP-front-css', RCP_ASSETS . 'css/front.css', [], RCP_VERSION );
+	wp_enqueue_style( 'RCP-custom-css', RCP_ASSETS . 'css/custom.css', [], RCP_VERSION );
+	wp_enqueue_script( 'RCP-front-js', RCP_ASSETS . 'js/front.js', ['jquery'], RCP_VERSION, true );
+	wp_enqueue_script( 'RCP-custom-js', RCP_ASSETS . 'js/custom.js', ['jquery'], RCP_VERSION, true );
+	wp_localize_script( 'RCP-front-js', 'rcp_object_values', [
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce'    => wp_create_nonce( 'ajax-action-nonce' )
+	]);
+}
+
+// Backend Scripts
+add_action( 'admin_enqueue_scripts', 'RCP_enqueue_admin_assets' );
+function RCP_enqueue_admin_assets() {
+
+	wp_enqueue_code_editor(['type' => 'text/css']);
+	wp_enqueue_code_editor(['type' => 'application/javascript']);
+	wp_enqueue_script('wp-theme-plugin-editor');
+	wp_enqueue_style('wp-codemirror');
+	wp_enqueue_script('RCP-codemirror-init', RCP_ASSETS . 'js/codemirror-init.js', ['jquery', 'wp-codemirror'], null, true);
+
+	wp_enqueue_style( 'RCP-admin-css', RCP_ASSETS . 'css/admin.css', [], RCP_VERSION );
+	wp_enqueue_script( 'RCP-admin-js', RCP_ASSETS . 'js/admin.js', ['jquery'], RCP_VERSION, true );
+
 }

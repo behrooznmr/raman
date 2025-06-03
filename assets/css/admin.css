@@ -1,0 +1,121 @@
+@font-face {
+    font-family: yekanbakh ;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/YekanBakh-Regular.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: yekanbakh ;
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/YekanBakh-Bold.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: yekanbakh ;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/YekanBakh-ExtraBlack.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: iransansx ;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/IRANSansX-Regular.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: iransansx ;
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/IRANSansX-Bold.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: iransansx ;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/IRANSansX-ExtraBold.woff2') format('woff2')
+}
+
+#wpbody,
+#adminmenuwrap {
+    font-family: iransansx !important;
+}
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #e9e9e9;
+}
+
+.custom-css-js-wrapper {
+    text-align: left;
+}
+
+.option-page-wrapper {
+    margin: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+}
+
+.img-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.option-page-title {
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.option-page-desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: #8b8b8b;
+    margin-top: 10px;
+}
+
+.option-box-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    min-width: 340px;
+    min-height: 151px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #848484;
+    font-weight: 700;
+    transition: 0.4s all;
+
+}
+
+.option-item:hover {
+    color: green;
+    transition: 0.4s all;
+    border: 1px solid #71af56;
+}
+.option-divider {
+    border-bottom: 2px solid #eeeeee;
+    margin: 30px 0;
+}
