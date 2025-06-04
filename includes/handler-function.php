@@ -28,3 +28,71 @@ function RCP_handle_save_codes() {
 		exit;
 	}
 }
+
+// code snippets handler
+add_action('init', 'RCP_execute_custom_snippets');
+function RCP_execute_custom_snippets() {
+	if ( is_admin() ) return; // فقط فرانت‌اند
+//	if ( current_user_can('administrator') ) {
+//	}
+
+	$file_path = RCP_INCS . 'custom-snippets.php';
+
+	if ( file_exists($file_path) ) {
+		include_once $file_path;
+	}
+}
+// check validate php code for code snippets handler
+function RCP_validate_php_code($code) {
+	$code = trim($code);
+
+	if ( stripos($code, '<?php') !== false ) {
+		$code = str_replace('<?php', '', $code);
+	}
+
+	$wrapped_code = "return function() {\n" . $code . "\n};";
+
+	try {
+		ob_start();
+		$test_func = @eval($wrapped_code);
+		ob_end_clean();
+
+		if ( !is_callable($test_func) ) {
+			return 'کد PHP دارای خطای سینتکسی است و ذخیره نشد.';
+		}
+	} catch (Throwable $e) {
+		return 'خطا: ' . $e->getMessage();
+	}
+
+	return true;
+}
+
+// post type activator handler
+
+add_action('init', 'RCP_load_enabled_post_types', 5);
+function RCP_load_enabled_post_types() {
+	$enabled = get_option('rcp_enabled_post_types', []);
+	foreach ( $enabled as $slug ) {
+		$file = RCP_INCS . 'post-types/' . $slug . '.php';
+		if ( file_exists($file) ) {
+			include_once $file;
+		}
+	}
+}
+
+add_action('plugins_loaded', 'RCP_load_enabled_modules');
+
+// module management handler
+function RCP_load_enabled_modules() {
+	$modules = get_option('rcp_enabled_modules', []);
+	if ( empty($modules) ) return;
+
+	require_once RCP_INCS . 'module-management.php';
+
+	foreach ( $modules as $module ) {
+		$function = 'RCP_module_' . $module;
+		if ( function_exists($function) ) {
+			call_user_func($function);
+		}
+	}
+}

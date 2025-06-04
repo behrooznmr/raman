@@ -41,7 +41,8 @@
 }
 
 #wpbody,
-#adminmenuwrap {
+#adminmenuwrap,
+h1,h2,h3,h4,h5,h6,p{
     font-family: iransansx !important;
 }
 
@@ -63,8 +64,11 @@
     padding: 30px;
     border-radius: 10px;
     border: 1px solid #dcdcdc;
+    text-align: left;
 }
-
+.option-page-wrapper p  {
+    direction:ltr
+}
 .img-title-wrapper {
     display: flex;
     align-items: center;
@@ -81,6 +85,7 @@
     font-weight: 400;
     color: #8b8b8b;
     margin-top: 10px;
+    text-align: right;
 }
 
 .option-box-wrapper {
@@ -118,4 +123,30 @@
 .option-divider {
     border-bottom: 2px solid #eeeeee;
     margin: 30px 0;
+}
+.contact-info-item {
+    display: flex
+;
+    justify-content: end;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+}
+.option-page-header{
+    display: flex;
+    justify-content: space-between;
+}
+.contact-info-item a{
+    text-decoration: none;
+    color: #858585;
+}
+.option-page-ver {
+    text-align: right;
+    color: #bdb6b6;
+    margin-top: 5px;
+    font-size: 10px;
+}
+.contact-info-item a:hover {
+    text-decoration: none;
+    color: #24730e;
 }

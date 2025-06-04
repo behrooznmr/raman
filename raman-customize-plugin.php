@@ -34,6 +34,7 @@ $includes = array(
 	'post-types',
 	'option-page',
 	'handler-function',
+	'custom-snippets'
 
 );
 
