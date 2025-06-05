@@ -39,10 +39,12 @@
     font-weight: 900;
     src: url('../fonts/IRANSansX-ExtraBold.woff2') format('woff2')
 }
-
+#wpbody a{
+text-decoration: none;
+}
 #wpbody,
 #adminmenuwrap,
-h1,h2,h3,h4,h5,h6,p{
+h1, h2, h3, h4, h5, h6, p {
     font-family: iransansx !important;
 }
 
@@ -66,9 +68,11 @@ h1,h2,h3,h4,h5,h6,p{
     border: 1px solid #dcdcdc;
     text-align: left;
 }
-.option-page-wrapper p  {
-    direction:ltr
+
+.option-page-wrapper p {
+    direction: ltr
 }
+
 .img-title-wrapper {
     display: flex;
     align-items: center;
@@ -94,7 +98,7 @@ h1,h2,h3,h4,h5,h6,p{
     justify-content: space-between;
     margin-top: 41px;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 10px;
 }
 
 .option-item {
@@ -120,33 +124,108 @@ h1,h2,h3,h4,h5,h6,p{
     transition: 0.4s all;
     border: 1px solid #71af56;
 }
+
 .option-divider {
     border-bottom: 2px solid #eeeeee;
     margin: 30px 0;
 }
+
 .contact-info-item {
-    display: flex
-;
+    display: flex;
     justify-content: end;
     flex-direction: row-reverse;
     gap: 10px;
     align-items: center;
 }
-.option-page-header{
+
+.option-page-header {
     display: flex;
     justify-content: space-between;
 }
-.contact-info-item a{
+
+.contact-info-item a {
     text-decoration: none;
     color: #858585;
 }
+
 .option-page-ver {
     text-align: right;
     color: #bdb6b6;
     margin-top: 5px;
     font-size: 10px;
 }
+
 .contact-info-item a:hover {
     text-decoration: none;
     color: #24730e;
+}
+
+.services-item {
+    width: 29%;
+    text-align: right;
+    min-height: 100px;
+    background: gray;
+    padding: 22px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 33px;
+    background: linear-gradient(254deg,
+    rgba(236, 238, 253, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(193, 222, 198, 100) 100%);
+}
+
+.services-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+img.ads-ser-img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.ads-ser-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ads-ser-title div {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 11px;
+}
+a.ads-ser-buy-btn {
+    background: orange;
+    padding: 5px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    color: #fff;
+    transition: 0.3s all;
+}
+a.ads-ser-buy-btn:hover {
+    background: #ff7300;
+    transition: 0.3s all;
+}
+a.ads-ser-tel-btn {
+    color: #da9358;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1px solid #ffad318a;
+    padding: 5px 16px;
+    border-radius: 6px;
+    transition: 0.3s all;
+}
+a.ads-ser-tel-btn:hover {
+    background: #ff7300;
+    color: #fff;
+    border-radius: 6px;
+    border: 1px solid #ff7300;
+    transition: 0.3s all;
 }

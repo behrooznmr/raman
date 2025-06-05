@@ -32,7 +32,7 @@ function RCP_handle_save_codes() {
 // code snippets handler
 add_action('init', 'RCP_execute_custom_snippets');
 function RCP_execute_custom_snippets() {
-	if ( is_admin() ) return; // فقط فرانت‌اند
+	if ( is_admin() ) return;
 //	if ( current_user_can('administrator') ) {
 //	}
 
@@ -42,6 +42,8 @@ function RCP_execute_custom_snippets() {
 		include_once $file_path;
 	}
 }
+
+
 // check validate php code for code snippets handler
 function RCP_validate_php_code($code) {
 	$code = trim($code);
@@ -69,16 +71,19 @@ function RCP_validate_php_code($code) {
 
 // post type activator handler
 
-add_action('init', 'RCP_load_enabled_post_types', 5);
 function RCP_load_enabled_post_types() {
 	$enabled = get_option('rcp_enabled_post_types', []);
 	foreach ( $enabled as $slug ) {
+		if ( $slug === 'products' && class_exists( 'WooCommerce' ) ) {
+			continue; // جلوگیری از لود products در صورت فعال بودن ووکامرس
+		}
 		$file = RCP_INCS . 'post-types/' . $slug . '.php';
 		if ( file_exists($file) ) {
 			include_once $file;
 		}
 	}
 }
+
 
 add_action('plugins_loaded', 'RCP_load_enabled_modules');
 

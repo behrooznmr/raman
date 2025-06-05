@@ -5,7 +5,7 @@
  * Description: تغییرات و کدهای ضروری پروژه
  * Author:      Behrooz Nematmorad
  * Author URI:  https://raman.agency/
- * Version:     1.0.0
+ * Version:     1.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -20,7 +20,7 @@ define( 'RCP_URI', plugin_dir_url( __FILE__ ) );
 define( 'RCP_TEMPLATE', wp_normalize_path( RCP_DIR . 'template-parts/' ) );
 define( 'RCP_ASSETS', trailingslashit( RCP_URI . 'assets' ) );
 define( 'RCP_INCS', trailingslashit( RCP_DIR . 'includes' ) );
-
+define( 'RCP_VER' , '1.1.3');
 
 
 /**
@@ -34,7 +34,8 @@ $includes = array(
 	'post-types',
 	'option-page',
 	'handler-function',
-	'custom-snippets'
+	'custom-snippets',
+	'updater'
 
 );
 

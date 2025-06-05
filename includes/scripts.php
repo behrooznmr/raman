@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 //
 //define( 'RCP_VERSION', get_option('RCP_custom_code_last_modified', '1.0.0') );
 
-define( 'RCP_VERSION',rand(9,9999));
+define( 'RCP_VERSION',rand(99,9999));
 // Frontend Scripts
 add_action( 'wp_enqueue_scripts', 'RCP_enqueue_front_assets', 9999 );
 function RCP_enqueue_front_assets() {
