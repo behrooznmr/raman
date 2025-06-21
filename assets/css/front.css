@@ -1,0 +1,133 @@
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/iranyekan/IRANYekanX-Thin.woff2') format('woff2')
+}
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/iranyekan/IRANYekanX-Regular.woff2') format('woff2')
+}
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/iranyekan/IRANYekanX-Regular.woff2') format('woff2')
+}
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/iranyekan/IRANYekanX-Bold.woff2') format('woff2')
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-main-back: #050505;
+    --color-primary: #10b358;
+    --color-hover-sec: #10b358;
+
+    --color-secondary: #ff7300;
+    --color-hover-sec: #ff3c00;
+
+    --color-border: rgba(255, 255, 255, .2);
+
+
+    --text-color-prim: #212529;
+    --text-color-sec: #6c757d;
+
+    --font-family-base: 'IRANYekanX', 'Roboto', sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+
+    --radius-4: 4px;
+    --radius-8: 8px;
+    --radius-10: 20px;
+    --radius-15: 25px;
+
+}
+
+html {
+    scroll-behavior: smooth;
+    margin:0!important;
+    padding: 0;
+}
+.row{
+    margin:0!important;
+}
+
+.raman-container {
+    line-height: 1.5;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    text-align: center!important;
+}
+.et_pb_button_0, .et_pb_button_1, .et_pb_button_2,.et_pb_button_3,.et_pb_button_7 {
+    border-width: 1px !important;
+    border-color: rgba(255, 255, 255, .2);
+    letter-spacing: 0;
+    background-color: #121517;
+    padding: 10px 20px;
+    border-radius: 100px;
+}
+.white_light_border {
+     position: relative;
+     z-index: 0;
+
+     border-radius: 50px;
+ }
+
+.white_light_border::before {
+    content: "";
+    width: 200%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.4) rotate(0deg);
+    background: conic-gradient(transparent 270deg, #ffffff, transparent);
+    animation: border_light_rotate 3s linear infinite;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.5;
+    pointer-events: none; /* مانع کلیک نشه */
+}
+.white_light_border {
+     padding: 1px !important;
+     overflow: hidden !important;
+     display: flex
+ ;
+     width: fit-content;
+     border-radius: 100px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+.white_light_border_inner {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes border_light_rotate {
+    from {
+        transform: translate(-50%, -50%) scale(1.4) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1.4) rotate(360deg);
+    }
+}
+
+/* انتخاب دکمه اصلی */
+.white_light_border_inner {
+    position: relative;
+    z-index: 1;
+}
