@@ -10,17 +10,38 @@
 wp_head();
 ?>
     <div class="raman-home-page container-fluid p-0">
-        <div class="main-wrapper d-flex flex-column" style="height: 1300px;background-color:#333;">
-            <div class="raman-container flex-grow-1 py-5">
+        <div class="main-wrapper d-flex flex-column" style="height: 1300px;">
+            <div class="raman-container flex-grow-1 p-0">
                 <!-- hero section - section1-->
-                <div class="ra-hero-section row">
+                <div class="ra-hero-section row p-0">
                     <!--hero section-->
-                    <div class="col-12">
-                        Hero Section
-                        <div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_module white_light_border et_had_animation" style="">
-                            <a class="et_pb_button et_pb_button_0 white_light_border_inner et_pb_bg_layout_light" href="#services">Voir nos services</a>
-                        </div>
+                    <div class="col-12 p-0">
+                        <div class="min-vh-100 hero-section-bc-img">
+                            <div class="min-vh-100 w-100 hero-section-overlay">
+                                <h1>
+                                    <div>آژانــس خلاقــیت</div>
+                                    <div>رامـــــــــــــان</div>
+                                </h1>
+                                <h1>
+                                    <span>RAMAN</span>
+                                    <br>
+                                    <span>CREATIVE AGENCY</span>
+                                </h1>
 
+
+                                <div class="glow-button-wrapper">
+                                    <a href="#" class="glow-button">
+                                        دریافت مشاوره رایگان
+                                        <span class="animated-border-box-glow"></span>
+                                        <span class="animated-border-box"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                     <!--   <div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_module white_light_border et_had_animation" style="">
+                            <a class="et_pb_button et_pb_button_0 white_light_border_inner et_pb_bg_layout_light" href="#services">Voir nos services</a>
+                        </div>-->
                     </div>
                     <!--Logo section-->
                     <div class="col-12">

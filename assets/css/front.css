@@ -1,26 +1,38 @@
 @font-face {
-    font-family: IRANYekanX;
+    font-family: YekanBakh;
     font-style: normal;
-    font-weight: 100;
-    src: url('../fonts/iranyekan/IRANYekanX-Thin.woff2') format('woff2')
+    font-weight: 300;
+    src: url('../fonts/yekanbakh/YekanBakh-Light.woff2') format('woff2')
 }
 @font-face {
-    font-family: IRANYekanX;
+    font-family: YekanBakh;
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/iranyekan/IRANYekanX-Regular.woff2') format('woff2')
+    src: url('../fonts/yekanbakh/YekanBakh-Regular.woff2') format('woff2')
 }
 @font-face {
-    font-family: IRANYekanX;
+    font-family: YekanBakh;
     font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/iranyekan/IRANYekanX-Regular.woff2') format('woff2')
+    font-weight: 600;
+    src: url('../fonts/yekanbakh/YekanBakh-SemiBold.woff2') format('woff2')
 }
 @font-face {
-    font-family: IRANYekanX;
+    font-family: YekanBakh;
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/iranyekan/IRANYekanX-Bold.woff2') format('woff2')
+    src: url('../fonts/yekanbakh/YekanBakh-Bold.woff2') format('woff2')
+}
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/yekanbakh/YekanBakh-ExtraBold.woff2') format('woff2')
+}
+@font-face {
+    font-family: YekanBakh;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/yekanbakh/YekanBakh-ExtraBlack.woff2') format('woff2')
 }
 
 
@@ -33,6 +45,7 @@
 }
 :root {
     --color-main-back: #050505;
+    --color-mate-black: #131617;
     --color-primary: #10b358;
     --color-hover-sec: #10b358;
 
@@ -45,7 +58,7 @@
     --text-color-prim: #212529;
     --text-color-sec: #6c757d;
 
-    --font-family-base: 'IRANYekanX', 'Roboto', sans-serif;
+    --font-family-base: IRANYekanX, 'Roboto', sans-serif;
     --font-size-base: 16px;
     --font-size-sm: 14px;
     --font-size-lg: 18px;
@@ -61,6 +74,8 @@ html {
     scroll-behavior: smooth;
     margin:0!important;
     padding: 0;
+
+
 }
 .row{
     margin:0!important;
@@ -72,62 +87,139 @@ html {
     font-weight: 400;
     text-align: center!important;
 }
-.et_pb_button_0, .et_pb_button_1, .et_pb_button_2,.et_pb_button_3,.et_pb_button_7 {
-    border-width: 1px !important;
-    border-color: rgba(255, 255, 255, .2);
-    letter-spacing: 0;
-    background-color: #121517;
-    padding: 10px 20px;
-    border-radius: 100px;
+/*Button Glow Style*/
+.glow-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
 }
-.white_light_border {
-     position: relative;
-     z-index: 0;
 
-     border-radius: 50px;
- }
+.glow-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 10px;
+    min-width: 200px;
+    background-color: #ffffff30;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid var(--color-mate-black);
+    transition: 0.4s all;
+}
+.glow-button .animated-border-box,
+.glow-button .animated-border-box-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    z-index: -1;
+    pointer-events: none;
+}
 
-.white_light_border::before {
-    content: "";
-    width: 200%;
-    aspect-ratio: 1 / 1;
+.glow-button .animated-border-box-glow {
+    filter: blur(20px);
+}
+
+.glow-button .animated-border-box::before,
+.glow-button .animated-border-box-glow::before {
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.4) rotate(0deg);
-    background: conic-gradient(transparent 270deg, #ffffff, transparent);
-    animation: border_light_rotate 3s linear infinite;
+    width: 9999px;
+    height: 9999px;
+    transform: translate(-50%, -50%) rotate(0deg);
+    background-image: conic-gradient(rgba(0, 0, 0, 0), #ffffff, rgba(0, 0, 0, 0) 25%);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: rotate 3s linear infinite;
+    z-index: -2;
+    border-radius: 50px;
+}
+
+.glow-button .animated-border-box::after {
+    content: '';
+    position: absolute;
     z-index: -1;
-    filter: blur(10px);
-    opacity: 0.5;
-    pointer-events: none; /* مانع کلیک نشه */
-}
-.white_light_border {
-     padding: 1px !important;
-     overflow: hidden !important;
-     display: flex
- ;
-     width: fit-content;
-     border-radius: 100px;
-     margin-left: auto;
-     margin-right: auto;
- }
-.white_light_border_inner {
-    position: relative;
-    z-index: 1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: var(--color-mate-black);
+    border-radius: 50px;
 }
 
-@keyframes border_light_rotate {
-    from {
-        transform: translate(-50%, -50%) scale(1.4) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1.4) rotate(360deg);
+
+a.glow-button:hover {
+    background-color: rgba(255, 255, 255, 0.69);
+    transition: 0.4s all;
+    color:#fff;
+}
+/*
+.glow-button:hover .animated-border-box::before,
+.glow-button:hover .glow-button .animated-border-box-glow::before {
+    background-image: conic-gradient(rgba(0, 0, 0, 0), #fd3b00, rgba(0, 0, 0, 0) 25%);
+}*/
+/*
+a.glow-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: 0.4s all;
+    color: #10b358;
+}
+
+.glow-button:hover .animated-border-box::before,
+.glow-button:hover .glow-button .animated-border-box-glow::before {
+    background-image: conic-gradient(rgba(0, 0, 0, 0), #10b358, rgba(0, 0, 0, 0) 25%);
+}*/
+@keyframes rotate {
+    100% {
+        transform: translate(-50%, -50%) rotate(1turn);
     }
 }
 
-/* انتخاب دکمه اصلی */
-.white_light_border_inner {
-    position: relative;
-    z-index: 1;
+
+/*Home-page style*/
+.hero-section-bc-img{
+    background-image: url("../images/first-section.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
 }
+.hero-section-overlay{
+    background: #ffffff;
+    background: radial-gradient(circle,
+    rgba(255, 255, 255, 0) 36%,
+    rgba(0, 0, 0, 0.8) 92%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.hero-section-overlay div:first-child{
+    font-size: 64px;
+    color: #fff;
+    font-weight: 500;
+}
+.hero-section-overlay div:last-child{
+    color: var(--color-primary);
+    font-size: 60px;
+    font-weight: 700;
+}
+.hero-section-overlay span:last-child{
+    font-size: 32px;
+    color: #fff;
+    font-weight: 400;
+}
+.hero-section-overlay span:first-child{
+    color: var(--color-primary);
+    font-size: 60px;
+    font-weight: 700;
+}
+
