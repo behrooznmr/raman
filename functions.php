@@ -40,6 +40,11 @@ function raman_theme_scripts() {
 	wp_enqueue_style('bootstrap', trailingslashit( RA_ASSETS ) . 'css/bootstrap.rtl.min.css', array());
 	wp_enqueue_script('raman-bootstrap', trailingslashit( RA_ASSETS ) . 'js/bootstrap.bundle.min.js', array('jquery') , true);
 
+	//swiper
+	wp_enqueue_style('swiper', trailingslashit( RA_ASSETS ) . 'css/swiper-bundle.min.css', array());
+	wp_enqueue_script('js-swiper', trailingslashit( RA_ASSETS ) . 'js/swiper-bundle.min.js', array('jquery') , true);
+
+
 	// front scripts
     wp_enqueue_style('raman-front', trailingslashit( RA_ASSETS ) . 'css/front.css', array(), RA_VER);
 	wp_enqueue_script('raman-front', trailingslashit( RA_ASSETS ) . 'js/front.js', array('jquery'), RA_VER , true);
