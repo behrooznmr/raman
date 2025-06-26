@@ -95,6 +95,15 @@ html {
 .raman-home-page h5,
 .raman-home-page h6{
 font-family: var(--font-family-base);
+    text-decoration: none;
+}
+.text-gr{
+    background: linear-gradient(172deg, rgba(255, 255, 255, 1) 28%, rgba(112, 112, 112, 1) 77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.default-btn-style{
+
 }
 .raman-container p{
     font-family: var(--font-family-base) !important;
@@ -231,18 +240,29 @@ a.glow-button:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-
 }
-.hero-section-overlay{
-    background: #ffffff;
-    background: radial-gradient(circle,
-    rgba(255, 255, 255, 0) 36%,
-    rgba(0, 0, 0, 0.8) 92%);
+.hero-section-bc-img.hero-section-overlay {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    text-align: center;
 }
+.hero-section-overlay:after {
+    content: "";
+    /* background: #ffffff; */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 36%, #030303 92%);
+    display: block;
+    z-index: 999999;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .hero-section-overlay h1{
     font-family: var(--font-family-base)!important;
     font-size: 64px;
@@ -338,27 +358,19 @@ a.glow-button:hover {
 .animated-text span:nth-child(20) { animation-delay: 1s; }
 .animated-text span:nth-child(21) { animation-delay: 1.05s; }
 .animated-text span:nth-child(22) { animation-delay: 1.1s; }
-.logo-carousel-wrapper{
-    position: relative;
-}
+
 .logo-carousel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
     width: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 26%, rgb(8 8 8) 100%);
+    box-shadow: 30px -36px 104px 74px #030303;
+    background-color: #030303;
 }
-.logo-carousel:after {
-    content: "";
-    display: block;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    background: #ffffff;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) -26%, rgb(8 8 8) 100%);
-    position: absolute;
-    z-index: 9;
-    right: 0;
-}
+
+
 
 .carousel-track {
     display: flex;
@@ -390,4 +402,174 @@ a.glow-button:hover {
     100% {
         transform: translateX(-50%);
     }
+}
+
+
+.ra-serv-sec{
+    height: 100vh;
+}
+
+.section-en-title {
+    background-color: #ffffff29;
+    display: inline-flex;
+    padding: 11px 17px 7px 10px;
+    margin-bottom: 15px;
+    color: #ffffff73;
+    border-radius: 50px;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid #ffffff38;
+    font-weight: 100;
+    font-size: 15px;
+    margin-top: 50px;
+}
+.section-en-title img{
+    width:20px;
+    margin-top: -4px;
+}
+.section-title {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(172deg, rgba(255, 255, 255, 1) 28%, rgb(141, 141, 141) 77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.section-title-desc{
+    background: linear-gradient(172deg, rgba(255, 255, 255, 1) 28%, rgb(141, 141, 141) 77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.services-item-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+
+/* Swiper base styles */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+.swiper-slide {
+    /* عرض را اینجا مشخص نمی‌کنیم تا خود Swiper آن را محاسبه کند */
+    /* width: 190px; */ /* این خط باید حذف یا کامنت شود */
+
+    height: 230px;
+    scale: 1.25;
+    transition: scale 250ms ease-in-out, opacity 250ms ease-in-out;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 15px;
+    opacity: 0.2;
+    position: relative;
+/*    background-color: hsla(0, 0%, 100%, .025);
+    box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 5vw hsla(0, 0%, 100%, .05);
+    padding: 2vw;
+    overflow: hidden;*/
+    background: radial-gradient(126.42% 76.6% at 50% 32.26%, rgb(33 33 33), rgb(0 0 0 / 99%));
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, .1) inset, 0 0 20px 3px rgba(7, 13, 79, .1), 0 0 40px 20px rgba(84, 95, 102, .1), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+.swiper-slide.swiper-slide-active {
+    scale: 2;
+    z-index: 10;
+    opacity: 1;
+}
+
+
+.swiper-slide.swiper-slide-prev,
+.swiper-slide.swiper-slide-next {
+    scale: 1.7;
+    z-index: 5;
+    transition-duration: 150ms;
+    opacity: 0.6;
+}
+
+.swiper-slide.swiper-slide-next + .swiper-slide {
+    z-index: 2;
+    opacity: 0.2;
+}
+
+.swiper-button {
+    background-color: #F04E23;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+}
+
+.swiper-button.swiper-button-prev {
+    left: 17%;
+}
+.swiper-button.swiper-button-next {
+    right: 17%;
+}
+.swiper-button:hover {
+    background-color: #4A261F;
+}
+.swiper-button::after {
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+.kpi-item-grid {
+    opacity: 0.3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 26vw;
+    height: 22vw;
+    background-image: linear-gradient(90deg, hsla(0, 0%, 100%, .05) 1px, transparent 0), linear-gradient(180deg, hsla(0, 0%, 100%, .05) 1px, transparent 0);
+    background-size: 3.2vw 3.2vw;
+    background-position: 50%;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #010101 10%, #010101 90%, transparent), linear-gradient(180deg, transparent, #010101 10%, #010101 90%, transparent);
+    -webkit-mask-composite: destination-in;
+    mask-image: linear-gradient(90deg, transparent, #010101 10%, #010101 90%, transparent), linear-gradient(180deg, transparent, #010101 10%, #010101 90%, transparent);
+    -webkit-mask-composite: source-in, xor;
+    mask-composite: intersect;
+}
+.swiper-slide img{
+    width: 25px;
+    margin-bottom: 11px;
+}
+.services-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 23px;
+}
+.swiper-slide p.services-desc{
+    font-size: 9px !important;
+    color: #a1a1a1;
+    text-align: right;
+    font-weight: 100 !important;
+    margin: 0;
+}
+.services-btn{
+    background-color: #fff;
+    border-radius: 50px;
+    font-size: 7px;
+    padding: 4px 13px;
+    color: #000;
+    margin-top: 10px;
 }

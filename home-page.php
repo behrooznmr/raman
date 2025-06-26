@@ -16,8 +16,8 @@ wp_head();
                 <div class="ra-hero-section row p-0">
                     <!--hero section-->
                     <div class="col-12 p-0">
-                        <div class="min-vh-100 hero-section-bc-img">
-                            <div class="min-vh-100 w-100 hero-section-overlay">
+                        <div class="min-vh-100 w-100 hero-section-bc-img hero-section-overlay">
+<!--                            <div class="min-vh-100 w-100 hero-section-overlay">-->
                                 <h1>
                                     آژانــس خلاقــیت <span>رامـــان</span>
                                 </h1>
@@ -38,8 +38,7 @@ wp_head();
                                         <span class="animated-border-box"></span>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="logo-carousel-wrapper col-12">
+                            <!--</div>-->
                                 <div class="logo-carousel">
                                     <div class="carousel-track">
                                         <div class="ra-logo-carousel-item"><img
@@ -105,20 +104,87 @@ wp_head();
                                                     alt="Logo 6"></div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                     </div>
                 </div>
                 <!--section2-->
                 <div class="ra-serv-sec row">
-                    <!--Services-->
-                    <div class="col-12">
-                        Hero Section
+                    <div class="section-title-wrapper">
+                        <div class="section-en-title">
+                            <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp' alt="">
+                            Services
+                        </div>
+                        <div class="section-title">
+                            خدمات رامان
+                        </div>
+                        <p class="section-title-desc">
+                             متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک
+                        </p>
+
                     </div>
+                    <div class="services-item-wrapper">
+                        <!-- Swiper -->
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+
+                                </div>
+                                <div class="swiper-slide">
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+
+                                </div>
+                                <div class="swiper-slide">
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                </div>
+                                <div class="swiper-slide">
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+                                </div>
+                                <div class="swiper-slide">
+<!--                                    <div class="kpi-item-grid"></div>-->
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>" alt="">
+                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
+                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                    <a class="services-btn" href="">مشاهده جزئیات</a>
+
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-button swiper-button-next"></div>
+                            <div class="swiper-button swiper-button-prev"></div>
+                        </div>
+
+                    </div>
+
                     <!--about-->
                     <div class="col-12">
-                        About Section
+                        About
                     </div>
                     <div class="col-12">
                         <div class="row">
