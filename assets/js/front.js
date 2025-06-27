@@ -26,15 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".swiper", {
-        // تعداد اسلایدها را 5 قرار می‌دهیم تا همیشه 5 آیتم نمایش داده شود
         slidesPerView: 5,
-
-        // فاصله بین اسلایدها (مثلاً 20 پیکسل)
         spaceBetween: 20,
-
-        // آیتم فعال همیشه در وسط قرار می‌گیرد
         centeredSlides: true,
-
         loop: true,
         simulateTouch: ('ontouchstart' in window) || (navigator.maxTouchPoints > 0),
         navigation: {
@@ -42,6 +36,4 @@ document.addEventListener("DOMContentLoaded", function () {
             prevEl: ".swiper-button-prev",
         },
     });
-
-    // تابع محاسبه ارتفاع داینامیک به طور کامل حذف شده است
 });
