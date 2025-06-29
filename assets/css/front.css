@@ -141,17 +141,18 @@ html {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+    z-index: 10;
 }
 
 .glow-button {
     position: relative;
     display: inline-block;
-    padding: 15px 10px;
-    min-width: 200px;
+    padding: 10px 8px;
+    min-width: 176px;
     background-color: #ffffff30;
     color: #fff;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
     border-radius: 50px;
     overflow: hidden;
     z-index: 1;
@@ -240,7 +241,7 @@ a.glow-button:hover {
 
 /*Home-page style*/
 .hero-section-bc-img {
-    background-image: url("../images/first-section.jpg");
+    background-image: url("../images/centerbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -261,7 +262,7 @@ a.glow-button:hover {
     /* background: #ffffff; */
     background: radial-gradient(circle, rgba(255, 255, 255, 0) 36%, #030303 92%);
     display: block;
-    z-index: 999999;
+    z-index: 9;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -707,6 +708,7 @@ a.glow-button:hover {
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 23px;
+    font-family: var(--font-family-base) !important;
 }
 
 .swiper-slide p.services-desc {
@@ -759,4 +761,44 @@ a.glow-button:hover {
     position: absolute;
     top: 38px;
     left: 12px;
+}
+.about-sec-wrapper{
+    max-width: 1250px;
+    margin: 0 auto;
+    min-height: 527px;
+    padding: 75px;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    margin-top: 80px;
+    position: relative;
+    background-color: #030303;
+    /* background: radial-gradient(126.42% 76.6% at 50% 32.26%, rgb(33 33 33), rgb(0 0 0 / 99%)); */
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, .1) inset, 0 0 20px 3px rgba(7, 13, 79, .1), 0 0 40px 20px rgba(84, 95, 102, .1), 0 0 0 1px rgba(255, 255, 255, .06);
+    box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 5vw hsla(0, 0%, 100%, .1);
+}
+.about-content{
+    max-width: 1250px;
+    margin: 0 auto;
+    /*box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 10vw hsla(0, 0%, 100%, .1);*/
+    z-index: 1;
+    border-radius: 15px;
+}
+.services-content-video {
+
+    display: block;
+    width: 100%;
+}
+.ra-about-sec p{
+     color: #b7b7b7;
+     max-width: 92%;
+    margin: 30px auto;
+     font-weight: 300 !important;
+     line-height: 27px;
+     font-size: 14px !important;
+}
+.ra-about-sec.row {
+    background-image: url(../images/centerbackground.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
 }
