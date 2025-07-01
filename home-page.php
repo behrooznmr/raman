@@ -116,7 +116,7 @@ wp_head();
                 <!--section2-->
                 <div class="ra-serv-sec row">
                     <div class="section-title-wrapper">
-                        <div class="section-en-title">
+                        <div class="section-en-title glass-bc">
                             <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
                                  alt="">
                             Services
@@ -257,12 +257,12 @@ wp_head();
 
                     </div>
                 </div>
-                <!--section4-->
+                <!--section3-->
                 <div class="ra-about-sec row">
                     <!--about-->
                     <div class="col-12">
                         <div class="about-content">
-                            <div class="section-en-title">
+                            <div class="section-en-title glass-bc">
                                 <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
                                      alt="">
                                 About Raman
@@ -291,23 +291,22 @@ wp_head();
                                 </a>
                             </div>
                         </div>
-
-
-                        <div class="about-sec-wrapper">
-
+                        <div class="custom-w-1250 background-effect about-sec-wrapper">
                             <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/desktop.mp4" class="services-content-video" autoplay="" muted="" playsinline="" data-wf-ignore="true" preload="auto" loop=""></video>
                         </div>
                     </div>
-                    <div class="row">
-                        <!--Step-->
-                        <div class="col-12 col-md-6">
+                </div>
+                <!--section4-->
+                <div class="ra-step-sec row">
+                    <div class="custom-w-1250 d-flex">
+                        <div class="step-box background-effect col-12 col-md-6">
                             Step Box
                         </div>
-                        <!--Tools-->
-                        <div class="col-12 col-md-6">
+                        <div class="step-box background-effect col-12 col-md-6">
                             Web tools Box
                         </div>
                     </div>
+
                 </div>
                 <!--section5-->
                 <div class="ra-project-sec row">
