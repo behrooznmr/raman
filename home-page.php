@@ -299,11 +299,46 @@ wp_head();
                 <!--section4-->
                 <div class="ra-step-sec row">
                     <div class="custom-w-1250 d-flex">
+
                         <div class="step-box background-effect col-12 col-md-6">
-                            Step Box
+                            <div class="step-3-col-title section-title">
+                                از ایده تا اجرا
+                            </div>
+                            <p>تبدیل ایده اولیه به یک وب‌سایت کامل، حرفه‌ای و آماده بهره‌برداری در یک مسیر هدفمند</p>
+                            <div class="card-stack">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png" alt="Slack">
+
+                                        <div class="title">مشاوره</div>
+                                    </div>
+                                    <div class="text">تحلیل دقیق نیازها و اهداف کسب‌وکار برای ارائه بهترین مسیر ورود به دنیای دیجیتال</div>
+
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+
+                                        <div class="title">تدوین استراژی</div>
+                                    </div>
+                                    <div class="text">طراحی یک نقشه راه حرفه‌ای برای کسب و کار آنلاین شما، طراحی سایت، سئو و بازاریابی دیجیتال با تمرکز بر رشد پایدار </div>
+
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion">
+
+                                        <div class="title">اجرا</div>
+                                    </div>
+                                    <div class="text">پیاده‌سازی دقیق و حرفه‌ای طراحی، برنامه‌نویسی و بهینه‌سازی کسب‌وکار دیجیتال شما، بر اساس استراتژی تدوین ‌شده</div>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="step-box background-effect col-12 col-md-6">
-                            Web tools Box
+
                         </div>
                     </div>
 

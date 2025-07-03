@@ -827,18 +827,18 @@ a.glow-button:hover {
     margin-top: 22px !important;
 
 }
-.step-box{
+.step-box {
     width: 49%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 440px;
-    padding: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 500px;
+    padding: 30px;
     border: 1px solid #292929;
     border-radius: 15px;
     position: relative;
     background-color: #030303;
-
 }
 
 .ra-step-sec .custom-w-1250 {
@@ -856,4 +856,100 @@ a.glow-button:hover {
             rgb(255 255 255 / 0%) 7%,
             rgb(12 12 12 / 25%) 54%,
             rgb(255 255 255 / 9%) 100%);
+}
+.card-stack {
+    position: absolute;
+    width: 360px;
+    height: 260px;
+    perspective: 2000px;
+    top: 23%;
+    left: 0px;
+    z-index: 2;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    padding: 11px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transform-style: preserve-3d;
+}
+
+.card:nth-child(3) {
+    transform: rotateX(349deg) rotateY(29deg) translateZ(314px) translateY(92px);
+    z-index: 3;
+    margin-left: 10px;
+    transition: 0.4s all;
+}
+
+.card:nth-child(2) {
+    transform: rotateX(349deg) rotateY(29deg) translateZ(274px) translateY(53px);
+    z-index: 2;
+    margin-left:-5px;
+    transition: 0.4s all;
+
+}
+.card:nth-child(1) {
+    transform: rotateX(348deg) rotateY(28deg) translateZ(234px) translateY(10px);
+    z-index: 1;
+    margin-left: -15px;
+    transition: 0.4s all;
+}
+.card:nth-child(2):hover {
+    transform: rotateX(349deg) rotateY(29deg) translateZ(274px) translateY(-14px);
+    transition: 0.4s all;
+}
+.card:nth-child(1):hover {
+    transform: rotateX(348deg) rotateY(28deg) translateZ(234px) translateY(-57px);
+    transition: 0.4s all;
+}
+.card:nth-child(3):hover {
+    transform: rotateX(349deg) rotateY(29deg) translateZ(314px) translateY(25px);
+    transition: 0.4s all;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header img {
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 14px;
+    text-align: right;
+}
+
+.text {
+    font-size: 11px;
+    text-align: right;
+    color: #ccc;
+    margin: 5px 0;
+}
+.step-3-col-title{
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+  }
+.step-box p{
+    color:#fff;
+    font-size: 12px!important;
+    font-weight: 400!important;
+    text-align: center;
+    width: 100%;
+}
+.ra-step-sec .background-effect{
+    z-index: 0;
 }
