@@ -792,31 +792,56 @@ a.glow-button:hover {
     margin-top: 40px!important;
     position: relative;
     background-color: #030303;
+    position: relative;
 }
 
 
 .about-content {
     max-width: 1250px;
     margin: 0 auto;
-    z-index: 1;
-    border-radius: 15px;
 }
 
 .services-content-video {
     display: block;
-    width: 69%;
-    margin: 0 auto;
+    width: 100%;
+    min-height: 100%;
+    z-index: 0;
+    border-radius: 15px;
+}
+.video-sec-content-wrapper{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 50px;
+    align-items: flex-start;
+    justify-content: center;
+}
+.video-sec-content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 .ra-about-sec p {
     color: #b7b7b7;
     max-width: 92%;
-    margin: 30px auto;
+    margin: 0px auto;
     font-weight: 300 !important;
     line-height: 27px;
     font-size: 14px !important;
 }
-
+h3.about-title.section-title {
+    font-size: 24px;
+}
+.about-sec-wrapper .glow-button{
+    min-width: 118px;
+}
 .ra-about-sec.row {
     background-image: url(../images/centerbackground.png);
     background-repeat: no-repeat;

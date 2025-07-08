@@ -268,16 +268,19 @@ wp_head();
                                 About Raman
                             </div>
                             <div class="section-title">
-                                درباره ما
+                                درباره ما بیشتر بدانید
                             </div>
-                            <p>آژانس دیجیتال مارکتینگ رامان با هدف ارتقای سطح دیجیتال مارکتینگ در ایران راه اندازی شد. هدف
-                                اصلی ما گسترش بازار دیجیتال برای کسب و کارهاست. بعد از چندین سال تجربه در کسب و کارهای
-                                اینترنتی گرد هم اومدیم تا آژانس دیجیتال مارکتینگی تاسیس کنیم که دانش و تخصص رو به خلاقیت گره
-                                بزنیم. ماحصل این تلاش یافتن بازارهای جدید و کسب سهم بازار بیشتر برای کسب و کارها خواهد
-                                بود. تیم ما ابتدا دو نفره بود که امروز متخصصین زیادی در حوزه های مختلف همکار ما شدند و به ما
-                                در تحقق اهدافمون کمک می کنند. با تکیه به همین تیم ما تمامی خدمات دیجیتال مارکتینگ رو ارائه
-                                میدیم.</p>
-                            <div class="glow-button-wrapper">
+<!--                            <p>خلاقیت و تخصص، موتور رشد دیجیتال کسب‌وکارها.</p>-->
+
+                        </div>
+                        <div class="custom-w-1250 background-effect about-sec-wrapper">
+                            <div class="video-sec-content-wrapper">
+                                <div class="video-sec-content">
+                                    <h3 class="about-title section-title">درباره آژانس خلاقیت رامان</h3>
+                                    <p>آژانس دیجیتال مارکتینگ رامان با هدف توسعه بازار دیجیتال برای کسب‌وکارها تأسیس شده و با تیمی از متخصصان، خدمات کامل دیجیتال مارکتینگ را ارائه می‌دهد. تمرکز ما ترکیب خلاقیت با تجربه برای افزایش سهم بازار برندهاست.
+
+                                    </p>
+                                       <div class="glow-button-wrapper">
                                 <a href="#" class="glow-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="#010101" stroke-width="2" stroke-linecap="round"
@@ -285,14 +288,15 @@ wp_head();
                                         <path d="M7 7h10v10"/>
                                         <path d="M7 17 17 7"/>
                                     </svg>
-                                    دریافت مشاوره رایگان
+                                    درباره رامان
                                     <span class="animated-border-box-glow"></span>
                                     <span class="animated-border-box"></span>
                                 </a>
                             </div>
-                        </div>
-                        <div class="custom-w-1250 background-effect about-sec-wrapper">
-                            <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/desktop.mp4" class="services-content-video" autoplay="" muted="" playsinline="" data-wf-ignore="true" preload="auto" loop=""></video>
+                                </div>
+                            </div>
+                            <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/logos.mp4" class="services-content-video" autoplay="" muted="" playsinline="" data-wf-ignore="true" preload="auto" loop=""></video>
+
                         </div>
                     </div>
                 </div>
