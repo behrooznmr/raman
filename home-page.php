@@ -131,130 +131,17 @@ wp_head();
                     </div>
                     <div class="services-item-wrapper">
                         <!-- Swiper -->
-                        <div class="swiper">
+
+                        <div class="swiper my-swiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <!--                                    <div class="kpi-item-grid"></div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-1.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">طراحی سایت فروشگاهی</h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">SHOPPING WEBSITE</div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <!--                                    <div class="kpi-item-grid"></div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-2.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">طراحی سایت شرکتی</h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">CORPORATE WEBSITE</div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <!--                                    <div class="kpi-item-grid"></div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-6.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">سئو و بهینه سازی سایت</h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">SEO</div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <!--                                   <div class="service-en-title">WEB DESIGN</div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-3.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">افزایش سرعت سایت</h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">PERFORMANCE</div>
-
-                                </div>
-                                <div class="swiper-slide">
-                                    <!--                                    <div class="kpi-item-grid"></div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-4.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">افزایش امنیت سایت</h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">SECURITY</div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <!--                                    <div class="kpi-item-grid"></div>-->
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-icon-5.png ?>"
-                                         alt="">
-                                    <h2 class="services-title text-gr">UI/UX طراحی </h2>
-                                    <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات سفارشی
-                                        در سه پلن اجرایی براساس نیاز مشتری</p>
-                                    <a class="services-btn" href="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="lucide lucide-arrow-up-right">
-                                            <path d="M7 7h10v10"/>
-                                            <path d="M7 17 17 7"/>
-                                        </svg>
-                                        مشاهده جزئیات
-                                    </a>
-                                    <div class="service-en-title">UI/UX DESIGN</div>
-                                </div>
-
-
+                                <div class="swiper-slide">سرویس ۱</div>
+                                <div class="swiper-slide">سرویس ۲</div>
+                                <div class="swiper-slide">سرویس ۳</div>
+                                <div class="swiper-slide">سرویس ۴</div>
+                                <div class="swiper-slide">سرویس ۵</div>
+                                <div class="swiper-slide">سرویس ۶</div>
                             </div>
-                            <div class="swiper-button swiper-button-next"></div>
-                            <div class="swiper-button swiper-button-prev"></div>
                         </div>
-
                     </div>
                 </div>
                 <!--section3-->
@@ -383,3 +270,4 @@ wp_head();
 
 
 <?php
+get_footer();

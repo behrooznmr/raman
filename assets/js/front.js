@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', calculateHeight);
 });
 */
+/*
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".swiper", {
         slidesPerView: 5,
@@ -37,3 +38,21 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 });
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    new Swiper('.my-swiper', {
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 1.2,
+        spaceBetween: 16,
+
+        breakpoints: {
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 24,
+                centeredSlides: false
+            }
+        }
+    });
+});
+
