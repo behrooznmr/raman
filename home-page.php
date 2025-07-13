@@ -47,65 +47,65 @@ wp_head();
                             <div class="logo-carousel">
                                 <div class="carousel-track">
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/1.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
                                                 alt="Logo 1"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/2.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
                                                 alt="Logo 2"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/3.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
                                                 alt="Logo 3"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/4.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
                                                 alt="Logo 4"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/5.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
                                                 alt="Logo 5"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/6.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/7.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/8.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/9.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/10.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
                                                 alt="Logo 6"></div>
 
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/1.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
                                                 alt="Logo 1"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/2.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
                                                 alt="Logo 2"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/3.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
                                                 alt="Logo 3"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/4.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
                                                 alt="Logo 4"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/5.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
                                                 alt="Logo 5"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/6.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/7.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/8.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/9.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
                                                 alt="Logo 6"></div>
                                     <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/10.png"
+                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
                                                 alt="Logo 6"></div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ wp_head();
                 </div>
                 <!--section2-->
                 <div class="ra-serv-sec row">
-                    <div class="section-title-wrapper">
+                    <div class="custom-w-1250 section-title-wrapper">
                         <div class="section-en-title glass-bc">
                             <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
                                  alt="">
@@ -125,8 +125,7 @@ wp_head();
                             خدمات رامان
                         </div>
                         <p class="section-title-desc">
-                            متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                        </p>
+                            ما ترکیب مطلوبی از خلاقیت و تکنولوژی را برای توسعه کسب‌وکارهای دیجیتال خلق کرده‌ایم. به شما کمک می‌کنیم تا فرصت‌های جدیدی را لمس کنید و همگام با دنیا، تجربه رشد، توسعه و شکوفایی را برای کسب‌وکار خود رقم بزنید. </p>
 
                     </div>
                     <div class="services-item-wrapper">
@@ -157,32 +156,37 @@ wp_head();
                             <div class="section-title">
                                 درباره ما بیشتر بدانید
                             </div>
-<!--                            <p>خلاقیت و تخصص، موتور رشد دیجیتال کسب‌وکارها.</p>-->
+                            <!--                            <p>خلاقیت و تخصص، موتور رشد دیجیتال کسب‌وکارها.</p>-->
 
                         </div>
                         <div class="custom-w-1250 background-effect about-sec-wrapper">
                             <div class="video-sec-content-wrapper">
                                 <div class="video-sec-content">
                                     <h3 class="about-title section-title">درباره آژانس خلاقیت رامان</h3>
-                                    <p>آژانس دیجیتال مارکتینگ رامان با هدف توسعه بازار دیجیتال برای کسب‌وکارها تأسیس شده و با تیمی از متخصصان، خدمات کامل دیجیتال مارکتینگ را ارائه می‌دهد. تمرکز ما ترکیب خلاقیت با تجربه برای افزایش سهم بازار برندهاست.
+                                    <p>آژانس دیجیتال مارکتینگ رامان با هدف توسعه بازار دیجیتال برای کسب‌وکارها تأسیس شده
+                                        و با تیمی از متخصصان، خدمات کامل دیجیتال مارکتینگ را ارائه می‌دهد. تمرکز ما
+                                        ترکیب خلاقیت با تجربه برای افزایش سهم بازار برندهاست.
 
                                     </p>
-                                       <div class="glow-button-wrapper">
-                                <a href="#" class="glow-button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="#010101" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="lucide lucide-arrow-up-right">
-                                        <path d="M7 7h10v10"/>
-                                        <path d="M7 17 17 7"/>
-                                    </svg>
-                                    درباره رامان
-                                    <span class="animated-border-box-glow"></span>
-                                    <span class="animated-border-box"></span>
-                                </a>
-                            </div>
+                                    <div class="glow-button-wrapper">
+                                        <a href="#" class="glow-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24"
+                                                 fill="none" stroke="#010101" stroke-width="2" stroke-linecap="round"
+                                                 stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                                <path d="M7 7h10v10"/>
+                                                <path d="M7 17 17 7"/>
+                                            </svg>
+                                            درباره رامان
+                                            <span class="animated-border-box-glow"></span>
+                                            <span class="animated-border-box"></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/logos.mp4" class="services-content-video" autoplay="" muted="" playsinline="" data-wf-ignore="true" preload="auto" loop=""></video>
+                            <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/logos.mp4"
+                                   class="services-content-video" muted="" playsinline=""
+                                   data-wf-ignore="true" preload="metadata" ></video>
 
                         </div>
                     </div>
@@ -190,7 +194,6 @@ wp_head();
                 <!--section4-->
                 <div class="ra-step-sec row">
                     <div class="custom-w-1250 d-flex">
-
                         <div class="step-box background-effect col-12 col-md-6">
                             <div class="step-3-col-title section-title">
                                 از ایده تا اجرا
@@ -199,45 +202,162 @@ wp_head();
                             <div class="card-stack">
                                 <div class="card">
                                     <div class="card-header">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png" alt="Slack">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/cons-2-g.svg"
+                                             alt="Slack">
 
                                         <div class="title">مشاوره</div>
                                     </div>
-                                    <div class="text">تحلیل دقیق نیازها و اهداف کسب‌وکار برای ارائه بهترین مسیر ورود به دنیای دیجیتال</div>
+                                    <div class="text">تحلیل دقیق نیازها و اهداف کسب‌وکار برای ارائه بهترین مسیر ورود به
+                                        دنیای دیجیتال
+                                    </div>
 
                                 </div>
 
                                 <div class="card">
                                     <div class="card-header">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/strategy-g.svg"
+                                             alt="Gmail">
 
                                         <div class="title">تدوین استراژی</div>
                                     </div>
-                                    <div class="text">طراحی یک نقشه راه حرفه‌ای برای کسب و کار آنلاین شما، طراحی سایت، سئو و بازاریابی دیجیتال با تمرکز بر رشد پایدار </div>
+                                    <div class="text">طراحی یک نقشه راه حرفه‌ای برای کسب و کار آنلاین شما، طراحی سایت،
+                                        سئو و بازاریابی دیجیتال با تمرکز بر رشد پایدار
+                                    </div>
 
                                 </div>
 
                                 <div class="card">
                                     <div class="card-header">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/run-2-g.svg"
+                                             alt="">
 
                                         <div class="title">اجرا</div>
                                     </div>
-                                    <div class="text">پیاده‌سازی دقیق و حرفه‌ای طراحی، برنامه‌نویسی و بهینه‌سازی کسب‌وکار دیجیتال شما، بر اساس استراتژی تدوین ‌شده</div>
+                                    <div class="text">پیاده‌سازی دقیق و حرفه‌ای طراحی، برنامه‌نویسی و بهینه‌سازی
+                                        کسب‌وکار دیجیتال شما، بر اساس استراتژی تدوین ‌شده
+                                    </div>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="step-box background-effect col-12 col-md-6">
+                        <div class="ra-step-work step-box background-effect col-12 col-md-6">
+                            <div class="step-3-col-title section-title">
+                                مراحل اجرای پروژه
+                            </div>
+                            <p>تبدیل ایده اولیه به یک وب‌سایت کامل، حرفه‌ای و آماده بهره‌برداری در یک مسیر هدفمند</p>
+                            <div class="ra-step-work-swiper-wrapper">
+                                <div class="swiper ra-step-work-top">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/cons-g.svg"
+                                                    alt=""></div>
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/wireframe-g.svg"
+                                                    alt=""></div>
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/ui-g.svg"
+                                                    alt=""></div>
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/programming-g.svg"
+                                                    alt=""></div>
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/test-g.svg"
+                                                    alt=""></div>
+                                        <div class="swiper-slide"><img
+                                                    src="<?php echo get_template_directory_uri(); ?>/assets/images/step-logo/run-g.svg"
+                                                    alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="swiper ra-step-work-bottom">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <strong>1. مشاوره اولیه</strong>
+                                            <p>برگزاری جلسه مشاوره با مشتری جهت تحلیل نیازها، اهداف کسب‌وکار و تعیین مسیر کلی پروژه.</p>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <strong>2. طراحی وایرفریم</strong>
+                                            <p>تهیه وایرفریم اولیه براساس نتایج جلسه مشاوره و ساختار پیشنهادی صفحات، به‌منظور تایید قبل از ورود به فاز طراحی.</p>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <strong>3. طراحی رابط کاربری (UI)</strong>
+                                            <p>طراحی رابط کاربری بر پایه وایرفریم‌های تاییدشده، با تمرکز بر تجربه کاربری، هویت بصری برند و استانداردهای روز طراحی.</p>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <strong>4. توسعه فنی و برنامه‌نویسی</strong>
+                                            <p>پیاده‌سازی و توسعه کامل وب‌سایت بر اساس رابط کاربری نهایی، با استفاده از تکنولوژی‌های مدرن و اصول بهینه‌سازی.</p>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <strong>5. تست و بررسی نهایی</strong>
+                                            <p>بارگذاری نسخه آزمایشی روی دامنه تست و انجام بررسی‌های فنی، عملکردی و تجربه‌کاربری توسط تیم ما و مشتری.</p>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <strong>6. تحویل نهایی و استقرار سایت</strong>
+                                            <p>انتقال پروژه نهایی‌شده به هاست و دامنه اصلی، و تحویل کامل سایت همراه با مستندات، پشتیبانی اولیه و آموزش مدیریت محتوا.</p>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <hr>
+                                <div class="ra-step-work-navigation">
+                                    <div class="ra-step-work-button-prev swiper-button-prev">قبلی</div>
+                                    <div class="ra-step-work-pagination swiper-pagination"></div>
+                                    <div class="ra-step-work-button-next swiper-button-next">بعدی</div>
+                                </div>
+                                <script>
+                                    const raStepWorkTop = new Swiper('.ra-step-work-top', {
+                                        loop: false,
+                                        spaceBetween: 0,
+                                        slidesPerView: 3,
+                                        centeredSlides: true,
+                                        grabCursor: true,
+                                        navigation: {
+                                            nextEl: '.ra-step-work-button-next',
+                                            prevEl: '.ra-step-work-button-prev'
+                                        },
+                                        pagination: {
+                                            el: '.ra-step-work-pagination',
+                                            clickable: true
+                                        },
+                                        effect: 'coverflow',
+                                        coverflowEffect: {
+                                            rotate: 0,
+                                            stretch: 0,
+                                            depth: 100,
+                                            modifier: 1,
+                                            slideShadows: false,
+                                            scale: 0.85
+                                        }
+                                    });
+                                    const raStepWorkBottom = new Swiper('.ra-step-work-bottom', {
+                                        loop: false,
+                                        effect: 'fade',
+                                        fadeEffect: {
+                                            crossFade: true
+                                        },
+                                        allowTouchMove: false
+                                    });
+
+                                    raStepWorkTop.controller.control = raStepWorkBottom;
+                                    raStepWorkBottom.controller.control = raStepWorkTop;
+                                </script>
+                            </div>
                         </div>
                     </div>
-
                 </div>
                 <!--section5-->
                 <div class="ra-project-sec row">
                     <div class="col-12 ">
-                        Portfolio Section
+                        <div class="section-en-title glass-bc">
+                            <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                 alt="">
+                            Portfolio
+                        </div>
+                        <div class="section-title">
+                            نمونه کارهای طراحی سایت رامان
+                        </div>
+                        <p class="section-title-desc">
+                            برای ما نتیجه مهم است! و همه نتایج برای ما افتخارآفرینند، همه تجربه‌ها، همه موفقیت‌ها
+                        </p>
                     </div>
                     <div class="col-12">
                         Logo Portfolio
