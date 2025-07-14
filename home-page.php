@@ -129,18 +129,92 @@ wp_head();
 
                     </div>
                     <div class="services-item-wrapper">
-                        <!-- Swiper -->
+<!--                      -->
+<!---->
+<!--                        <div class="swiper my-swiper">-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                <div class="swiper-slide">سرویس ۱</div>-->
+<!--                                <div class="swiper-slide">سرویس ۲</div>-->
+<!--                                <div class="swiper-slide">سرویس ۳</div>-->
+<!--                                <div class="swiper-slide">سرویس ۴</div>-->
+<!--                                <div class="swiper-slide">سرویس ۵</div>-->
+<!--                                <div class="swiper-slide">سرویس ۶</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="row">
+                            <!-- ستون چپ -->
+                            <div class="left-service-box col-6">
+                                <div class="row gx-3">
+                                    <div class="col-6">
+                                        <div class="service-box service-box-sm-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">پشتیبانی سایت</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="service-box service-box-sm-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">طراحی UI/UX</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <div class="service-box service-box-lg-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">طراحی سایت فروشگاهی و شرکتی</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="swiper my-swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">سرویس ۱</div>
-                                <div class="swiper-slide">سرویس ۲</div>
-                                <div class="swiper-slide">سرویس ۳</div>
-                                <div class="swiper-slide">سرویس ۴</div>
-                                <div class="swiper-slide">سرویس ۵</div>
-                                <div class="swiper-slide">سرویس ۶</div>
+                            <!-- ستون راست -->
+                            <div class="right-service-box col-6">
+                                <div class="row gx-3">
+                                    <div class="col-12 mb-4">
+                                        <div class="service-box service-box-lg-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">سئو و بهینه سازی سایت</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="service-box service-box-sm-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">افزایش سرعت سایت</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="service-box service-box-sm-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
+                                                <h2 class="services-title text-gr">افزایش امنیت سایت</h2>
+                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
+                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <!--section3-->
