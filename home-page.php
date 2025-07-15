@@ -125,96 +125,63 @@ wp_head();
                             خدمات رامان
                         </div>
                         <p class="section-title-desc">
-                            ما ترکیب مطلوبی از خلاقیت و تکنولوژی را برای توسعه کسب‌وکارهای دیجیتال خلق کرده‌ایم. به شما کمک می‌کنیم تا فرصت‌های جدیدی را لمس کنید و همگام با دنیا، تجربه رشد، توسعه و شکوفایی را برای کسب‌وکار خود رقم بزنید. </p>
+                            ما ترکیب مطلوبی از خلاقیت و تکنولوژی را برای توسعه کسب‌وکارهای دیجیتال خلق کرده‌ایم. به شما
+                            کمک می‌کنیم تا فرصت‌های جدیدی را لمس کنید و همگام با دنیا، تجربه رشد، توسعه و شکوفایی را
+                            برای کسب‌وکار خود رقم بزنید. </p>
 
                     </div>
                     <div class="services-item-wrapper">
-<!--                      -->
-<!---->
-<!--                        <div class="swiper my-swiper">-->
-<!--                            <div class="swiper-wrapper">-->
-<!--                                <div class="swiper-slide">سرویس ۱</div>-->
-<!--                                <div class="swiper-slide">سرویس ۲</div>-->
-<!--                                <div class="swiper-slide">سرویس ۳</div>-->
-<!--                                <div class="swiper-slide">سرویس ۴</div>-->
-<!--                                <div class="swiper-slide">سرویس ۵</div>-->
-<!--                                <div class="swiper-slide">سرویس ۶</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                         <div class="row">
-                            <!-- ستون چپ -->
-                            <div class="left-service-box col-6">
-                                <div class="row gx-3">
-                                    <div class="col-6">
-                                        <div class="service-box service-box-sm-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">پشتیبانی سایت</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                            <div class="custom-w-1250">
+                                <div class="left-service-box">
+                                    <div class="service-box service-box-sm-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">پشتیبانی سایت</h2>
+                                            <p class="services-desc">پشتیبانی روزانه، رفع خطا و نگهداری مداوم</p>
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="service-box service-box-sm-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">طراحی UI/UX</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                                    <div class="service-box service-box-sm-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">طراحی UI/UX</h2>
+                                            <p class="services-desc">طراحی تجربه کاربری جذاب و رابط کاربری حرفه‌ای</p>
                                         </div>
                                     </div>
-                                    <div class="col-12 mt-4">
-                                        <div class="service-box service-box-lg-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">طراحی سایت فروشگاهی و شرکتی</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                                    <div class="service-box service-box-lg-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">طراحی سایت فروشگاهی و شرکتی</h2>
+                                            <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز کسب‌وکار</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- ستون راست -->
-                            <div class="right-service-box col-6">
-                                <div class="row gx-3">
-                                    <div class="col-12 mb-4">
-                                        <div class="service-box service-box-lg-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">سئو و بهینه سازی سایت</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                                <div class="right-service-box">
+                                    <div class="service-box service-box-lg-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">سئو و بهینه سازی سایت</h2>
+                                            <p class="services-desc">بهبود رتبه در گوگل و جذب ترافیک هدفمند</p>
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="service-box service-box-sm-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">افزایش سرعت سایت</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                                    <div class="service-box service-box-sm-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">افزایش سرعت سایت</h2>
+                                            <p class="services-desc">بهینه‌سازی زمان بارگذاری و عملکرد سایت</p>
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="service-box service-box-sm-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="services-title text-gr">افزایش امنیت سایت</h2>
-                                                <p class="services-desc">راه اندازی سایت فروشگاهی با طراحی اختصاصی و امکانات
-                                                    سفارشی در سه پلن اجرایی براساس نیاز مشتری</p>
-                                            </div>
+                                    <div class="service-box service-box-sm-height">
+                                        <div class="services-overlay"></div>
+                                        <div class="services-content">
+                                            <h2 class="service-title text-gr">افزایش امنیت سایت</h2>
+                                            <p class="services-desc">محافظت از داده‌ها و جلوگیری از نفوذ</p>
                                         </div>
                                     </div>
                                 </div>
++
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!--section3-->
@@ -260,7 +227,7 @@ wp_head();
                             </div>
                             <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/logos.mp4"
                                    class="services-content-video" muted="" playsinline=""
-                                   data-wf-ignore="true" preload="metadata" ></video>
+                                   data-wf-ignore="true" preload="metadata"></video>
 
                         </div>
                     </div>
@@ -346,27 +313,33 @@ wp_head();
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <strong>1. مشاوره اولیه</strong>
-                                            <p>برگزاری جلسه مشاوره با مشتری جهت تحلیل نیازها، اهداف کسب‌وکار و تعیین مسیر کلی پروژه.</p>
+                                            <p>برگزاری جلسه مشاوره با مشتری جهت تحلیل نیازها، اهداف کسب‌وکار و تعیین
+                                                مسیر کلی پروژه.</p>
                                         </div>
                                         <div class="swiper-slide">
                                             <strong>2. طراحی وایرفریم</strong>
-                                            <p>تهیه وایرفریم اولیه براساس نتایج جلسه مشاوره و ساختار پیشنهادی صفحات، به‌منظور تایید قبل از ورود به فاز طراحی.</p>
+                                            <p>تهیه وایرفریم اولیه براساس نتایج جلسه مشاوره و ساختار پیشنهادی صفحات،
+                                                به‌منظور تایید قبل از ورود به فاز طراحی.</p>
                                         </div>
                                         <div class="swiper-slide">
                                             <strong>3. طراحی رابط کاربری (UI)</strong>
-                                            <p>طراحی رابط کاربری بر پایه وایرفریم‌های تاییدشده، با تمرکز بر تجربه کاربری، هویت بصری برند و استانداردهای روز طراحی.</p>
+                                            <p>طراحی رابط کاربری بر پایه وایرفریم‌های تاییدشده، با تمرکز بر تجربه
+                                                کاربری، هویت بصری برند و استانداردهای روز طراحی.</p>
                                         </div>
                                         <div class="swiper-slide">
                                             <strong>4. توسعه فنی و برنامه‌نویسی</strong>
-                                            <p>پیاده‌سازی و توسعه کامل وب‌سایت بر اساس رابط کاربری نهایی، با استفاده از تکنولوژی‌های مدرن و اصول بهینه‌سازی.</p>
+                                            <p>پیاده‌سازی و توسعه کامل وب‌سایت بر اساس رابط کاربری نهایی، با استفاده از
+                                                تکنولوژی‌های مدرن و اصول بهینه‌سازی.</p>
                                         </div>
                                         <div class="swiper-slide">
                                             <strong>5. تست و بررسی نهایی</strong>
-                                            <p>بارگذاری نسخه آزمایشی روی دامنه تست و انجام بررسی‌های فنی، عملکردی و تجربه‌کاربری توسط تیم ما و مشتری.</p>
+                                            <p>بارگذاری نسخه آزمایشی روی دامنه تست و انجام بررسی‌های فنی، عملکردی و
+                                                تجربه‌کاربری توسط تیم ما و مشتری.</p>
                                         </div>
                                         <div class="swiper-slide">
                                             <strong>6. تحویل نهایی و استقرار سایت</strong>
-                                            <p>انتقال پروژه نهایی‌شده به هاست و دامنه اصلی، و تحویل کامل سایت همراه با مستندات، پشتیبانی اولیه و آموزش مدیریت محتوا.</p>
+                                            <p>انتقال پروژه نهایی‌شده به هاست و دامنه اصلی، و تحویل کامل سایت همراه با
+                                                مستندات، پشتیبانی اولیه و آموزش مدیریت محتوا.</p>
                                         </div>
                                     </div>
 
