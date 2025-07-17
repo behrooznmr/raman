@@ -54,6 +54,11 @@
     src: url('../fonts/titillium/titillium-web-v4-latin-700.woff2') format('woff2')
 }
 
+.page-template-home-page header,
+.page-template-home-page footer {
+    display: none;
+}
+
 *,
 *::before,
 *::after {
@@ -93,6 +98,8 @@ html {
     scroll-behavior: smooth;
     margin: 0 !important;
     padding: 0;
+    direction: ltr;
+
 }
 
 .row {
@@ -115,8 +122,24 @@ html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-
+a.general-btn {
+    background-color: #ffffff2e;
+    border-radius: 50px;
+    border: 1px solid #686868;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 15px;
+    color: #fff;
+    transition: 0.4s all;
+    cursor: pointer;
+}
+.general-btn:hover {
+    background-color: #fffcfc;
+    border: 1px solid #ffffff;
+    padding: 5px 15px;
+    color: #060606;
+    transition: 0.4s all;
+}
 .glass-bc {
     background: rgb(103 103 103 / 29%);
 }
@@ -568,7 +591,8 @@ a.glow-button:hover {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-gap: 23px;
+    gap: 23px;
+    padding: 0;
 }
 
 .left-service-box, .right-service-box {
@@ -579,17 +603,18 @@ gap: 23px;
     gap: 23px;
 }
 
+
+
 .service-box {
     border-radius: 15px;
-    border: 1px solid #404040;
+    border: 1px solid #292929;
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: end;
+    flex-direction: column;
     text-align: right;
     padding: 30px;
-    position:relative;
+    position: relative;
+    align-items: end;
+    justify-content: center;
 }
 
 .service-box-sm-height {
@@ -605,7 +630,7 @@ gap: 23px;
 .service-title {
     font-size: 22px;
     font-weight: 800;
-    color:#fff;
+    color: #fff;
 }
 
 .services-item-wrapper p.services-desc {
@@ -613,6 +638,7 @@ gap: 23px;
     color: #fff;
     line-height: 26px;
 }
+
 .services-overlay {
     background-color: #000;
     position: absolute;
@@ -624,6 +650,7 @@ gap: 23px;
     border-radius: 15px;
     opacity: 0.4;
     z-index: 0;
+    transition: opacity .5s ease;
 }
 
 .service-en-title {
@@ -645,37 +672,68 @@ gap: 23px;
 .services-item-wrapper .left-service-box .row {
     display: flex;
 }
+
 /*support*/
 .left-service-box .service-box:nth-child(1) {
-    background: url("../images/bc-2.webp") no-repeat center center / cover ;
+    background: url("../images/bc-2.webp") no-repeat center center / cover;
 }
+
 /*UI UX*/
-.left-service-box .service-box:nth-child(2){
-     background: url("../images/ui.jpeg") no-repeat center center / cover ;
- }
+.left-service-box .service-box:nth-child(2) {
+    background: url("../images/ui.jpeg") no-repeat center center / cover;
+}
+
 /*SEO*/
-.left-service-box .service-box:nth-child(3){
+.left-service-box .service-box:nth-child(3) {
     background: url(../images/google.jpg) no-repeat;
-    background-size: contain;
-    background-position-x: -82px;
-    background-position-y: 10px;}
+    background-size: cover;
+    background-position: center center;
+}
+
 /*Web*/
-.right-service-box .service-box:nth-child(1){
-    background: url(../images/bc-10.webp) no-repeat;
+.right-service-box .service-box:nth-child(1) {
+    background: url(../images/bc-12.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
+
 /*speed*/
-.right-service-box .service-box:nth-child(2){
-    background: url("../images/bc-4.jpg") no-repeat center center / cover ;
+.right-service-box .service-box:nth-child(2) {
+    background: url("../images/bc-1.webp") no-repeat center center / cover;
 }
+
 /*secure*/
-.right-service-box .service-box:nth-child(3){
-    background: url("../images/bc-7.jpg") no-repeat center center / cover ;
+.right-service-box .service-box:nth-child(3) {
+    background: url("../images/bc-7.jpg") no-repeat center center / cover;
 }
 
 .services-content {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     z-index: 2;
+    margin-top: 55px;
+    transition: margin-top .5s ease;
+}
+.service-box:hover .services-btn {
+    opacity: 1;
+    transition: opacity 1s ease, color 0.5s ease,background-color 0.5s ease;
+    cursor: pointer!important;
+
+}
+.service-box:hover .services-content {
+    margin-top: 0;
+    transition: margin-top .5s ease;
+}
+.services-btn{
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 1s ease, color 0.5s ease,background-color 0.5s ease;
+
+}
+.service-box:hover .services-overlay{
+    opacity: 0.2;
+    transition: opacity .5s ease;
 }
 .about-sec-wrapper {
     display: flex;
