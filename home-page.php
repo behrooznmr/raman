@@ -137,44 +137,48 @@ wp_head();
                                     <div class="service-box service-box-sm-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">پشتیبانی سایت</h2>
+                                            <h2 class="service-title">پشتیبانی سایت</h2>
                                             <p class="services-desc">پشتیبانی روزانه، رفع خطا و نگهداری مداوم</p>
                                         </div>
                                     </div>
                                     <div class="service-box service-box-sm-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">طراحی UI/UX</h2>
-                                            <p class="services-desc">طراحی تجربه کاربری جذاب و رابط کاربری حرفه‌ای</p>
+                                            <h2 class="service-title">طراحی UI/UX</h2>
+                                            <p class="services-desc">طراحی رابط کاربری جذاب و حرفه‌ای</p>
                                         </div>
                                     </div>
                                     <div class="service-box service-box-lg-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">طراحی سایت فروشگاهی و شرکتی</h2>
-                                            <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز کسب‌وکار</p>
+                                            <h2 class="service-title">سئو و بهینه سازی سایت</h2>
+                                            <p class="services-desc">بهبود رتبه در گوگل و جذب ترافیک هدفمند</p>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="right-service-box">
                                     <div class="service-box service-box-lg-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">سئو و بهینه سازی سایت</h2>
-                                            <p class="services-desc">بهبود رتبه در گوگل و جذب ترافیک هدفمند</p>
+                                            <h2 class="service-title">طراحی سایت فروشگاهی و شرکتی</h2>
+                                            <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز کسب‌وکار</p>
                                         </div>
                                     </div>
                                     <div class="service-box service-box-sm-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">افزایش سرعت سایت</h2>
+                                            <h2 class="service-title">افزایش سرعت سایت</h2>
                                             <p class="services-desc">بهینه‌سازی زمان بارگذاری و عملکرد سایت</p>
+
                                         </div>
+
+
                                     </div>
                                     <div class="service-box service-box-sm-height">
                                         <div class="services-overlay"></div>
                                         <div class="services-content">
-                                            <h2 class="service-title text-gr">افزایش امنیت سایت</h2>
+                                            <h2 class="service-title">افزایش امنیت سایت</h2>
                                             <p class="services-desc">محافظت از داده‌ها و جلوگیری از نفوذ</p>
                                         </div>
                                     </div>

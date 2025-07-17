@@ -589,6 +589,7 @@ gap: 23px;
     justify-content: end;
     text-align: right;
     padding: 30px;
+    position:relative;
 }
 
 .service-box-sm-height {
@@ -603,6 +604,8 @@ gap: 23px;
 
 .service-title {
     font-size: 22px;
+    font-weight: 800;
+    color:#fff;
 }
 
 .services-item-wrapper p.services-desc {
@@ -642,8 +645,37 @@ gap: 23px;
 .services-item-wrapper .left-service-box .row {
     display: flex;
 }
-.left-service-box .service-box:first-child{
+/*support*/
+.left-service-box .service-box:nth-child(1) {
     background: url("../images/bc-2.webp") no-repeat center center / cover ;
+}
+/*UI UX*/
+.left-service-box .service-box:nth-child(2){
+     background: url("../images/ui.jpeg") no-repeat center center / cover ;
+ }
+/*SEO*/
+.left-service-box .service-box:nth-child(3){
+    background: url(../images/google.jpg) no-repeat;
+    background-size: contain;
+    background-position-x: -82px;
+    background-position-y: 10px;}
+/*Web*/
+.right-service-box .service-box:nth-child(1){
+    background: url(../images/bc-10.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/*speed*/
+.right-service-box .service-box:nth-child(2){
+    background: url("../images/bc-4.jpg") no-repeat center center / cover ;
+}
+/*secure*/
+.right-service-box .service-box:nth-child(3){
+    background: url("../images/bc-7.jpg") no-repeat center center / cover ;
+}
+
+.services-content {
+    z-index: 2;
 }
 .about-sec-wrapper {
     display: flex;
