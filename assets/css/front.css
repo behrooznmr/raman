@@ -55,8 +55,9 @@
 }
 
 .page-template-home-page header,
-.page-template-home-page footer {
-    display: none;
+.page-template-home-page footer ,
+.page-template-home-page .elementor-location-footer {
+    display: none!important;
 }
 
 *,
@@ -104,6 +105,9 @@ html {
 
 .row {
     margin: 0 !important;
+}
+.mt140{
+    margin-top: 140px!important;
 }
 
 .raman-home-page a,
@@ -157,9 +161,8 @@ a.general-btn {
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 78%, rgb(24 24 24) 100%);
+    background: radial-gradient(circle, rgb(255 255 255 / 0%) 8%, rgb(20 20 20) 106%);
 }
-
 .section-en-title {
     display: inline-flex;
     padding: 11px 17px 7px 10px;
@@ -550,14 +553,32 @@ a.glow-button:hover {
         transform: translateX(-50%);
     }
 }
-
-
-.ra-serv-sec {
-    height: 800px;
+.row-background{
     margin-top: 140px !important;
+    height: auto;
+    position: relative;
 }
-
-
+.row-background:before{
+    content: "";
+    background-image: url(../images/back-left.png);
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+.gradient-overlay{
+    background: linear-gradient(360deg, rgba(255, 255, 255, 0) 49%, rgb(3 3 3 / 74%) 100%);
+    position: relative;
+    z-index: 1;
+}
+.gradient-overlay div.row{
+    z-index: 2;
+}
 .section-en-title img {
     width: 20px;
     margin-top: -4px;
@@ -672,39 +693,38 @@ a.glow-button:hover {
 .services-item-wrapper .left-service-box .row {
     display: flex;
 }
-
 /*support*/
 .left-service-box .service-box:nth-child(1) {
-    background: url("../images/bc-2.webp") no-repeat center center / cover;
+    background: url("../images/services-bc/bc-2.webp") no-repeat center center / cover;
 }
 
 /*UI UX*/
 .left-service-box .service-box:nth-child(2) {
-    background: url("../images/ui.jpeg") no-repeat center center / cover;
+    background: url("../images/services-bc/ui.jpeg") no-repeat center center / cover;
 }
 
 /*SEO*/
 .left-service-box .service-box:nth-child(3) {
-    background: url(../images/google.jpg) no-repeat;
+    background: url(../images/services-bc/google.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 /*Web*/
 .right-service-box .service-box:nth-child(1) {
-    background: url(../images/bc-12.png) no-repeat;
+    background: url(../images/services-bc/bc-12.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 /*speed*/
 .right-service-box .service-box:nth-child(2) {
-    background: url("../images/bc-1.webp") no-repeat center center / cover;
+    background: url("../images/services-bc/bc-1.webp") no-repeat center center / cover;
 }
 
 /*secure*/
 .right-service-box .service-box:nth-child(3) {
-    background: url("../images/bc-7.jpg") no-repeat center center / cover;
+    background: url("../images/services-bc/bc-7.jpg") no-repeat center center / cover;
 }
 
 .services-content {
@@ -735,6 +755,7 @@ a.glow-button:hover {
     opacity: 0.2;
     transition: opacity .5s ease;
 }
+
 .about-sec-wrapper {
     display: flex;
     align-items: center;
@@ -800,12 +821,12 @@ h3.about-title.section-title {
     min-width: 118px;
 }
 
-.ra-about-sec.row {
+/*.ra-about-sec.row {
     background-image: url(../images/centerbackground.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-}
+}*/
 
 .ra-step-sec {
     margin-top: 22px !important;
@@ -1085,4 +1106,39 @@ h3.about-title.section-title {
     margin-bottom: 13px;
     display: block;
     color: #d2d2d2;
+}
+
+/*Portfolio*/
+
+.projects-loop-wrapper{
+    position: relative;
+}
+.projects-gradient-bottom,
+.projects-gradient-top {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    z-index: 5;
+}
+.projects-gradient-top{
+    top: 0;
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, 0) 0, #010101);
+}
+.projects-gradient-bottom{
+    bottom: 0;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0, #010101);
+}
+.projects-loop .swiper-container {
+    width: 100%;
+}
+
+.projects-loop .swiper-slide {
+    background-size: cover;
+    background-position: 50%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
