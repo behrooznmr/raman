@@ -9,6 +9,7 @@
 wp_head();
 get_header();
 ?>
+
     <div class="raman-home-page container-fluid p-0">
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
@@ -31,7 +32,7 @@ get_header();
                             <p>ارائه دهنده خدمات طراحی سایت، سئو و بهینه سازی سایت، طراحی لندینگ پیج، افزایش امنیت
                                 سایت، افزایش سرعت سایت و مشاوره کسب و کار</p>
                             <div class="glow-button-wrapper">
-                                <a href="#" class="glow-button">
+                                <a href="#" class="ra-btn glow-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="#010101" stroke-width="2" stroke-linecap="round"
                                          stroke-linejoin="round" class="lucide lucide-arrow-up-right">
@@ -417,7 +418,7 @@ get_header();
                 <!--section3-->
                 <div class="ra-project-sec row-mt row">
                     <div class="projects-gradient-top"></div>
-                    <div class="col-12">
+                    <div class="title-wrapper col-12">
                         <div class="section-en-title glass-bc">
                             <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
                                  alt="">
@@ -431,99 +432,52 @@ get_header();
                         </p>
                     </div>
                     <div class="col-12 projects-loop-wrapper">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heave.webp"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heavemax.webp"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/kinimatic.webp"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/portfolio.png"/>
-                                    </div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img class="img-fluid"
+                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heave.webp"/>
                                 </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination"></div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid"
+                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heavemax.webp"/>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid"
+                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/kinimatic.webp"/>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid"
+                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/portfolio.png"/>
+                                </div>
                             </div>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var Swipes = new Swiper('.swiper-container', {
-                                        loop: true,
-                                        slidesPerView: 1,
-                                        navigation: {
-                                            nextEl: '.swiper-button-next',
-                                            prevEl: '.swiper-button-prev',
-                                        },
-                                        pagination: {
-                                            el: '.swiper-pagination',
-                                        },
-                                    });
-                                });
-                            </script>
-                        <div id="custom-cursor" class="cursor hidden">
-                            <div class="circle">
-                                <div class="arrow right"></div>
-                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
                         <script>
-                            const swiperArea = document.querySelector('.swiper-container');
-                            const cursor = document.getElementById('custom-cursor');
-                            const arrow = cursor.querySelector('.arrow');
-
-                            let mouseX = 0;
-                            let mouseY = 0;
-                            let currentX = 0;
-                            let currentY = 0;
-                            const lag = 0.1;
-
-                            swiperArea.addEventListener('mousemove', (e) => {
-                                mouseX = e.clientX;
-                                mouseY = e.clientY;
-
-                                const bounds = swiperArea.getBoundingClientRect();
-                                const centerX = bounds.left + bounds.width / 2;
-
-                                // اگر موس در سمت چپ مرکز بود، چرخش 180 درجه
-                                if (e.clientX < centerX) {
-                                    arrow.style.transform = 'rotate(180deg)';
-                                } else {
-                                    arrow.style.transform = 'rotate(0deg)';
-                                }
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var Swipes = new Swiper('.swiper-container', {
+                                    loop: true,
+                                    slidesPerView: 1,
+                                    navigation: {
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
+                                    },
+                                    pagination: {
+                                        el: '.swiper-pagination',
+                                    },
+                                });
                             });
-
-                            swiperArea.addEventListener('mouseenter', () => {
-                                cursor.classList.remove('hidden');
-                            });
-                            swiperArea.addEventListener('mouseleave', () => {
-                                cursor.classList.add('hidden');
-                            });
-
-                            function animate() {
-                                currentX += (mouseX - currentX) * lag;
-                                currentY += (mouseY - currentY) * lag;
-
-                                cursor.style.transform = `translate(${currentX}px, ${currentY - 20}px)`;
-
-                                requestAnimationFrame(animate);
-                            }
-                            animate();
-
                         </script>
-                    </div>
-                    <div class="col-12">
-                        Logo Portfolio
+
+
                     </div>
                     <div class="projects-gradient-bottom"></div>
-
+                </div>
+                <!--section4-->
+                <div class="col-12">
+                    Logo Portfolio
                 </div>
                 <!--section6-->
                 <div class="ra-records-sec row">
@@ -544,6 +498,72 @@ get_header();
                     </div>
                 </div>
             </div>
+            <div id="custom-cursor">
+                <div class="cursor-dot"></div>      <!-- نقطه مرکزی -->
+                <div class="cursor-ring">
+                    <div class="arrow-cursor-icon right">
+                        <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#fff" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const swiperArea = document.querySelector('.swiper-container');
+                const cursor = document.getElementById('custom-cursor');
+                const cursorDot = document.querySelector('.cursor-dot');
+                const cursorRing = document.querySelector('.cursor-ring');
+                const arrow = cursor.querySelector('.arrow-cursor-icon svg');
+
+                let mouseX = 0, mouseY = 0;
+                let ringX = 0, ringY = 0;
+
+                const ringLag = 0.1; // مقدار تاخیر حلقه
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+
+                    cursorDot.style.left = `${mouseX}px`;
+                    cursorDot.style.top = `${mouseY}px`;
+                });
+
+                function animate() {
+                    ringX += (mouseX - ringX) * ringLag;
+                    ringY += (mouseY - ringY) * ringLag;
+
+                    cursorRing.style.left = `${ringX}px`;
+                    cursorRing.style.top = `${ringY}px`;
+
+                    requestAnimationFrame(animate);
+                }
+
+                animate();
+
+                // فلش فقط داخل swiper فعال می‌شود
+                swiperArea.addEventListener('mouseenter', () => {
+                    cursor.classList.add('show-arrow');
+                });
+
+                swiperArea.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('show-arrow');
+                });
+
+                swiperArea.addEventListener('mousemove', (e) => {
+                    const bounds = swiperArea.getBoundingClientRect();
+                    const centerX = bounds.left + bounds.width / 2;
+
+                    const rotateTo = e.clientX < centerX ? 180 : 0;
+                    arrow.style.transition = 'transform 0.3s ease';
+                    arrow.style.transform = `rotate(${rotateTo}deg)`;
+                });
+
+
+
+            </script>
 
             <footer class="footer">
             </footer>
