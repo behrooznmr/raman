@@ -144,7 +144,7 @@ get_header();
                                                 <h2 class="service-title">پشتیبانی سایت</h2>
                                                 <p class="services-desc">پشتیبانی روزانه، رفع خطا و نگهداری مداوم</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -153,7 +153,7 @@ get_header();
                                                 <h2 class="service-title">طراحی UI/UX</h2>
                                                 <p class="services-desc">طراحی رابط کاربری جذاب و حرفه‌ای</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-lg-height">
@@ -162,7 +162,7 @@ get_header();
                                                 <h2 class="service-title">سئو و بهینه سازی سایت</h2>
                                                 <p class="services-desc">بهبود رتبه در گوگل و جذب ترافیک هدفمند</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
 
                                         </div>
@@ -175,7 +175,7 @@ get_header();
                                                 <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز
                                                     کسب‌وکار</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -184,7 +184,7 @@ get_header();
                                                 <h2 class="service-title">افزایش سرعت سایت</h2>
                                                 <p class="services-desc">بهینه‌سازی زمان بارگذاری و عملکرد سایت</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -193,7 +193,7 @@ get_header();
                                                 <h2 class="service-title">افزایش امنیت سایت</h2>
                                                 <p class="services-desc">محافظت از داده‌ها و جلوگیری از نفوذ</p>
                                             </div>
-                                            <a class="services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
 
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@ get_header();
 
                                         </p>
                                         <div class="glow-button-wrapper">
-                                            <a href="#" class="glow-button">
+                                            <a href="#" class="ra-btn glow-button">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                      viewBox="0 0 24 24"
                                                      fill="none" stroke="#010101" stroke-width="2"
@@ -476,9 +476,76 @@ get_header();
                     <div class="projects-gradient-bottom"></div>
                 </div>
                 <!--section4-->
-                <div class="col-12">
-                    Logo Portfolio
+                <div class="ra-logo-project-sec row">
+                    <div class="col-12">
+                        <div class="logo-carousel">
+                            <div class="carousel-track">
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
+                                            alt="Logo 1"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
+                                            alt="Logo 2"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
+                                            alt="Logo 3"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
+                                            alt="Logo 4"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
+                                            alt="Logo 5"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
+                                            alt="Logo 6"></div>
+
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
+                                            alt="Logo 1"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
+                                            alt="Logo 2"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
+                                            alt="Logo 3"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
+                                            alt="Logo 4"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
+                                            alt="Logo 5"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
+                                            alt="Logo 6"></div>
+                                <div class="ra-logo-carousel-item"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
+                                            alt="Logo 6"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!--section6-->
                 <div class="ra-records-sec row">
                     <div class="col-12">
@@ -517,3 +584,4 @@ get_header();
 
 
 <?php
+get_footer();
