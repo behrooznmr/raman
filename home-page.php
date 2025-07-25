@@ -499,7 +499,7 @@ get_header();
                 </div>
             </div>
             <div id="custom-cursor">
-                <div class="cursor-dot"></div>      <!-- نقطه مرکزی -->
+                <div class="cursor-dot"></div>
                 <div class="cursor-ring">
                     <div class="arrow-cursor-icon right">
                         <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
@@ -512,58 +512,72 @@ get_header();
             </div>
 
             <script>
-                const swiperArea = document.querySelector('.swiper-container');
-                const cursor = document.getElementById('custom-cursor');
-                const cursorDot = document.querySelector('.cursor-dot');
-                const cursorRing = document.querySelector('.cursor-ring');
-                const arrow = cursor.querySelector('.arrow-cursor-icon svg');
+                document.addEventListener('DOMContentLoaded', () => {
+                    const cursor = document.getElementById('custom-cursor');
+                    const cursorDot = cursor.querySelector('.cursor-dot');
+                    const cursorRing = cursor.querySelector('.cursor-ring');
+                    const arrow = cursor.querySelector('.arrow-cursor-icon svg');
+                    const swiperArea = document.querySelector('.swiper-container');
+                    const interactiveElements = document.querySelectorAll('button, .ra-btn');
 
-                let mouseX = 0, mouseY = 0;
-                let ringX = 0, ringY = 0;
+                    let mouseX = 0, mouseY = 0;
+                    let ringX = 0, ringY = 0;
+                    const ringLag = 0.1;
 
-                const ringLag = 0.1; // مقدار تاخیر حلقه
+                    // حرکت سریع نقطه
+                    document.addEventListener('mousemove', (e) => {
+                        mouseX = e.clientX;
+                        mouseY = e.clientY;
 
-                document.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
+                        cursorDot.style.left = `${mouseX}px`;
+                        cursorDot.style.top = `${mouseY}px`;
+                    });
 
-                    cursorDot.style.left = `${mouseX}px`;
-                    cursorDot.style.top = `${mouseY}px`;
+                    // حرکت نرم حلقه
+                    function animate() {
+                        ringX += (mouseX - ringX) * ringLag;
+                        ringY += (mouseY - ringY) * ringLag;
+
+                        cursorRing.style.left = `${ringX}px`;
+                        cursorRing.style.top = `${ringY}px`;
+
+                        requestAnimationFrame(animate);
+                    }
+                    animate();
+
+                    // نمایش فلش داخل اسلایدر
+                    if (swiperArea) {
+                        swiperArea.addEventListener('mouseenter', () => {
+                            cursor.classList.add('show-arrow');
+                        });
+
+                        swiperArea.addEventListener('mouseleave', () => {
+                            cursor.classList.remove('show-arrow');
+                        });
+
+                        swiperArea.addEventListener('mousemove', (e) => {
+                            const bounds = swiperArea.getBoundingClientRect();
+                            const centerX = bounds.left + bounds.width / 2;
+                            const rotateTo = e.clientX < centerX ? 180 : 0;
+
+                            arrow.style.transition = 'transform 0.3s ease';
+                            arrow.style.transform = `rotate(${rotateTo}deg)`;
+                        });
+                    }
+
+                    // افکت هنگام ورود به دکمه یا عناصر interactive
+                    interactiveElements.forEach(el => {
+                        el.addEventListener('mouseenter', () => {
+                            cursor.classList.add('cursor-on-button');
+                        });
+
+                        el.addEventListener('mouseleave', () => {
+                            cursor.classList.remove('cursor-on-button');
+                        });
+                    });
                 });
-
-                function animate() {
-                    ringX += (mouseX - ringX) * ringLag;
-                    ringY += (mouseY - ringY) * ringLag;
-
-                    cursorRing.style.left = `${ringX}px`;
-                    cursorRing.style.top = `${ringY}px`;
-
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
-
-                // فلش فقط داخل swiper فعال می‌شود
-                swiperArea.addEventListener('mouseenter', () => {
-                    cursor.classList.add('show-arrow');
-                });
-
-                swiperArea.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('show-arrow');
-                });
-
-                swiperArea.addEventListener('mousemove', (e) => {
-                    const bounds = swiperArea.getBoundingClientRect();
-                    const centerX = bounds.left + bounds.width / 2;
-
-                    const rotateTo = e.clientX < centerX ? 180 : 0;
-                    arrow.style.transition = 'transform 0.3s ease';
-                    arrow.style.transform = `rotate(${rotateTo}deg)`;
-                });
-
-
-
             </script>
+
 
             <footer class="footer">
             </footer>

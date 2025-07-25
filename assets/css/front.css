@@ -115,42 +115,54 @@ body {
 }
 
 .cursor-dot {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    background-color: white;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
     border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); /* ✨ شاین دور نقطه */
     transform: translate(-50%, -50%);
-    z-index: 10000;
+    transition: width 0.3s ease, height 0.3s ease;
+    z-index: 99999;
 }
 
 .cursor-ring {
-    position: fixed;
-    width: 48px;
-    height: 48px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 24px 4px #ffffff3d;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
     transform: translate(-50%, -50%);
-    transition: background 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: rgba(255, 255, 255, 0.1); /* 🧊 گلس افکت */
+    backdrop-filter: blur(5px);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 99995;
 }
 
 .arrow-cursor-icon {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 #custom-cursor.show-arrow .arrow-cursor-icon {
-    display: block;
+    opacity: 1;
 }
 
-#custom-cursor.show-arrow .cursor-dot {
-    display: none;
+/* افکت مخصوص موقعی که روی دکمه می‌رویم */
+#custom-cursor.cursor-on-button .cursor-dot {
+    width: 12px;
+    height: 12px;
+}
+
+#custom-cursor.cursor-on-button .cursor-ring {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
 }
 
 
