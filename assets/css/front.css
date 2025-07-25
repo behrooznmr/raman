@@ -108,43 +108,42 @@ body {
 
 #custom-cursor {
     position: fixed;
-    top: 0;
-    left: 0;
     pointer-events: none;
     z-index: 9999;
+    top: 0;
+    left: 0;
 }
 
 .cursor-dot {
-    position: absolute;
     width: 8px;
     height: 8px;
-    background: white;
+    background-color: white;
     border-radius: 50%;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); /* ✨ شاین دور نقطه */
+    position: absolute;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    z-index: 99999;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+    z-index: 9999;
 }
 
 .cursor-ring {
-    position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.1); /* 🧊 گلس افکت */
-    backdrop-filter: blur(5px);
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    z-index: 99995;
+    background: #0000002b;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 17px rgb(255 255 255 / 37%);
+    border: 1px solid rgb(255 255 255 / 71%);
+    opacity: 1;
+    z-index: 999;
 }
 
 .arrow-cursor-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -153,16 +152,23 @@ body {
     opacity: 1;
 }
 
-/* افکت مخصوص موقعی که روی دکمه می‌رویم */
-#custom-cursor.cursor-on-button .cursor-dot {
-    width: 12px;
-    height: 12px;
+#custom-cursor.show-arrow .cursor-dot {
+    opacity: 0;
 }
 
-#custom-cursor.cursor-on-button .cursor-ring {
-    width: 0px;
-    height: 0px;
+#custom-cursor.show-arrow .cursor-ring {
+    width: 60px;
+    height: 60px;
+}
+
+#custom-cursor.ra-btn-hover .cursor-ring {
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
+}
+
+#custom-cursor.ra-btn-hover .cursor-dot {
+    width: 10px;
+    height: 10px;
 }
 
 
