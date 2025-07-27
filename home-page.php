@@ -476,77 +476,55 @@ get_header();
                     <div class="projects-gradient-bottom"></div>
                 </div>
                 <!--section4-->
-                <div class="ra-logo-project-sec row">
-                    <div class="col-12">
-                        <div class="logo-carousel">
-                            <div class="carousel-track">
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
-                                            alt="Logo 1"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
-                                            alt="Logo 2"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
-                                            alt="Logo 3"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
-                                            alt="Logo 4"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
-                                            alt="Logo 5"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
-                                            alt="Logo 6"></div>
-
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
-                                            alt="Logo 1"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
-                                            alt="Logo 2"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
-                                            alt="Logo 3"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
-                                            alt="Logo 4"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
-                                            alt="Logo 5"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
-                                            alt="Logo 6"></div>
-                                <div class="ra-logo-carousel-item"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
-                                            alt="Logo 6"></div>
+                <div class="ra-logo-project-sec row row-mt">
+                    <div class="custom-w-1250">
+                        <div class="brands-content-wrapper">
+                            <div class="brands-logo-title">
+                                <div class="section-en-title glass-bc">
+                                    <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                         alt="">
+                                    Brands
+                                </div>
+                                <div class="section-title">
+                                    برندهایی که همراه ما بودند
+                                </div>
+                                <p>به اعتماد شما افتخار می‌کنیم</p>
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-logo-item">
+                                karaland
+                            </div>
+                            <div class="brands-show-more">
+                                <div>+50</div>
+                                <div>برند دیگر</div>
+                                <a class="general-btn ra-btn" href="">همه برندها</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
-                <!--section6-->
+                <!--section5-->
                 <div class="ra-records-sec row">
                     <div class="col-12">
                         data report

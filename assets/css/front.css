@@ -102,11 +102,11 @@ html {
     direction: ltr;
 
 }
-body {
+.page-template-home-page {
     cursor: none;
 }
 
-#custom-cursor {
+.page-template-home-page #custom-cursor {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
@@ -114,7 +114,7 @@ body {
     left: 0;
 }
 
-.cursor-dot {
+.page-template-home-page .cursor-dot {
     width: 8px;
     height: 8px;
     background-color: white;
@@ -125,7 +125,7 @@ body {
     z-index: 9999;
 }
 
-.cursor-ring {
+.page-template-home-page .cursor-ring {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -143,35 +143,38 @@ body {
     z-index: 999;
 }
 
-.arrow-cursor-icon {
+.page-template-home-page .arrow-cursor-icon {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-#custom-cursor.show-arrow .arrow-cursor-icon {
+.page-template-home-page #custom-cursor.show-arrow .arrow-cursor-icon {
     opacity: 1;
 }
 
-#custom-cursor.show-arrow .cursor-dot {
+.page-template-home-page #custom-cursor.show-arrow .cursor-dot {
     opacity: 0;
 }
 
-#custom-cursor.show-arrow .cursor-ring {
+.page-template-home-page #custom-cursor.show-arrow .cursor-ring {
     width: 60px;
     height: 60px;
 }
 
-#custom-cursor.ra-btn-hover .cursor-ring {
+.page-template-home-page #custom-cursor.ra-btn-hover .cursor-ring {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
 }
 
-#custom-cursor.ra-btn-hover .cursor-dot {
+.page-template-home-page #custom-cursor.ra-btn-hover .cursor-dot {
     width: 10px;
     height: 10px;
 }
 
-
+.page-template-home-page .arrow-cursor-icon svg {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
 
 .row {
     margin: 0 !important;
@@ -1202,10 +1205,7 @@ h3.about-title.section-title {
     display: block;
     color: #d2d2d2;
 }
-.arrow-cursor-icon svg {
-    transition: transform 0.3s ease;
-    transform-origin: center;
-}
+
 /*Portfolio*/
 
 .projects-loop-wrapper,.ra-project-sec{
@@ -1268,5 +1268,61 @@ h3.about-title.section-title {
 .ra-project-sec .title-wrapper{
     z-index: 6;
 }
+/*Brands*/
+.brands-content-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 16px;
+}
+.brands-logo-title{
+    text-align: right;
+    width: 607px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: flex-start;
 
-
+}
+.brands-logo-title .section-en-title{
+    margin-top: 0;
+}
+.brands-logo-item,.brands-show-more {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brands-logo-item{
+    background-color: #ffffff1c;
+    border-radius: 15px;
+}
+.brands-show-more{
+    text-align: center;
+    flex-direction: column;
+ }
+.brands-show-more div:first-child{
+    font-size: 62px;
+    font-weight: 700;
+    font-family: system-ui;
+    background: linear-gradient(0deg, rgb(0 0 0) 15%, rgba(0, 207, 86, 1) 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-left: -11px;
+}
+.brands-show-more div:nth-child(2){
+    color: #c1c1c1;
+    font-size: 20px;
+    margin-bottom: 17px;
+    font-weight: 800;
+}
+.brands-show-more a{
+background-color: #fff;
+    color:#000;
+}
