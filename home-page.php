@@ -491,28 +491,44 @@ get_header();
                                 <p>به اعتماد شما افتخار می‌کنیم</p>
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/asoo.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/mond.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ahanresan.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/soodup.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/peyvandtel.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ultima.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/spares.png' alt="">
                             </div>
                             <div class="brands-logo-item">
-                                karaland
+                                <div class="background-gradient-circle"></div>
+                                <div class="background-gradient-circle-2"></div>
+                                <img  class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/exir.png' alt="">
                             </div>
                             <div class="brands-show-more">
                                 <div>+50</div>

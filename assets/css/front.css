@@ -1297,14 +1297,13 @@ h3.about-title.section-title {
     align-items: center;
     justify-content: center;
 }
-.brands-logo-item{
-    background-color: #ffffff1c;
-    border-radius: 15px;
-}
-.brands-show-more{
-    text-align: center;
+.brands-show-more {
+    display: flex;
     flex-direction: column;
- }
+    align-items: center;
+    justify-content: center;
+}
+
 .brands-show-more div:first-child{
     font-size: 62px;
     font-weight: 700;
@@ -1323,6 +1322,80 @@ h3.about-title.section-title {
     font-weight: 800;
 }
 .brands-show-more a{
-background-color: #fff;
+    background-color: #fff;
     color:#000;
+    border:none
+}
+.brands-show-more a{
+    background-color: #ffffff42;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    transition: all 0.4s;
+}
+.brands-show-more a:hover{
+    background-color: #fff;
+    color: #000;
+    transition: all 0.4s;
+}
+
+.brands-logo-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.6s;
+    box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 6vw hsla(0, 0%, 100%, .05);
+    background-color: hsla(0, 0%, 100%, .025);
+    overflow: hidden;
+}
+.brands-logo-item img{
+    display:block;
+    width:100%;
+    opacity: 0.6!important;
+    transition: all 0.5s;
+}
+.brands-logo-item:hover .background-gradient-circle{
+ /*   transition: all 0.6s;
+    box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 6vw hsla(0, 0%, 100%, 0.13);
+    background-color: hsla(0, 0%, 100%, .025);*/
+
+}
+.background-gradient-circle, .background-gradient-circle-2 {
+    background-color: hsla(0, 0%, 100%, 1);
+    filter: blur(54px);
+    opacity: 1;
+    flex: none;
+    height: 24px;
+    overflow: visible;
+    position: absolute;
+    width: 41px;
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.5s;
+}
+.background-gradient-circle{
+    bottom: 0;
+    right: 0;
+}
+.background-gradient-circle-2{
+    top: 0;
+    left: 0;
+}
+.brands-logo-item:hover .background-gradient-circle{
+    background-color: hsl(128.22deg 77.18% 36%);
+    filter: blur(42px);
+    height: 44px;
+    width: 44px;
+    transition: all 0.5s;
+}
+.brands-logo-item:hover .background-gradient-circle-2{
+    background-color: hsla(128, 77%, 36%, 0.9);
+    filter: blur(45px);
+    transition: all 0.5s;
+}
+.brands-logo-item:hover img{
+    opacity: 1!important;
+    transition: all 0.5s;
 }
