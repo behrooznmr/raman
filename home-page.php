@@ -13,7 +13,7 @@ get_header();
     <div class="raman-home-page container-fluid p-0">
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
-                <!-- hero section - section1-->
+                <!--section1-->
                 <div class="ra-hero-section row p-0">
                     <!--hero section-->
                     <div class="col-12 p-0">
@@ -476,9 +476,11 @@ get_header();
                     <div class="projects-gradient-bottom"></div>
                 </div>
                 <!--section4-->
-                <div class="ra-logo-project-sec row row-mt">
-                    <div class="custom-w-1250">
-                        <div class="brands-content-wrapper">
+                <div class="ra-work-history row row-mt">
+                    <div class="services-gradient-top"></div>
+                    <div class="custom-w-1250 p-0">
+                        <!--brands logo-->
+                        <div class="brands-content-wrapper row">
                             <div class="brands-logo-title">
                                 <div class="section-en-title glass-bc">
                                     <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
@@ -493,42 +495,58 @@ get_header();
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/asoo.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/asoo.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/mond.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/mond.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ahanresan.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ahanresan.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/soodup.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/soodup.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/peyvandtel.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/peyvandtel.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ultima.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ultima.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/spares.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/spares.png'
+                                     alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
                                 <div class="background-gradient-circle-2"></div>
-                                <img  class="img-fluid" src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/exir.png' alt="">
+                                <img class="img-fluid"
+                                     src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/exir.png'
+                                     alt="">
                             </div>
                             <div class="brands-show-more">
                                 <div>+50</div>
@@ -536,30 +554,146 @@ get_header();
                                 <a class="general-btn ra-btn" href="">همه برندها</a>
                             </div>
                         </div>
+                        <!--records-->
+                        <div class="ra-records-sec row row-mt ">
+                            <div class="col-12">
+                                <div class="data-report-sec-title">
+                                    <div class="section-en-title glass-bc">
+                                        <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                             alt="">
+                                        Reports
+                                    </div>
+                                    <div class="section-title">
+                                        آمار و ارقام معرف ما هستند
+                                    </div>
+                                    <p>افتخاری که از همراهی با شما بدست آمده</p>
+                                </div>
+                            </div>
+                            <div class="ra-data-report row p-0">
+                                <div class="data-report-item background-effect">
+                                    <p class="data-pre-text">بیش از</p>
+                                    <div class="data-num text-gr">95٪</div>
+                                    <p class="data-title">رضایت مشتری</p>
+                                    <p class="data-desc">با بیش از 95% رضایت از انجام پروژه و همکاری با همکاران و
+                                        مشتریان گرامی</p>
+                                </div>
+                                <div class="data-report-item background-effect">
+                                    <p class="data-pre-text">بیش از</p>
+                                    <div class="data-num text-gr">6</div>
+                                    <p class="data-title">سال سابقه فعالیت</p>
+                                    <p class="data-desc">با بیش از ۶ سال تجربه حضور و رقابت در حوزه خدمات آنلاین در
+                                        دنیای دیجیتال</p>
+                                </div>
+                                <div class="data-report-item background-effect">
+                                    <p class="data-pre-text">بیش از</p>
+                                    <div class="data-num text-gr">100</div>
+                                    <p class="data-title">پروژه موفق</p>
+                                    <p class="data-desc">مغتخریم بابت میزبانی بیش از 100 برند و کسب و کار مختلف و نوسعه
+                                        حضورشان در بازار آنلاین و جهانی</p>
+                                </div>
+                            </div>
 
+                        </div>
+                        <!--CTA Form-->
+                        <div class="ra-cta-form-sec row row-mt ">
+                            <div class="ra-form-wrapper background-effect">
+                                <div class="left-column-img">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-5.jpg'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-6.jpg'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-7.jpg'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-8.jpg'
+                                         alt="">
+                                </div>
+                                <div class="cta-form">
+                                    <div class="cta-form-sec-title">
+                                        <div class="section-en-title glass-bc">
+                                            <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                                 alt="">
+                                            Consulting
+                                        </div>
+                                        <div class="section-title">
+                                            مشاوره رایگان
+                                        </div>
+                                        <p>
+                                            اگر هنوز مطمئن نیستید که کدام مسیر برای شروع بیزنس دیجیتال شما مناسب‌تر است،
+                                            پیشنهاد می‌کنیم فرم زیر را تکمیل کنید تا کارشناسان ما مسیر مناسب در زمینه
+                                            طراحی سایت، تدوین استراتژی دیجیتال یا سئو سایت شما را به‌صورت دقیق تحلیل و
+                                            بررسی کرده و راهکارهای متناسب با نیاز شما را ارائه دهند. </p>
+                                    </div>
+                                </div>
+                                <div class="right-column-img">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-1.jpg'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-2.jpg'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-3.png'
+                                         alt="">
+                                    <img class="img-fluid"
+                                         src='<?php echo get_template_directory_uri(); ?>/assets/images/consulting/consult-4.jpg'
+                                         alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <script>
+                        // صبر می‌کنیم تا کل محتوای صفحه (HTML) به طور کامل بارگذاری شود و بعد کد را اجرا می‌کنیم.
+                        // این کار جلوی خطاهایی که به دلیل عدم وجود المان‌ها رخ می‌دهد را می‌گیرد.
+                        document.addEventListener('DOMContentLoaded', function() {
 
+                            // المان ستون چپ و ستون راست را با استفاده از کلاس‌هایشان انتخاب می‌کنیم.
+                            const leftColumn = document.querySelector('.left-column-img');
+                            const rightColumn = document.querySelector('.right-column-img');
+
+                            // اگر هر دو ستون در صفحه وجود داشته باشند، کد زیر اجرا می‌شود.
+                            if (leftColumn && rightColumn) {
+
+                                // یک تابع تعریف می‌کنیم که با هر بار اسکرول صفحه فراخوانی شود.
+                                const handleScroll = () => {
+                                    // مقدار اسکرول عمودی صفحه را از بالا به دست می‌آوریم.
+                                    const scrollY = window.scrollY;
+
+                                    // ضریب سرعت برای حرکت ستون‌ها. عدد کوچک‌تر به معنی حرکت کندتر است.
+                                    const speedFactor = 0.1;
+
+                                    // محاسبه مقدار جابجایی برای هر ستون
+                                    // ستون چپ: به سمت پایین حرکت می‌کند (مقدار مثبت)
+                                    const leftTranslateY = scrollY * speedFactor;
+                                    // ستون راست: به سمت بالا حرکت می‌کند (مقدار منفی)
+                                    const rightTranslateY = scrollY * -speedFactor;
+
+                                    // استایل transform را برای هر ستون تنظیم می‌کنیم تا جابجا شوند.
+                                    // از `translateY` برای جابجایی عمودی استفاده می‌کنیم.
+                                    leftColumn.style.transform = `translateY(${leftTranslateY}px)`;
+                                    rightColumn.style.transform = `translateY(${rightTranslateY}px)`;
+                                };
+
+                                // تابع handleScroll را به رویداد 'scroll' پنجره مرورگر متصل می‌کنیم.
+                                // حالا هر بار که کاربر اسکرول کند، این تابع اجرا می‌شود.
+                                window.addEventListener('scroll', handleScroll);
+                            }
+                        });
+                    </script>
+                </div>
                 <!--section5-->
-                <div class="ra-records-sec row">
+
+                <!--section6-->
+                <div class="ra-blog-sec row">
                     <div class="col-12">
-                        data report
-                    </div>
-                    <div class="col-12">
-                        comment customers
-                    </div>
-                </div>
-                <!--section7-->
-                <div class="ra-con-blog-sec row">
-                    <div class="col-12">
-                        Form consulting
-                    </div>
-                    <div class="col-12">
-                        blog
+                        Blog
                     </div>
                 </div>
             </div>
-            <div id="custom-cursor">
+            <!--<div id="custom-cursor">
                 <div class="cursor-dot"></div>
                 <div class="cursor-ring">
                     <div class="arrow-cursor-icon right">
@@ -570,7 +704,7 @@ get_header();
                         </svg>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <footer class="footer">
             </footer>
         </div>
