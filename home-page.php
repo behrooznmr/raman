@@ -646,39 +646,31 @@ get_header();
                         </div>
                     </div>
                     <script>
-                        // صبر می‌کنیم تا کل محتوای صفحه (HTML) به طور کامل بارگذاری شود و بعد کد را اجرا می‌کنیم.
-                        // این کار جلوی خطاهایی که به دلیل عدم وجود المان‌ها رخ می‌دهد را می‌گیرد.
+
                         document.addEventListener('DOMContentLoaded', function() {
 
-                            // المان ستون چپ و ستون راست را با استفاده از کلاس‌هایشان انتخاب می‌کنیم.
+
                             const leftColumn = document.querySelector('.left-column-img');
                             const rightColumn = document.querySelector('.right-column-img');
 
-                            // اگر هر دو ستون در صفحه وجود داشته باشند، کد زیر اجرا می‌شود.
+
                             if (leftColumn && rightColumn) {
 
-                                // یک تابع تعریف می‌کنیم که با هر بار اسکرول صفحه فراخوانی شود.
-                                const handleScroll = () => {
-                                    // مقدار اسکرول عمودی صفحه را از بالا به دست می‌آوریم.
-                                    const scrollY = window.scrollY;
 
-                                    // ضریب سرعت برای حرکت ستون‌ها. عدد کوچک‌تر به معنی حرکت کندتر است.
+                                const handleScroll = () => {
+
+                                    const scrollY = window.scrollY;
+.
                                     const speedFactor = 0.1;
 
-                                    // محاسبه مقدار جابجایی برای هر ستون
-                                    // ستون چپ: به سمت پایین حرکت می‌کند (مقدار مثبت)
                                     const leftTranslateY = scrollY * speedFactor;
-                                    // ستون راست: به سمت بالا حرکت می‌کند (مقدار منفی)
+
                                     const rightTranslateY = scrollY * -speedFactor;
 
-                                    // استایل transform را برای هر ستون تنظیم می‌کنیم تا جابجا شوند.
-                                    // از `translateY` برای جابجایی عمودی استفاده می‌کنیم.
                                     leftColumn.style.transform = `translateY(${leftTranslateY}px)`;
                                     rightColumn.style.transform = `translateY(${rightTranslateY}px)`;
                                 };
 
-                                // تابع handleScroll را به رویداد 'scroll' پنجره مرورگر متصل می‌کنیم.
-                                // حالا هر بار که کاربر اسکرول کند، این تابع اجرا می‌شود.
                                 window.addEventListener('scroll', handleScroll);
                             }
                         });
