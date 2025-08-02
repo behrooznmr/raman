@@ -77,7 +77,7 @@
     --color-secondary: #ff7300;
     --color-hover-sec: #ff3c00;
 
-    --color-border: rgba(255, 255, 255, .2);
+    --color-border: #2a2929;
 
 
     --text-color-prim: #212529;
@@ -183,7 +183,7 @@ html {
     margin-top: 80px!important;
 }
 .row-pt{
-    padding-top: 70px;
+    padding-top: 80px;
 }
 
 .raman-home-page a,
@@ -247,15 +247,15 @@ a.general-btn {
     display: inline-flex;
     padding: 11px 17px 7px 10px;
     margin-bottom: 15px;
-    color: #ffffff73;
+    color: #04cf56;
     border-radius: 50px;
     align-items: center;
     gap: 13px;
-    border: 1px solid #ffffff38;
-    font-weight: 100;
-    font-size: 15px;
+    border: 1px solid #42ff1b1c;
+    font-weight: 400;
     margin-top: 50px;
     border-radius: 50px;
+    text-shadow: 0px 0px 12px #04cf56;
 }
 
 .raman-container p {
@@ -725,7 +725,7 @@ a.glow-button:hover {
 
 .service-box {
     border-radius: 15px;
-    border: 1px solid #292929;
+    border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -859,7 +859,7 @@ a.glow-button:hover {
     align-items: center;
     min-height: 440px;
     padding: 0;
-    border: 1px solid #292929;
+    border: 1px solid var(--color-border);
     border-radius: 15px;
     margin-top: 40px !important;
     position: relative;
@@ -939,7 +939,7 @@ h3.about-title.section-title {
     align-items: flex-start;
     min-height: 500px;
     padding: 30px;
-    border: 1px solid #292929;
+    border: 1px solid var(--color-border);
     border-radius: 15px;
     position: relative;
     background-color: #030303;
@@ -1233,11 +1233,11 @@ h3.about-title.section-title {
 }
 .projects-gradient-top{
     top: 0;
-    background: linear-gradient(0deg, hsla(0, 0%, 100%, 0) 0, #010101);
+    background: linear-gradient(0deg, hsl(0deg 0% 0% / 0%) 0, #030303);
 }
 .projects-gradient-bottom{
     bottom: 0;
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0, #010101);
+    background: linear-gradient(180deg, hsl(0deg 0% 0% / 0%) 0, #030303);
 }
 .projects-loop .swiper-container {
     width: 100%;
@@ -1449,7 +1449,7 @@ h3.about-title.section-title {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #292929;
+    border: 1px solid var(--color-border);
 
 }
 
@@ -1494,22 +1494,22 @@ h3.about-title.section-title {
     height: 780px;
     overflow: hidden;
     gap: 55px;
+    border: 1px solid var(--color-border);
 }
 
 .left-column-img, .right-column-img {
     width: 25%;
+    transition: transform 0.1s linear;
     will-change: transform;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
 }
 
 .cta-form {
     width: 50%;
 }
 
-.right-column-img img, .left-column-img img {
-    margin-bottom: 32px;
-    border-radius: 25px;
-    border: 1px solid #292929;
-}
 
 .right-column-img img:last-child,
 .left-column-img img:last-child {
@@ -1518,4 +1518,17 @@ h3.about-title.section-title {
 
 .ra-form-wrapper > div {
     z-index: 3;
+}
+.img-loop {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+}
+.img-loop img {
+    margin-bottom: 32px;
+    border-radius: 25px;
+    border: 1px solid var(--color-border);
+    width: 100%;
+    height: auto;
+    display: block;
 }

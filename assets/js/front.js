@@ -116,3 +116,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+//swiper raman step projects
+const raStepWorkTop = new Swiper('.ra-step-work-top', {
+    loop: false,
+    spaceBetween: 0,
+    slidesPerView: 3,
+    centeredSlides: true,
+    grabCursor: true,
+    navigation: {
+        nextEl: '.ra-step-work-button-next',
+        prevEl: '.ra-step-work-button-prev'
+    },
+    pagination: {
+        el: '.ra-step-work-pagination',
+        clickable: true
+    },
+    effect: 'coverflow',
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+        scale: 0.85
+    }
+});
+const raStepWorkBottom = new Swiper('.ra-step-work-bottom', {
+    loop: false,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    allowTouchMove: false
+});
+
+raStepWorkTop.controller.control = raStepWorkBottom;
+raStepWorkBottom.controller.control = raStepWorkTop;
