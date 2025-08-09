@@ -13,7 +13,7 @@ get_header();
     <div class="raman-home-page container-fluid p-0">
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
-                <!--section1-->
+
                 <div class="ra-hero-section row p-0">
                     <!--hero section-->
                     <div class="col-12 p-0">
@@ -114,7 +114,7 @@ get_header();
 
                     </div>
                 </div>
-                <!--section2-->
+
                 <div class="row-background row-mt row">
                     <div class="services-gradient-top"></div>
                     <div class="ra-serv-sec row">
@@ -379,7 +379,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <!--section3-->
+
                 <div class="ra-project-sec row-mt row">
                     <div class="projects-gradient-top"></div>
                     <div class="title-wrapper col-12">
@@ -439,7 +439,7 @@ get_header();
                     </div>
                     <div class="projects-gradient-bottom"></div>
                 </div>
-                <!--section4-->
+
                 <div class="ra-work-history row row-pt">
                     <div class="services-gradient-top"></div>
                     <div class="custom-w-1250 p-0">
@@ -602,16 +602,19 @@ get_header();
                                             رایگان
                                         </div>
                                         <p>
-                                            برای انتخاب مسیر مناسب در شروع کسب‌وکار دیجیتال، کافیست فرم زیر را تکمیل کنید تا کارشناسان ما با بررسی دقیق نیازهای شما، بهترین راهکارها را در حوزه طراحی سایت، استراتژی دیجیتال یا سئو ارائه دهند </p>
+                                            برای انتخاب مسیر مناسب در شروع کسب‌وکار دیجیتال، کافیست فرم زیر را تکمیل
+                                            کنید تا کارشناسان ما با بررسی دقیق نیازهای شما، بهترین راهکارها را در حوزه
+                                            طراحی سایت، استراتژی دیجیتال یا سئو ارائه دهند </p>
                                     </div>
                                     <div class="ra-gform-wrapper">
-										<?php echo do_shortcode( '[gravityform id="10" title="true"]' ); ?>
+										<?php echo do_shortcode( '[gravityform id="10" title="false" description="false" ajax="true" ]' ); ?>
                                     </div>
 
                                     <div class="contact-info-wrapper">
 
                                         <span class="contact-info-item address">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                   d="M12 6.25C9.92893 6.25 8.25 7.92893 8.25 10C8.25 12.0711 9.92893 13.75 12 13.75C14.0711 13.75 15.75 12.0711 15.75 10C15.75 7.92893 14.0711 6.25 12 6.25ZM9.75 10C9.75 8.75736 10.7574 7.75 12 7.75C13.2426 7.75 14.25 8.75736 14.25 10C14.25 11.2426 13.2426 12.25 12 12.25C10.7574 12.25 9.75 11.2426 9.75 10Z"
                                                   fill="#10B358"/>
@@ -622,9 +625,9 @@ get_header();
                                             مشهد بلوار کوثر میدان پژوهش کارخانه نوآوری مشهد
                                         </span>
                                         <span class="contact-info-item call-num"><svg width="24" height="24"
-                                                                                                 viewBox="0 0 24 24"
-                                                                                                 fill="none"
-                                                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                                      viewBox="0 0 24 24"
+                                                                                      fill="none"
+                                                                                      xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12.9901 2.75C13.8509 2.75 14.2319 2.75076 14.5461 2.77889C18.0394 3.09165 20.808 5.86017 21.1207 9.35348C21.1489 9.66768 21.1496 10.0487 21.1496 10.9095V11.8995C21.1496 12.3137 21.4854 12.6495 21.8996 12.6495C22.3138 12.6495 22.6496 12.3137 22.6496 11.8995V10.8591C22.6496 10.0622 22.6496 9.60934 22.6147 9.21971C22.2373 5.00365 18.896 1.66234 14.6799 1.28486C14.2902 1.24998 13.8374 1.24999 13.0404 1.25H12.0001C11.5859 1.25 11.2501 1.58579 11.2501 2C11.2501 2.41422 11.5859 2.75 12.0001 2.75L12.9901 2.75Z"
                                                       fill="#10B358"/>
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -697,55 +700,62 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", () => {
-                            const leftLoop = document.querySelector(".left-column-img .img-loop");
-                            const rightLoop = document.querySelector(".right-column-img .img-loop");
-
-                            let leftOffset = 0;
-                            let rightOffset = 0;
-                            let targetDelta = 0;
-                            let scrollY = window.scrollY;
-
-                            function animate() {
-                                const newScrollY = window.scrollY;
-                                const scrollDiff = newScrollY - scrollY;
-                                scrollY = newScrollY;
-
-                                // اعمال تأخیر (حرکت نرم‌تر)
-                                targetDelta = targetDelta * 0.9 + scrollDiff * 0.1;
-
-                                leftOffset -= targetDelta * 0.5;
-                                rightOffset += targetDelta * 0.5;
-
-                                const loopHeight = leftLoop.scrollHeight / 2;
-
-                                // لوپ بدون پرش
-                                if (leftOffset >= loopHeight) leftOffset -= loopHeight;
-                                if (leftOffset <= 0) leftOffset += loopHeight;
-
-                                if (rightOffset >= loopHeight) rightOffset -= loopHeight;
-                                if (rightOffset <= 0) rightOffset += loopHeight;
-
-                                leftLoop.style.transform = `translateY(-${leftOffset}px)`;
-                                rightLoop.style.transform = `translateY(-${rightOffset}px)`;
-
-                                requestAnimationFrame(animate);
-                            }
-
-                            animate();
-                        });
-
-
-                    </script>
 
                 </div>
-                <!--section5-->
 
-                <!--section6-->
-                <div class="ra-blog-sec row">
+                <div class="ra-blog-sec row row-mt">
                     <div class="col-12">
-                        Blog
+                        <div class="data-report-sec-title">
+                            <div class="section-en-title glass-bc">
+                                <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                     alt="">
+                                Blog
+                            </div>
+                            <div class="section-title">
+                                جدیدترین مقالات
+                            </div>
+                        </div>
+                        <div class="last-posts-wrapper row-mt custom-w-1250">
+							<?php
+							$args  = [
+								'post_type'      => 'post',
+								'posts_per_page' => 3,
+								'post_status'    => 'publish',
+							];
+							$query = new WP_Query( $args );
+
+							if ( $query->have_posts() ) :
+								echo '<div class="latest-posts">';
+								while ( $query->have_posts() ) : $query->the_post();
+
+									echo '<div class="latest-post-item">';
+									echo '<a href="' . esc_url( get_permalink() ) . '">';
+
+									if ( has_post_thumbnail() ) {
+										$thumb_id   = get_post_thumbnail_id();
+										$thumb_url  = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
+										$thumb_meta = wp_get_attachment_metadata( $thumb_id );
+										if ( ! empty( $thumb_meta['sizes']['medium'] ) ) {
+											$width  = $thumb_meta['sizes']['medium']['width'];
+											$height = $thumb_meta['sizes']['medium']['height'];
+										} else {
+											$width  = $thumb_meta['width'];
+											$height = $thumb_meta['height'];
+										}
+										echo '<img class="img-post-thumb" src="' . esc_url( $thumb_url ) . '" width="400" height="217" alt="' . esc_attr( get_the_title() ) . '">';
+									}
+
+									echo '<div class="blog-post-title">' . esc_html( get_the_title() ) . '</div>';
+									echo '</a>';
+									echo '</div>';
+
+								endwhile;
+								echo '</div>';
+								wp_reset_postdata();
+							endif;
+							?>
+                        </div>
+
                     </div>
                 </div>
             </div>

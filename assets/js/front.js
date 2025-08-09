@@ -153,3 +153,40 @@ const raStepWorkBottom = new Swiper('.ra-step-work-bottom', {
 
 raStepWorkTop.controller.control = raStepWorkBottom;
 raStepWorkBottom.controller.control = raStepWorkTop;
+
+//parallex img in cta form
+document.addEventListener("DOMContentLoaded", () => {
+    const leftLoop = document.querySelector(".left-column-img .img-loop");
+    const rightLoop = document.querySelector(".right-column-img .img-loop");
+
+    let leftOffset = 0;
+    let rightOffset = 0;
+    let targetDelta = 0;
+    let scrollY = window.scrollY;
+
+    function animate() {
+        const newScrollY = window.scrollY;
+        const scrollDiff = newScrollY - scrollY;
+        scrollY = newScrollY;
+
+        targetDelta = targetDelta * 0.9 + scrollDiff * 0.1;
+
+        leftOffset -= targetDelta * 0.5;
+        rightOffset += targetDelta * 0.5;
+
+        const loopHeight = leftLoop.scrollHeight / 2;
+
+        if (leftOffset >= loopHeight) leftOffset -= loopHeight;
+        if (leftOffset <= 0) leftOffset += loopHeight;
+
+        if (rightOffset >= loopHeight) rightOffset -= loopHeight;
+        if (rightOffset <= 0) rightOffset += loopHeight;
+
+        leftLoop.style.transform = `translateY(-${leftOffset}px)`;
+        rightLoop.style.transform = `translateY(-${rightOffset}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});

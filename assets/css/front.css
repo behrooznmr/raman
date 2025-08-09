@@ -1536,6 +1536,9 @@ h3.about-title.section-title {
     height: auto;
     display: block;
 }
+div#gform_wrapper_10 {
+    direction: rtl;
+}
 .gform_heading{
     display: none;
 }
@@ -1558,12 +1561,12 @@ input#gform_submit_button_10 {
     background: #ffffff3d;
     color: #f1fff5;
     border-radius: 50px;
-    background: rgb(41 206 90 / 64%);
+    background-color:#25c049;
     border-radius: 62px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.3px);
     -webkit-backdrop-filter: blur(5.3px);
-    border: 1px solid rgb(19 134 56 / 69%);
+    border: 1px solid var(--color-primary);
 }
 
 div#field_submit {
@@ -1620,4 +1623,20 @@ input#input_10_1:focus {
 input#gform_submit_button_10:hover {
     background-color: #ff7300;
     border-color: #ff7300;
+}
+/*blog*/
+.latest-posts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.img-post-thumb{
+    border-radius: 10px;
+}
+.blog-post-title{
+    text-align: right;
+    color:#fff;
+    font-size: 20px;
+    margin: 20px 0;
 }

@@ -4,7 +4,7 @@
 date_default_timezone_set( 'Asia/Tehran' );
 
 // Constants
-define( 'RA_VER', rand( 99, 99999 ) );
+define( 'RA_VER', time() );
 define( 'RA_DIR', get_template_directory() );
 define( 'RA_URI', get_template_directory_uri() );
 define( 'RA_TEMPLATE', trailingslashit( RA_DIR ) . 'template-parts/' );
@@ -54,7 +54,7 @@ function raman_theme_scripts() {
 
 	// Main Front CSS & JS
 	wp_enqueue_style( 'raman-front', RA_ASSETS . 'css/front.css', [], RA_VER );
-	wp_enqueue_script( 'raman-front', RA_ASSETS . 'js/front.js', ['jquery'], RA_VER, true );
+	wp_enqueue_script( 'raman-front', RA_ASSETS . 'js/front.js', ['jquery'], '12.36', true );
 
 	wp_localize_script( 'raman-front', 'ra_object', [
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -73,3 +73,9 @@ function raman_admin_enqueue_scripts() {
 	wp_enqueue_script( 'raman-admin', RA_ASSETS . 'js/admin.js', ['jquery'], RA_VER, true );
 }
 add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts' );
+
+
+//add image size
+add_action( 'after_setup_theme', function() {
+	add_image_size( 'raman-post-thumb', 400, 250, true );
+});
