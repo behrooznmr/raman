@@ -77,5 +77,5 @@ add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts' );
 
 //add image size
 add_action( 'after_setup_theme', function() {
-	add_image_size( 'raman-post-thumb', 400, 250, true );
+	add_image_size( 'raman-post-thumb', 400, 216, true );
 });

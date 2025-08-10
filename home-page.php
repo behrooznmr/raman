@@ -10,7 +10,7 @@ wp_head();
 get_header();
 ?>
 
-    <div class="raman-home-page container-fluid p-0">
+    <div style="direction:rtl" class="raman-home-page container-fluid p-0">
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
 
@@ -699,83 +699,147 @@ get_header();
 
                             </div>
                         </div>
+                        <!--Blog-->
+                        <div class="ra-blog-sec row row-mt">
+                            <div class="col-12">
+                                <div class="data-report-sec-title">
+                                    <div class="section-en-title glass-bc">
+                                        <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
+                                             alt="">
+                                        Blog
+                                    </div>
+                                    <div class="section-title">
+                                        جدیدترین مقالات
+                                    </div>
+                                </div>
+                                <div class="last-posts-wrapper">
+				                    <?php
+				                    $args  = [
+					                    'post_type'      => 'post',
+					                    'posts_per_page' => 3,
+					                    'post_status'    => 'publish',
+				                    ];
+				                    $query = new WP_Query($args);
+
+				                    if ($query->have_posts()) :
+					                    echo '<div class="latest-posts">';
+
+					                    while ($query->have_posts()) : $query->the_post();
+
+						                    echo '<div class="latest-post-item">';
+						                    echo '<a href="' . esc_url(get_permalink()) . '">';
+						                    echo '<div class="post-thumbnail-container">';
+
+						                    if (has_post_thumbnail()) {
+							                    the_post_thumbnail('raman-post-thumb', [
+								                    'class' => 'img-post-thumb'
+							                    ]);
+						                    }
+						                    echo '<div class="animated-border-box-glow"></div>';
+						                    echo '<div class="animated-border-box"></div>';
+						                    echo '</div>';
+						                    echo '</a>';
+
+						                    echo '<a href="' . esc_url(get_permalink()) . '">';
+						                    echo '<div class="blog-post-title">' . esc_html(get_the_title()) . '</div>';
+						                    echo '</a>';
+
+						                    echo '</div>'; // .latest-post-item
+
+					                    endwhile;
+
+					                    echo '</div>'; // .latest-posts
+					                    wp_reset_postdata();
+				                    endif;
+				                    ?>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
 
-                <div class="ra-blog-sec row row-mt">
-                    <div class="col-12">
-                        <div class="data-report-sec-title">
-                            <div class="section-en-title glass-bc">
-                                <img src='<?php echo get_template_directory_uri(); ?>/assets/images/green-light.png.webp'
-                                     alt="">
-                                Blog
+                <section class="ra-footer row">
+                    <div class="footer-wrapper col-12 background-footer">
+                        <div class="footer-content-wrapper row custom-w-1250">
+                            <div class="background-gradient-circle">
+
                             </div>
-                            <div class="section-title">
-                                جدیدترین مقالات
+                            <div class="footer-menu-wrapper col-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-6">
+                                        <div class="footer-col-title">
+                                            خدمات وبسایت رامان
+                                        </div>
+                                        <ul>
+                                            <li>طراحی سایت فروشگاهی</li>
+                                            <li>طراحی سایت شرکتی</li>
+                                            <li>سئو و بهینه سازی سایت</li>
+                                            <li>طراحی سایت تک صفحه (لندینگ پیج)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-6">
+                                        <div class="footer-col-title">
+                                            خدمات فنی رامان
+                                        </div>
+                                        <ul>
+                                            <li>افزایش سرعت سایت</li>
+                                            <li>افزایش امنیت سایت</li>
+                                            <li>پشتیبانی فنی ماهیانه</li>
+                                            <li>برنامه نویسی و پلاگین نویسی</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-6">
+                                        <div class="footer-col-title">
+                                            سایر صفحات
+                                        </div>
+                                        <ul>
+                                            <li>طراحی سایت فروشگاهی</li>
+                                            <li>طراحی سایت شرکتی</li>
+                                            <li>سئو و بهینه سازی سایت</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-6">
+                                        <div class="footer-col-title">
+                                          نمونه کار ها
+                                        </div>
+                                        <ul>
+                                            <li>طراحی سایت فروشگاهی</li>
+                                            <li>طراحی سایت شرکتی</li>
+                                            <li>سئو و بهینه سازی سایت</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-info-wrapper col-12">
+
+                            </div>
+                            <div class="background-gradient-circle-2">
+
                             </div>
                         </div>
-                        <div class="last-posts-wrapper row-mt custom-w-1250">
-							<?php
-							$args  = [
-								'post_type'      => 'post',
-								'posts_per_page' => 3,
-								'post_status'    => 'publish',
-							];
-							$query = new WP_Query( $args );
-
-							if ( $query->have_posts() ) :
-								echo '<div class="latest-posts">';
-								while ( $query->have_posts() ) : $query->the_post();
-
-									echo '<div class="latest-post-item">';
-									echo '<a href="' . esc_url( get_permalink() ) . '">';
-
-									if ( has_post_thumbnail() ) {
-										$thumb_id   = get_post_thumbnail_id();
-										$thumb_url  = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
-										$thumb_meta = wp_get_attachment_metadata( $thumb_id );
-										if ( ! empty( $thumb_meta['sizes']['medium'] ) ) {
-											$width  = $thumb_meta['sizes']['medium']['width'];
-											$height = $thumb_meta['sizes']['medium']['height'];
-										} else {
-											$width  = $thumb_meta['width'];
-											$height = $thumb_meta['height'];
-										}
-										echo '<img class="img-post-thumb" src="' . esc_url( $thumb_url ) . '" width="400" height="217" alt="' . esc_attr( get_the_title() ) . '">';
-									}
-
-									echo '<div class="blog-post-title">' . esc_html( get_the_title() ) . '</div>';
-									echo '</a>';
-									echo '</div>';
-
-								endwhile;
-								echo '</div>';
-								wp_reset_postdata();
-							endif;
-							?>
+                        <div class="copyright-wrapper row">
+                            <div class="col-12 text-center">تمامی حقوق این وبسایت متعلق به آژانس دیجیتال مارکتینگ رامان می باشد</div>
                         </div>
-
                     </div>
-                </div>
+
+                </section>
             </div>
-            <!--<div id="custom-cursor">
-                <div class="cursor-dot"></div>
-                <div class="cursor-ring">
-                    <div class="arrow-cursor-icon right">
-                        <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#fff" stroke-width="2"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>-->
-            <footer class="footer">
-            </footer>
         </div>
     </div>
 
-
+    <!--<div id="custom-cursor">
+			 <div class="cursor-dot"></div>
+			 <div class="cursor-ring">
+				 <div class="arrow-cursor-icon right">
+					 <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
+						  xmlns="http://www.w3.org/2000/svg">
+						 <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#fff" stroke-width="2"
+							   stroke-linecap="round" stroke-linejoin="round"/>
+					 </svg>
+				 </div>
+			 </div>
+		 </div>-->
 <?php
 get_footer();

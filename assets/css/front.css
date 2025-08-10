@@ -71,7 +71,7 @@
 :root {
     --color-main-back: #050505;
     --color-mate-black: #131617;
-    --color-primary: rgba(5, 243, 111, 0.97);
+    --color-primary: rgba(5, 243, 111, 1);
     --color-hover-sec: #10b358;
 
     --color-secondary: #ff7300;
@@ -100,6 +100,14 @@ html {
     margin: 0 !important;
     padding: 0;
     direction: ltr;
+
+}
+a {
+    color: transparent;
+    text-decoration: underline;
+}
+a:hover {
+    color: transparent;
 
 }
 /*.page-template-home-page {
@@ -226,7 +234,8 @@ a.general-btn {
 
 .custom-w-1250 {
     max-width: 1250px;
-    margin: 0 auto !important;
+    margin-right:auto !important;
+    margin-left:auto !important;
 }
 .background-effect{
     background: radial-gradient(circle, rgb(255 255 255 / 0%) 7%, rgb(12 12 12 / 25%) 54%, rgb(255 255 255 / 9%) 100%);
@@ -1408,7 +1417,7 @@ h3.about-title.section-title {
 .ra-work-history{
     position: relative;
 }
-.ra-work-history:after{
+.ra-work-history:before{
     content:"";
     position: absolute;
     background-image:url("../images/back-right.png");
@@ -1420,6 +1429,19 @@ h3.about-title.section-title {
     display: block;
     z-index: 0;
     opacity: 0.7;
+}
+.ra-work-history:after {
+    content: "";
+    position: absolute;
+    background-image: url(../images/back-left.png);
+    background-repeat: no-repeat;
+    bottom: -46%;
+    left: 0;
+    width: 52%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    opacity: 0.5;
 }
 .ra-work-history .custom-w-1250{
     z-index: 3;
@@ -1625,18 +1647,201 @@ input#gform_submit_button_10:hover {
     border-color: #ff7300;
 }
 /*blog*/
+.last-posts-wrapper{
+    margin-top: 40px;
+}
 .latest-posts {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 100px;
+    min-height: 315px;
+    gap: 20px;
 }
-.img-post-thumb{
-    border-radius: 10px;
+
+.latest-post-item {
+    position: relative;
+    flex: 1;
+    border-radius:15px;
 }
-.blog-post-title{
+
+/* تصویر */
+.img-post-thumb {
+    border-radius:15px;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease;
+    padding: 0;
+    border: 1px solid var(--color-border);
+}
+
+.latest-post-item:hover .img-post-thumb {
+    z-index: 1;
+    position: relative;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    transition: all 0.4s ease;
+}
+
+/* عنوان */
+.blog-post-title {
     text-align: right;
-    color:#fff;
+    color: #fff;
     font-size: 20px;
     margin: 20px 0;
+}
+.post-thumbnail-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    display: block;
+}
+
+.post-thumbnail-container .img-post-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.animated-border-box,
+.animated-border-box-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0s ease;
+    z-index: 0;
+}
+
+.animated-border-box-glow {
+    overflow: hidden;
+    filter: blur(20px);
+    z-index: 0;
+}
+
+.animated-border-box:before,
+.animated-border-box-glow:before {
+    content: '';
+    z-index: 0;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(rgba(0,0,0,0), #c8c8c8, rgba(0,0,0,0) 25%);
+    animation: rotate 4s linear infinite;
+    animation-play-state: paused;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.animated-border-box:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: transparent;
+    border-radius: 8px;
+}
+
+.latest-post-item:hover .animated-border-box,
+.latest-post-item:hover .animated-border-box-glow {
+    opacity: 1;
+}
+
+.latest-post-item:hover .animated-border-box:before,
+.latest-post-item:hover .animated-border-box-glow:before {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    100% {
+        transform: translate(-50%, -50%) rotate(1turn);
+    }
+}
+.latest-posts:hover .latest-post-item:not(:hover) .img-post-thumb {
+    filter: grayscale(100%);
+    opacity: 1;
+}
+.footer-wrapper {
+    display:block;
+    min-height:800px;
+    background-image: url("../images/centerbackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    padding: 70px;
+    color:#fff;
+    text-align: right;
+}
+.footer-wrapper:after{
+    content: "";
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    left: 45%;
+    top: 45%;
+    background-color: hsl(108.89deg 85.39% 44.32%);
+    filter: blur(108px);
+    border-radius: 50%;
+    opacity: 0.65;
+
+}
+.footer-content-wrapper.row.custom-w-1250 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    background: rgb(103 103 103 / 0%);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.2px);
+    -webkit-backdrop-filter: blur(1.2px);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+.footer-content-wrapper .background-gradient-circle,
+.footer-content-wrapper .background-gradient-circle-2 {
+    background-color: hsl(0deg 0% 100% / 98%);
+    filter: blur(253px);
+    opacity: 1;
+    flex: none;
+    height: 19%;
+    overflow: visible;
+    position: absolute;
+    width: 17%;
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.5s;
+}
+.footer-col-title:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+.footer-col-title{
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: right;
 }
