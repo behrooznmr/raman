@@ -1,44 +1,4 @@
-/*
-document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper(".swiper", {
-        slidesPerView: 5,
-        spaceBetween: 0,
-        centeredSlides: true,
-        loop: true,
-        simulateTouch: ('ontouchstart' in window) || (navigator.maxTouchPoints > 0),
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
 
-    const calculateHeight = () => {
-        const swiperSlideElements = Array.from(document.querySelectorAll('.swiper .swiper-slide'));
-        if (!swiperSlideElements.length) return;
-        const width = swiperSlideElements[0].getBoundingClientRect().width;
-        const height = Math.round(width / (16 / 9));
-        swiperSlideElements.forEach(element => element.style.height = `${height}px`);
-    };
-
-    calculateHeight();
-    window.addEventListener('resize', calculateHeight);
-});
-*/
-/*
-document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper(".swiper", {
-        slidesPerView: 5,
-        spaceBetween: 20,
-        centeredSlides: true,
-        loop: true,
-        simulateTouch: ('ontouchstart' in window) || (navigator.maxTouchPoints > 0),
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-});
-*/
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper('.my-swiper', {
         grabCursor: true,
@@ -57,6 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Custom Cursor
 document.addEventListener('DOMContentLoaded', () => {
+
+    if (document.body.classList.contains('elementor-editor-active')) {
+        return;
+    }
+
+    const isDevToolsOpen = () => {
+        const threshold = 160;
+        return (
+            window.outerWidth - window.innerWidth > threshold ||
+            window.outerHeight - window.innerHeight > threshold
+        );
+    };
+
+    if (isDevToolsOpen()) {
+        return;
+    }
+
     const cursor = document.getElementById('custom-cursor');
     const cursorDot = cursor.querySelector('.cursor-dot');
     const cursorRing = cursor.querySelector('.cursor-ring');
@@ -65,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const interactiveElements = document.querySelectorAll(
         'button, .ra-btn, .gform-button, .ra-step-work-button-next, .ra-step-work-button-prev, .menu-item a'
     );
+
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
     const ringLag = 0.1;
@@ -122,7 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.classList.remove('ra-btn-hover');
         });
     });
+
 });
+
 
 //swiper raman step projects
 const raStepWorkTop = new Swiper('.ra-step-work-top', {
@@ -197,3 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animate();
 });
+
+//portfolio swiper
+
+

@@ -54,11 +54,7 @@
     src: url('../fonts/titillium/titillium-web-v4-latin-700.woff2') format('woff2')
 }
 
-.page-template-home-page header,
-.page-template-home-page footer,
-.page-template-home-page .elementor-location-footer {
-    display: none !important;
-}
+
 
 *,
 *::before,
@@ -95,11 +91,12 @@
 
 }
 
-html {
+html ,body{
     scroll-behavior: smooth;
     margin: 0 !important;
     padding: 0;
-    direction: ltr;
+    direction:rtl;
+    background-color:#030303
 
 }
 
@@ -113,11 +110,11 @@ a:hover {
 
 }
 
-.page-template-home-page {
+.body {
     cursor: none;
 }
 
-.page-template-home-page #custom-cursor {
+#custom-cursor {
     position: fixed;
     pointer-events: none;
     z-index: 99999999;
@@ -125,7 +122,7 @@ a:hover {
     left: 0;
 }
 
-.page-template-home-page .cursor-dot {
+.cursor-dot {
     width: 8px;
     height: 8px;
     background-color: white;
@@ -136,7 +133,7 @@ a:hover {
     z-index: 99999999;
 }
 
-.page-template-home-page .cursor-ring {
+.cursor-ring {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -154,35 +151,35 @@ a:hover {
     z-index: 999;
 }
 
-.page-template-home-page .arrow-cursor-icon {
+.arrow-cursor-icon {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.page-template-home-page #custom-cursor.show-arrow .arrow-cursor-icon {
+#custom-cursor.show-arrow .arrow-cursor-icon {
     opacity: 1;
 }
 
-.page-template-home-page #custom-cursor.show-arrow .cursor-dot {
+#custom-cursor.show-arrow .cursor-dot {
     opacity: 0;
 }
 
-.page-template-home-page #custom-cursor.show-arrow .cursor-ring {
+#custom-cursor.show-arrow .cursor-ring {
     width: 60px;
     height: 60px;
 }
 
-.page-template-home-page #custom-cursor.ra-btn-hover .cursor-ring {
+#custom-cursor.ra-btn-hover .cursor-ring {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
 }
 
-.page-template-home-page #custom-cursor.ra-btn-hover .cursor-dot {
+#custom-cursor.ra-btn-hover .cursor-dot {
     width: 10px;
     height: 10px;
 }
 
-.page-template-home-page .arrow-cursor-icon svg {
+.arrow-cursor-icon svg {
     transition: transform 0.3s ease;
     transform-origin: center;
 }
@@ -199,13 +196,13 @@ a:hover {
     padding-top: 80px;
 }
 
-.raman-home-page a,
-.raman-home-page h1,
-.raman-home-page h2,
-.raman-home-page h3,
-.raman-home-page h4,
-.raman-home-page h5,
-.raman-home-page h6 {
+body a,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
     font-family: var(--font-family-base) !important;
     text-decoration: none;
 }
@@ -395,26 +392,24 @@ a.glow-button:hover {
 
 /*header*/
 
-section.ra-header.row {
+.ra-header.row {
     position: fixed;
     top: 10px;
-    left: 0;
-    right: 0;
-    z-index: 99999;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+    z-index: 99998;
     width: 100%;
     background-color: transparent;
-    transition: all 0.3s ease-in-out;
     border-radius: 50px;
     border: 1px solid transparent;
 }
 
-section.ra-header.scrolled {
+.ra-header.scrolled {
     width: 90%;
-    transform: translateX(5%);
     background-color: rgb(30 30 30 / 0%);
     backdrop-filter: blur(8px);
-    border: 1px solid;
-    border-color: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .06);
     box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, .15);
 }
 
@@ -1520,6 +1515,7 @@ h3.about-title.section-title {
 
 .ra-work-history {
     position: relative;
+    overflow-y: hidden;
 }
 
 .ra-work-history:before {
@@ -1541,7 +1537,7 @@ h3.about-title.section-title {
     position: absolute;
     background-image: url(../images/back-left.png);
     background-repeat: no-repeat;
-    bottom: -66%;
+    bottom: -46%;
     left: 0;
     width: 52%;
     height: 100%;
@@ -1916,9 +1912,15 @@ input#gform_submit_button_10:hover {
 .footer-wrapper {
     display: block;
     position: relative;
-    padding: 136px 70PX 24PX 70px;
+    padding: 70px 70px 24px 70px;
     color: #fff;
     text-align: right;
+    background-image: url(../images/centerbackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-position-y: -67px;
+
 }
 
 .footer-content-wrapper:after {
@@ -2058,4 +2060,7 @@ color:#fff
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+.ra-footer hr{
+    color: #ffffff47;
 }

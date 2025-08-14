@@ -1,6 +1,8 @@
-<footer>
-    <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-</footer>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php
+
+if ( function_exists( 'elementor_theme_do_location' ) && elementor_theme_do_location( 'footer' ) ) {
+
+} else {
+	get_template_part( 'template-parts/footer' );
+}
+
