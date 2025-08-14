@@ -101,8 +101,19 @@ function  remove_dns_prefetch () {
 	remove_action( 'wp_head', 'wp_resource_hints', 2, 99 );
 }
 
-
-
+// register menu wo
+function register_footer_menus() {
+	register_nav_menus(
+		array(
+			'footer-column-1' => 'ستون اول فوتر',
+			'footer-column-2' => 'ستون دوم فوتر',
+			'footer-column-3' => 'ستون سوم فوتر',
+			'footer-column-4' => 'ستون چهارم فوتر',
+			'footer-copyright' => 'ردیف کپی رایت پایین سمت راست'
+		)
+	);
+}
+add_action('after_setup_theme', 'register_footer_menus');
 
 
 

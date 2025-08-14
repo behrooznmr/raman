@@ -17,6 +17,7 @@ $includes = array(
 	'price',
 	'metabox',
 	'snippets',
+	'class-wp-bootstrap-navwalker',
 );
 
 foreach ( $includes as $file ) {
@@ -25,7 +26,6 @@ foreach ( $includes as $file ) {
 		require_once wp_normalize_path( $path );
 	}
 }
-
 // Theme setup
 function raman_theme_setup() {
 	add_theme_support( 'title-tag' );

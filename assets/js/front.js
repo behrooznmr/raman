@@ -62,8 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorRing = cursor.querySelector('.cursor-ring');
     const arrow = cursor.querySelector('.arrow-cursor-icon svg');
     const swiperArea = document.querySelector('.swiper-container');
-    const interactiveElements = document.querySelectorAll('button, .ra-btn');
-
+    const interactiveElements = document.querySelectorAll(
+        'button, .ra-btn, .gform-button, .ra-step-work-button-next, .ra-step-work-button-prev, .menu-item a'
+    );
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
     const ringLag = 0.1;
@@ -106,7 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            if (el.classList.contains('ra-btn')) {
+            if (
+                el.classList.contains('ra-btn') ||
+                el.classList.contains('gform-button') ||
+                el.classList.contains('ra-step-work-button-next') ||
+                el.classList.contains('ra-step-work-button-prev') ||
+                el.closest('.menu-item a')
+            ) {
                 cursor.classList.add('ra-btn-hover');
             }
         });
