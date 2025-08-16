@@ -421,6 +421,7 @@ a.glow-button:hover {
     align-items: center;
     justify-content: space-between;
     padding: 12px 29px;
+
 }
 
 .menu-wrapper {
@@ -440,12 +441,14 @@ a.glow-button:hover {
 }
 
 .header-call a strong {
-    letter-spacing: 3px;
-    font-size: 15px;
     font-weight: 500;
     font-family: 'YekanBakh';
     color: var(--color-primary);
     transition: all 0.4s ease;
+    font-size: 18px;
+    display: inline-block;
+    letter-spacing: 1px;
+    width: 132px;
 }
 
 .header-call a:hover strong,

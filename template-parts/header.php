@@ -23,7 +23,7 @@
 
         </div>
         <div class="header-call">
-            <a class="ra-btn" href="tel:09306625562">
+            <a class="ra-btn header-call-btn" href="tel:09306625562">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.2376 3.43749C17.3136 3.43749 17.7899 3.43844 18.1827 3.4736C22.5493 3.86456 26.0099 7.3252 26.4009 11.6918C26.4361 12.0846 26.437 12.5608 26.437 13.6369V14.8744C26.437 15.3921 26.8567 15.8119 27.3745 15.8119C27.8923 15.8119 28.312 15.3921 28.312 14.8744V13.5739C28.312 12.5778 28.312 12.0117 28.2684 11.5246C27.7966 6.25456 23.6199 2.07791 18.3499 1.60607C17.8628 1.56246 17.2967 1.56247 16.3005 1.56249H15.0001C14.4824 1.56249 14.0626 1.98223 14.0626 2.49999C14.0626 3.01776 14.4824 3.4375 15.0001 3.4375L16.2376 3.43749Z"
                           fill="#10B358"/>
@@ -43,6 +43,39 @@
                         </span>
             </a>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const btn = document.querySelector(".header-call-btn");
+                const numberEl = btn.querySelector("strong");
+                const originalNumber = numberEl.textContent.trim();
+                const digits = "0123456789";
+
+                function scrambleEffect() {
+                    let iterations = 0;
+                    const maxIterations = 15;
+                    const interval = setInterval(() => {
+                        numberEl.textContent = originalNumber
+                            .split("")
+                            .map((char) => {
+                                if (!isNaN(char) && iterations < maxIterations) {
+                                    return digits[Math.floor(Math.random() * 10)];
+                                }
+                                return char;
+                            })
+                            .join("");
+
+                        iterations++;
+                        if (iterations > maxIterations) {
+                            clearInterval(interval);
+                            numberEl.textContent = originalNumber;
+                        }
+                    }, 50);
+                }
+
+                btn.addEventListener("mouseenter", scrambleEffect);
+                btn.addEventListener("mouseleave", scrambleEffect);
+            });
+        </script>
     </div>
 </header>
 <script>

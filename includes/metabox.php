@@ -8,6 +8,11 @@ class InfoProjectMetaBox {
 		array('label' => 'نوع وبسایت', 'id' => 'project_type', 'type' => 'text'),
 		array('label' => 'امکانات اختصاصی', 'id' => 'project_feature', 'type' => 'textarea'),
 		array('label' => 'لینک وبسایت', 'id' => 'project_url', 'type' => 'url'),
+
+		array('label' => ' کد رنگ 1', 'id' => 'color_code1', 'type' => 'text'),
+		array('label' => 'کد رنگ 2', 'id' => 'color_code2', 'type' => 'text'),
+		array('label' => 'کد رنگ 3', 'id' => 'color_code3', 'type' => 'text'),
+		array('label' => 'کد رنگ 4', 'id' => 'color_code4', 'type' => 'text'),
 	);
 
 	private $image_fields = array(
