@@ -1,17 +1,13 @@
 <?php
-
-// Set timezone
 date_default_timezone_set( 'Asia/Tehran' );
 
-// Constants
-define( 'RA_VER', time() );
+define( 'RA_VER', filemtime( get_template_directory() . '/assets/css/front.css' ) );
 define( 'RA_DIR', get_template_directory() );
 define( 'RA_URI', get_template_directory_uri() );
 define( 'RA_TEMPLATE', trailingslashit( RA_DIR ) . 'template-parts/' );
 define( 'RA_ASSETS', trailingslashit( RA_URI ) . 'assets/' );
 define( 'RA_INCS', trailingslashit( RA_DIR ) . 'includes/' );
 
-// Auto load includes
 $includes = array(
 	'post-types',
 	'price',
@@ -19,14 +15,13 @@ $includes = array(
 	'snippets',
 	'class-wp-bootstrap-navwalker',
 );
-
 foreach ( $includes as $file ) {
 	$path = RA_INCS . $file . '.php';
 	if ( file_exists( $path ) ) {
 		require_once wp_normalize_path( $path );
 	}
 }
-// Theme setup
+
 function raman_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -37,50 +32,42 @@ function raman_theme_setup() {
 	register_nav_menus( [
 		'main-menu' => __( 'Main Menu', 'raman' ),
 	] );
-}
 
+	add_image_size( 'raman-post-thumb', 400, 216, true );
+}
 add_action( 'after_setup_theme', 'raman_theme_setup' );
 
-// Front-end assets
 function raman_theme_scripts() {
 	wp_enqueue_style( 'raman-style', get_stylesheet_uri(), [], RA_VER );
 
-	// Bootstrap
 	wp_enqueue_style( 'bootstrap', RA_ASSETS . 'css/bootstrap.rtl.min.css', [], '5.3' );
 	wp_enqueue_script( 'bootstrap', RA_ASSETS . 'js/bootstrap.bundle.min.js', [ 'jquery' ], '5.3', true );
 
-	// Swiper
-	wp_enqueue_style( 'swiper', RA_ASSETS . 'css/swiper-bundle.min.css', [], '9.0' );
-	wp_enqueue_script( 'swiper', RA_ASSETS . 'js/swiper-bundle.min.js', [ 'jquery' ], '9.0', true );
+	wp_enqueue_style( 'swiper', RA_ASSETS . 'css/swiper-bundle.min.css', [], '11.0' );
+	wp_enqueue_script( 'swiper', RA_ASSETS . 'js/swiper-bundle.min.js', [], '11.0', false );
 
-
-
-	// Main Front CSS & JS
-	wp_enqueue_style( 'raman-front', RA_ASSETS . 'css/front.css', [], RA_VER );
-	wp_enqueue_script( 'raman-front', RA_ASSETS . 'js/front.js', [ 'jquery' ], '12.36', true );
+	wp_enqueue_style( 'raman-front', RA_ASSETS . 'css/front.css', ['bootstrap', 'swiper'], RA_VER );
+	wp_enqueue_script( 'raman-front', RA_ASSETS . 'js/front.js', [ 'jquery', 'swiper', 'bootstrap' ], RA_VER, true );
 
 	wp_localize_script( 'raman-front', 'ra_object', [
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'ra_ajax_nonce' )
 	] );
 
-	// Custom
-	wp_enqueue_style( 'raman-custom', RA_ASSETS . 'css/custom.css', [], RA_VER );
-	wp_enqueue_script( 'raman-custom', RA_ASSETS . 'js/custom.js', [ 'jquery' ], RA_VER, true );
+	wp_enqueue_style( 'raman-custom', RA_ASSETS . 'css/custom.css', ['raman-front'], RA_VER );
+	wp_enqueue_script( 'raman-custom', RA_ASSETS . 'js/custom.js', [ 'jquery', 'raman-front' ], RA_VER, true );
 }
+add_action( 'wp_enqueue_scripts', 'raman_theme_scripts' );
 
-add_action( 'wp_enqueue_scripts', 'raman_theme_scripts' ,20);
-
-// Admin assets
 function raman_admin_enqueue_scripts() {
 	wp_enqueue_style( 'raman-admin', RA_ASSETS . 'css/admin.css', [], RA_VER );
 	wp_enqueue_script( 'raman-admin', RA_ASSETS . 'js/admin.js', [ 'jquery' ], RA_VER, true );
 }
-
 add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts' );
 
-
-//add image size
-add_action( 'after_setup_theme', function () {
-	add_image_size( 'raman-post-thumb', 400, 216, true );
-} );
+add_action( 'wp_print_scripts', function() {
+	global $wp_scripts;
+	echo '<pre>';
+	print_r( wp_list_pluck( $wp_scripts->queue, null ) );
+	echo '</pre>';
+});
