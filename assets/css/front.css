@@ -554,6 +554,33 @@ a.glow-button:hover {
         opacity: 1;
     }
 }
+.scroll-down-anim{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 17px;
+    position: absolute;
+    bottom: 104px;
+    z-index: 9;
+}
+
+/* اعمال انیمیشن روی عکس */
+.scroll-down-anim img {
+    animation: shakeYSoft 1.5s ease-in-out infinite; /* زمان و تکرار بی‌نهایت */
+}
+@keyframes shakeYSoft {
+    0%, 100% {
+        transform: translateY(0); /* نقطه شروع و پایان */
+    }
+    25% {
+        transform: translateY(-5px); /* حرکت کم به بالا */
+    }
+    75% {
+        transform: translateY(5px); /* حرکت کم به پایین */
+    }
+}
 
 .en-title span {
     font-family: var(--font-family-base) !important;

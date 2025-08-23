@@ -65,9 +65,9 @@ function raman_admin_enqueue_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts' );
 
-add_action( 'wp_print_scripts', function() {
+/*add_action( 'wp_print_scripts', function() {
 	global $wp_scripts;
 	echo '<pre>';
 	print_r( wp_list_pluck( $wp_scripts->queue, null ) );
 	echo '</pre>';
-});
+});*/

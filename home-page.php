@@ -6,7 +6,7 @@
  * @subpackage Raman Theme
  * @since Raman Theme v1.0
  */
-wp_head();
+
 get_header();
 ?>
 
@@ -44,73 +44,34 @@ get_header();
                                     <span class="animated-border-box"></span>
                                 </a>
                             </div>
-                            <!--</div>-->
-                            <div class="logo-carousel">
-                                <div class="carousel-track">
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
-                                                alt="Logo 1"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
-                                                alt="Logo 2"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
-                                                alt="Logo 3"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
-                                                alt="Logo 4"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
-                                                alt="Logo 5"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
-                                                alt="Logo 6"></div>
-
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/1.png"
-                                                alt="Logo 1"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/2.png"
-                                                alt="Logo 2"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/3.png"
-                                                alt="Logo 3"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/4.png"
-                                                alt="Logo 4"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/5.png"
-                                                alt="Logo 5"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/6.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/7.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/8.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/9.png"
-                                                alt="Logo 6"></div>
-                                    <div class="ra-logo-carousel-item"><img
-                                                src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/10.png"
-                                                alt="Logo 6"></div>
-                                </div>
+                            <div class="scroll-down-anim" >
+                                <img width="60px" height="60px" src="<?php echo get_template_directory_uri(); ?>/assets/videos/scroll-down.gif"
+                                        alt="scroll down">
+                                به پایین اسکرول کنید
                             </div>
-                        </div>
+                            <!--</div>-->
+
+                                <div class="logo-carousel">
+                                    <div class="carousel-track">
+			                            <?php
+			                            $logos = array(
+				                            '1.png', '2.png', '3.png', '4.png', '5.png',
+				                            '6.png', '7.png', '8.png', '9.png', '10.png'
+			                            );
+
+			                            $all_logos = array_merge($logos, $logos);
+
+			                            foreach ($all_logos as $index => $logo_file) {
+				                            ?>
+                                            <div class="ra-logo-carousel-item">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $logo_file; ?>" alt="Logo <?php echo ($index % count($logos)) + 1; ?>">
+                                            </div>
+				                            <?php
+			                            }
+			                            ?>
+                                    </div>
+                                </div>
+
 
                     </div>
                 </div>
