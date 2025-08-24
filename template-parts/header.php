@@ -43,50 +43,6 @@
                         </span>
             </a>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const btn = document.querySelector(".header-call-btn");
-                const numberEl = btn.querySelector("strong");
-                const originalNumber = numberEl.textContent.trim();
-                const digits = "0123456789";
 
-                function scrambleEffect() {
-                    let iterations = 0;
-                    const maxIterations = 15;
-                    const interval = setInterval(() => {
-                        numberEl.textContent = originalNumber
-                            .split("")
-                            .map((char) => {
-                                if (!isNaN(char) && iterations < maxIterations) {
-                                    return digits[Math.floor(Math.random() * 10)];
-                                }
-                                return char;
-                            })
-                            .join("");
-
-                        iterations++;
-                        if (iterations > maxIterations) {
-                            clearInterval(interval);
-                            numberEl.textContent = originalNumber;
-                        }
-                    }, 50);
-                }
-
-                btn.addEventListener("mouseenter", scrambleEffect);
-                btn.addEventListener("mouseleave", scrambleEffect);
-            });
-        </script>
     </div>
 </header>
-<script>
-    window.addEventListener('scroll', function () {
-        const header = document.querySelector('header.ra-header');
-        if (!header) return; //
-
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-</script>

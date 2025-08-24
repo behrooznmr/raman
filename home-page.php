@@ -13,11 +13,11 @@ get_header();
     <div style="direction:rtl" class="raman-home-page container-fluid p-0">
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
-
-                <div class="ra-hero-section row p-0">
-                    <!--hero section-->
-                    <div class="col-12 p-0">
-                        <div class="min-vh-100 w-100 hero-section-bc-img hero-section-overlay">
+                <!--hero section-->
+                <div class="ra-hero-section-wrapper min-vh-100 w-100 row p-0">
+                    <div class="background-hero-sec col-12 p-0">
+                        <div class="projects-gradient-top"></div>
+                        <div class="content-wrapper custom-w-1250 min-vh-100">
                             <h1>
                                 آژانــس خلاقــیت <span>رامـــان</span>
                             </h1>
@@ -44,35 +44,30 @@ get_header();
                                     <span class="animated-border-box"></span>
                                 </a>
                             </div>
-                            <div class="scroll-down-anim" >
-                                <img width="60px" height="60px" src="<?php echo get_template_directory_uri(); ?>/assets/videos/scroll-down.gif"
-                                        alt="scroll down">
+                            <div class="scroll-down-anim">
+                                <img width="60px" height="60px"
+                                     src="<?php echo get_template_directory_uri(); ?>/assets/videos/scroll-down.gif"
+                                     alt="scroll down">
                                 به پایین اسکرول کنید
                             </div>
-                            <!--</div>-->
-
-                                <div class="logo-carousel">
-                                    <div class="carousel-track">
+                        </div>
+                        <div class="projects-gradient-bottom"></div>
+                        <div class="logo-carousel-wrapper">
+                            <div class="side-overlay">
+                                <div class="swiper logo-swiper">
+                                    <div class="swiper-wrapper">
 			                            <?php
-			                            $logos = array(
-				                            '1.png', '2.png', '3.png', '4.png', '5.png',
-				                            '6.png', '7.png', '8.png', '9.png', '10.png'
-			                            );
-
-			                            $all_logos = array_merge($logos, $logos);
-
-			                            foreach ($all_logos as $index => $logo_file) {
-				                            ?>
-                                            <div class="ra-logo-carousel-item">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $logo_file; ?>" alt="Logo <?php echo ($index % count($logos)) + 1; ?>">
+			                            $logo_numbers = range( 1, 10 );
+			                            foreach ( $logo_numbers as $num ): ?>
+                                            <div class="swiper-slide">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
+                                                     alt="tools-logo">
                                             </div>
-				                            <?php
-			                            }
-			                            ?>
+			                            <?php endforeach; ?>
                                     </div>
                                 </div>
-
-
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -341,7 +336,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
                 <div class="ra-project-sec row-mt row">
                     <div class="projects-gradient-top"></div>
                     <div class="title-wrapper col-12">
@@ -380,25 +374,10 @@ get_header();
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var Swipes = new Swiper('.swiper-container', {
-                                    loop: true,
-                                    slidesPerView: 1,
-                                    navigation: {
-                                        nextEl: '.swiper-button-next',
-                                        prevEl: '.swiper-button-prev',
-                                    },
-                                    pagination: {
-                                        el: '.swiper-pagination',
-                                    },
-                                });
-                            });
-                        </script>
+
                     </div>
                     <div class="projects-gradient-bottom"></div>
                 </div>
-
                 <div class="ra-work-history row row-pt">
                     <div class="services-gradient-top"></div>
                     <div class="custom-w-1250 p-0">
@@ -733,9 +712,7 @@ get_header();
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
