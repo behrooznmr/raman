@@ -489,21 +489,23 @@ get_header();
                             <div class="ra-data-report row p-0">
                                 <div class="data-report-item background-effect">
                                     <p class="data-pre-text">بیش از</p>
-                                    <div class="data-num text-gr">100</div>
+                                    <div class="data-num text-gr" data-target="100">0</div>
                                     <p class="data-title">پروژه موفق</p>
                                     <p class="data-desc">مغتخریم بابت میزبانی بیش از 100 برند و کسب و کار مختلف و نوسعه
                                         حضورشان در بازار آنلاین و جهانی</p>
                                 </div>
+
                                 <div class="data-report-item background-effect">
                                     <p class="data-pre-text">بیش از</p>
-                                    <div class="data-num text-gr">6</div>
+                                    <div class="data-num text-gr" data-target="6">0</div>
                                     <p class="data-title">سال سابقه فعالیت</p>
                                     <p class="data-desc">با بیش از ۶ سال تجربه حضور و رقابت در حوزه خدمات آنلاین در
                                         دنیای دیجیتال</p>
                                 </div>
+
                                 <div class="data-report-item background-effect">
                                     <p class="data-pre-text">بیش از</p>
-                                    <div class="data-num text-gr">95٪</div>
+                                    <div class="data-num text-gr" data-target="95">0%</div>
                                     <p class="data-title">رضایت مشتری</p>
                                     <p class="data-desc">با بیش از 95% رضایت از انجام پروژه و همکاری با همکاران و
                                         مشتریان گرامی</p>

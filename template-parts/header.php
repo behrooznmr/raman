@@ -8,19 +8,25 @@
             </a>
         </div>
         <div class="menu-wrapper">
-			<?php
-			wp_nav_menu( array(
-				'theme_location'  => 'main-menu',
-				'depth'           => 2,
-				'container'       => 'div',
-				'container_class' => 'collapse navbar-collapse',
-				'container_id'    => 'mainNav',
-				'menu_class'      => 'navbar-nav ms-auto mb-2 mb-lg-0',
-				'fallback_cb'     => '__return_false',
-				'walker'          => new WP_Bootstrap_Navwalker(),
-			) );
-			?>
-
+            <nav class="navbar navbar-expand-lg navbar-light" role="navigation">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+				        <?php
+				        wp_nav_menu( array(
+					        'theme_location'  => 'primary',
+					        'depth'           => 3,
+					        'container'       => false,
+					        'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
+					        'fallback_cb'     => '__return_false',
+					        'walker'          => new Mega_Menu_Walker()
+				        ) );
+				        ?>
+                    </div>
+                </div>
+            </nav>
         </div>
         <div class="header-call">
             <a class="ra-btn header-call-btn" href="tel:09306625562">

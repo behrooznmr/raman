@@ -1,20 +1,3 @@
-
-document.addEventListener("DOMContentLoaded", function () {
-    new Swiper('.my-swiper', {
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 1.2,
-        spaceBetween: 16,
-
-        breakpoints: {
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 24,
-                centeredSlides: false
-            }
-        }
-    });
-});
 // Custom Cursor
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -63,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(animate);
     }
+
     animate();
 
     if (swiperArea) {
@@ -263,16 +247,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // add class in header after scroll
-(function() {
+(function () {
     const header = document.querySelector('header.ra-header');
     if (!header) return;
 
     const SCROLL_THRESHOLD = 50;
     let ticking = false;
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function () {
                 const scrollPosition = window.scrollY || document.documentElement.scrollTop;
                 if (scrollPosition > SCROLL_THRESHOLD) {
                     header.classList.add('scrolled');
@@ -288,10 +272,124 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //preloader
-(function($) {
-    console.log('Preloader script started!');
-    $(window).on('load', function() {
-        console.log('Window is fully loaded. Hiding preloader.');
-        $('#preloader').addClass('preloader-hidden');
-    });
+(function ($) {
+    if ($('#preloader').length) {
+        const $preloader = $('#preloader');
+        const $percentageText = $preloader.find('.preloader-percentage');
+        const $progressLine = $preloader.find('.line');
+
+        let currentTargetPercent = 0;
+        let displayedPercent = 0;
+        let animationFrameId = null;
+
+        const $images = $('img');
+        const totalImages = $images.length;
+        let loadedImages = 0;
+
+        function updateProgressUI(percent) {
+            $percentageText.text(Math.round(percent) + '%');
+            $progressLine.css('--progress', percent + '%');
+        }
+
+        function animationLoop() {
+            if (displayedPercent < currentTargetPercent) {
+                displayedPercent += (currentTargetPercent - displayedPercent) * 0.05;
+            }
+
+            if (currentTargetPercent - displayedPercent < 0.1) {
+                displayedPercent = currentTargetPercent;
+            }
+
+            updateProgressUI(displayedPercent);
+
+            if (displayedPercent >= 100) {
+                finalizeLoader();
+                return;
+            }
+
+            animationFrameId = requestAnimationFrame(animationLoop);
+        }
+
+        function finalizeLoader() {
+            updateProgressUI(100);
+            cancelAnimationFrame(animationFrameId);
+
+            setTimeout(function() {
+                $preloader.addClass('preloader-hidden');
+                if ($('.animated-text').length) {
+                    $('.animated-text').addClass('start-animation');
+                }
+            }, 600);
+        }
+
+        if (totalImages === 0) {
+            currentTargetPercent = 100;
+        } else {
+            $images.each(function() {
+                $(this).on('load error', function() {
+                    loadedImages++;
+                    currentTargetPercent = (loadedImages / totalImages) * 100;
+                });
+            });
+        }
+
+        $(window).on('load', function() {
+            currentTargetPercent = 100;
+        });
+
+        animationLoop();
+    }
+})(jQuery);
+
+//counter history work
+(function ($) {
+
+    if ($('#preloader').length) {
+        $(window).on('load', function () {
+            $('#preloader').addClass('preloader-hidden');
+            setTimeout(function () {
+                if ($('.animated-text').length) {
+                    $('.animated-text').addClass('start-animation');
+                }
+            }, 500);
+        });
+    }
+
+    if ($('.data-num').length) {
+        function animateCounter(element) {
+            const target = +$(element).attr('data-target');
+            const duration = 2000;
+            const stepTime = 20;
+            let currentNum = 0;
+            const steps = duration / stepTime;
+            const increment = target / steps;
+
+            const updateCount = () => {
+                currentNum += increment;
+                if (currentNum >= target) {
+                    $(element).text(target + ($(element).text().includes('%') ? '%' : ''));
+                    return;
+                }
+                $(element).text(Math.ceil(currentNum) + ($(element).text().includes('%') ? '%' : ''));
+                setTimeout(updateCount, stepTime);
+            };
+            updateCount();
+        }
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        $('.data-num').each(function () {
+            observer.observe(this);
+        });
+    }
+
 })(jQuery);

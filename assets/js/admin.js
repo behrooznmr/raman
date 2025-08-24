@@ -46,3 +46,46 @@ jQuery(document).ready(function($) {
         button.hide();
     });
 });
+
+//menu icon
+jQuery(document).ready(function($){
+    function initMediaUploader() {
+        $('body').on('click', '.custom-media-button', function(e) {
+            e.preventDefault();
+            var button = $(this);
+            var wrapper = button.closest('.menu-item-image-wrapper');
+            var imageUrlInput = wrapper.find('.custom-media-url');
+            var imagePreview = wrapper.find('.custom-media-image');
+            var removeButton = wrapper.find('.custom-media-remove');
+
+            var mediaUploader = wp.media({
+                title: 'انتخاب تصویر منو',
+                button: { text: 'استفاده از این تصویر' },
+                multiple: false
+            }).on('select', function() {
+                var attachment = mediaUploader.state().get('selection').first().toJSON();
+                imageUrlInput.val(attachment.url);
+                imagePreview.attr('src', attachment.url).show();
+                removeButton.show();
+            }).open();
+        });
+
+        $('body').on('click', '.custom-media-remove', function(e) {
+            e.preventDefault();
+            var button = $(this);
+            var wrapper = button.closest('.menu-item-image-wrapper');
+            var imageUrlInput = wrapper.find('.custom-media-url');
+            var imagePreview = wrapper.find('.custom-media-image');
+
+            imageUrlInput.val('');
+            imagePreview.attr('src', '').hide();
+            button.hide();
+        });
+    }
+    initMediaUploader();
+    $(document).ajaxComplete(function(event, xhr, settings) {
+        if (settings.data && settings.data.includes("action=add-menu-item")) {
+            initMediaUploader();
+        }
+    });
+});
