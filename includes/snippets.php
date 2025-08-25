@@ -110,10 +110,6 @@ function register_footer_menus() {
 			'footer-column-3' => 'ستون سوم فوتر',
 			'footer-column-4' => 'ستون چهارم فوتر',
 			'footer-copyright' => 'ردیف کپی رایت پایین سمت راست',
-			'primary'         => __( 'منوی اصلی سایت' ),
-			'mega_menu_col_1' => __( 'مگامنو - ستون اول'),
-			'mega_menu_col_2' => __( 'مگامنو - ستون دوم' ),
-			'mega_menu_col_3' => __( 'مگامنو - ستون سوم' ),
 		)
 	);
 }
@@ -150,153 +146,189 @@ function add_loading_page() {
 add_action('wp_body_open', 'add_loading_page',1);
 
 //add mega menu feature
-function load_admin_media_files( $hook ) {
-	if ( 'nav-menus.php' !== $hook ) {
-		return;
+add_action('after_setup_theme', function () {
+	register_nav_menus([
+		'raman_primary_menu'        => __('منوی اختصاصی رامان', 'ra'),
+		'megamenu_col_1' => __('ستون یک مگامنوی اختصاصی', 'ra'),
+		'megamenu_col_2' => __('ستون دو مگامنوی اختصاصی', 'ra'),
+		'megamenu_col_3' => __('ستون سه مگامنوی اختصاصی', 'ra'),
+	]);
+});
+
+// field mega menu
+add_action('wp_nav_menu_item_custom_fields', function ($item_id, $item, $depth, $args) {
+	if ((int) $depth !== 0) {
+		return; // فقط سطح-اول
 	}
-	wp_enqueue_media();
-}
-add_action( 'admin_enqueue_scripts', 'load_admin_media_files' );
-
-function add_custom_fields_to_menu_items( $item_id, $item, $depth, $args ) {
-	$is_megamenu = get_post_meta( $item_id, '_menu_item_is_megamenu', true );
-	$menu_image_url = get_post_meta( $item_id, '_menu_item_image_url', true );
+	$is_mega = get_post_meta($item_id, '_ra_is_megamenu', true) === '1';
 	?>
-	<?php if ( $depth == 0 ) : ?>
-        <p class="description description-wide">
-            <label for="edit-menu-item-is-megamenu-<?php echo $item_id; ?>">
-                <input type="checkbox" id="edit-menu-item-is-megamenu-<?php echo $item_id; ?>" name="menu_item_is_megamenu[<?php echo $item_id; ?>]" value="1" <?php checked( $is_megamenu, '1' ); ?> />
-                <strong>مگامنو است؟</strong> (در صورت تیک زدن، این آیتم به یک مگامنو با سه ستون تبدیل می‌شود)
-            </label>
+    <div class="field-ra-is-megamenu description description-wide" style="margin-top:8px;border-top:1px dashed #ccd0d4;padding-top:8px;">
+        <label for="edit-menu-item-ra-is-megamenu-<?php echo esc_attr($item_id); ?>">
+            <input type="checkbox"
+                   id="edit-menu-item-ra-is-megamenu-<?php echo esc_attr($item_id); ?>"
+                   name="ra_is_megamenu[<?php echo esc_attr($item_id); ?>]"
+                   value="1" <?php checked($is_mega, true); ?> />
+			<?php esc_html_e('فعال کردن مگامنو (برای این آیتم سطح-اول)', 'ra'); ?>
+        </label>
+        <p class="description" style="margin:6px 0 0;color:#666;">
+            با فعال‌کردن، زیرمنوهای این آیتم نادیده گرفته می‌شود و در فرانت‌اند یک دراپ‌داون عریض با ۳ ستون نشان داده خواهد شد که محتوایش از سه جایگاه فهرست «ستون‌های مگامنو» خوانده می‌شود.
         </p>
-	<?php endif; ?>
-
-    <div class="menu-item-image-wrapper description description-wide">
-        <p><strong>تصویر منو</strong></p>
-        <input type="hidden" class="custom-media-url" name="menu_item_image_url[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $menu_image_url ); ?>" />
-        <img src="<?php echo esc_attr( $menu_image_url ); ?>" class="custom-media-image" style="<?php echo ( empty( $menu_image_url ) ? 'display:none;' : '' ); ?> max-width: 100px; height: auto; margin-top: 10px;" />
-        <button type="button" class="button button-primary custom-media-button">انتخاب/آپلود تصویر</button>
-        <button type="button" class="button button-secondary custom-media-remove" style="<?php echo ( empty( $menu_image_url ) ? 'display:none;' : '' ); ?>">حذف تصویر</button>
     </div>
 	<?php
-}
-add_action( 'wp_nav_menu_item_custom_fields', 'add_custom_fields_to_menu_items', 10, 4 );
+}, 10, 4);
 
-function save_custom_menu_item_fields( $menu_id, $menu_item_db_id, $args ) {
-	if ( isset( $_POST['menu_item_is_megamenu'][$menu_item_db_id] ) ) {
-		update_post_meta( $menu_item_db_id, '_menu_item_is_megamenu', '1' );
-	} else {
-		delete_post_meta( $menu_item_db_id, '_menu_item_is_megamenu' );
-	}
+add_action('wp_update_nav_menu_item', function ($menu_id, $menu_item_db_id, $args) {
+	$val = isset($_POST['ra_is_megamenu'][$menu_item_db_id]) ? '1' : '0';
+	update_post_meta($menu_item_db_id, '_ra_is_megamenu', $val);
+}, 10, 3);
 
-	if ( isset( $_POST['menu_item_image_url'][$menu_item_db_id] ) ) {
-		$image_url = esc_url_raw( $_POST['menu_item_image_url'][$menu_item_db_id] );
-		update_post_meta( $menu_item_db_id, '_menu_item_image_url', $image_url );
-	}
-}
-add_action( 'wp_update_nav_menu_item', 'save_custom_menu_item_fields', 10, 3 );
 
-class Mega_Menu_Walker extends Walker_Nav_Menu {
-	private $is_megamenu = false;
+/**
+ * Walker سفارشی:
+ * - اگر آیتم سطح-اول تیک مگامنو داشته باشد:
+ *   1) زیرمنوهای خودش نمایش داده نشود (Skip children)
+ *   2) یک کانتینر عریض با 3 ستون نمایش داده شود.
+ * - اگر تیک نخورده بود: رفتار عادی وردپرس (زیرمنو ساده).
+ */
+class RA_Megamenu_Walker extends Walker_Nav_Menu {
+	// برای تشخیص اینکه در کدام سطح-اول قرار داریم و آیا مگامنوست
+	protected $current_top_is_mega = false;
+	protected $current_top_id = 0;
+	protected $skip_children_for = []; // لیست آیتم‌های سطح-اول که باید بچه‌هایشان نادیده گرفته شود
 
-	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
-		$item->is_megamenu = get_post_meta( $item->ID, '_menu_item_is_megamenu', true );
-		$item->image_url = get_post_meta( $item->ID, '_menu_item_image_url', true );
-
-		$this->is_megamenu = ( $depth === 0 && $item->is_megamenu == '1' );
-
-		$li_classes = 'nav-item';
-		if ( in_array( 'menu-item-has-children', $item->classes ) ) {
-			$li_classes .= ' dropdown';
-		}
-		if ( $this->is_megamenu ) {
-			$li_classes .= ' menu-large';
-		}
-		$output .= '<li class="' . esc_attr( $li_classes ) . '">';
-
-		$a_atts = array(
-			'title'  => ! empty( $item->attr_title ) ? $item->attr_title : '',
-			'target' => ! empty( $item->target )     ? $item->target     : '',
-			'rel'    => ! empty( $item->xfn )        ? $item->xfn        : '',
-			'href'   => ! empty( $item->url )        ? $item->url        : '#',
-			'class'  => 'nav-link'
-		);
-
-		if ( $depth === 0 && in_array( 'menu-item-has-children', $item->classes ) ) {
-			$a_atts['class'] .= ' dropdown-toggle';
-			$a_atts['data-bs-toggle'] = 'dropdown';
-			$a_atts['role'] = 'button';
-			$a_atts['aria-expanded'] = 'false';
-		}
-
-		if ($depth > 0) {
-			$a_atts['class'] = 'dropdown-item';
-		}
-
-		$item_output = $args->before;
-		$item_output .= '<a' . $this->build_attributes( $a_atts ) . '>';
-
-		if ( ! empty( $item->image_url ) ) {
-			$item_output .= '<img src="' . esc_url($item->image_url) . '" alt="' . esc_attr($item->title) . '" class="menu-item-image" style="margin-right: 8px; max-height: 20px; vertical-align: middle;" /> ';
-		}
-
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= '</a>';
-		$item_output .= $args->after;
-
-		$output .= $item_output;
-	}
-
-	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		if ( $this->is_megamenu ) {
-			$output .= '<ul class="dropdown-menu megamenu"><div class="row">';
-			$locations = ['mega_menu_col_1', 'mega_menu_col_2', 'mega_menu_col_3'];
-			foreach ( $locations as $location ) {
-				if ( has_nav_menu( $location ) ) {
-					$output .= '<li class="col-lg-4 col-md-12">';
-					ob_start();
-					wp_nav_menu( array(
-						'theme_location' => $location,
-						'container'      => false,
-						'items_wrap'     => '<ul>%3$s</ul>',
-						'depth'          => 2,
-						'walker'         => new Mega_Menu_Walker()
-					) );
-					$output .= ob_get_clean();
-					$output .= '</li>';
+	/**
+	 * پیش از رندر هر المنت، تشخیص دهیم آیا آیتم مگامنو است؛
+	 * اگر بود، بچه‌های آن را از رندر حذف کنیم.
+	 */
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+		$is_mega = get_post_meta( $element->ID, '_ra_is_megamenu', true ) === '1';
+		if ( $depth === 0 ) {
+			// سطح-اول
+			$this->current_top_id      = $element->ID;
+			$this->current_top_is_mega = $is_mega;
+			if ( $is_mega ) {
+				// بچه‌ها را حذف کنیم تا start_el آنها صدا نشود
+				if ( ! empty( $children_elements[ $element->ID ] ) ) {
+					$this->skip_children_for[ $element->ID ] = $children_elements[ $element->ID ];
+					$children_elements[ $element->ID ]       = [];
 				}
 			}
-		} else {
-			$output .= '<ul class="dropdown-menu">';
 		}
+		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+	}
+
+	/**
+	 * جلوگیری از تولید <ul class="sub-menu"> برای آیتم‌های مگامنو
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		if ( $depth === 0 && $this->current_top_is_mega ) {
+			// هیچی: زیرمنوی عادی را برای این آیتم نشان نمی‌دهیم
+			return;
+		}
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul class=\"sub-menu\">\n";
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = null ) {
-		if ( $this->is_megamenu ) {
-			$output .= '</div></ul>';
-			$this->is_megamenu = false;
-		} else {
-			$output .= '</ul>';
+		if ( $depth === 0 && $this->current_top_is_mega ) {
+			return;
 		}
+		$indent = str_repeat( "\t", $depth );
+		$output .= "$indent</ul>\n";
 	}
 
-	private function build_attributes( $attrs ) {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$is_mega = ( $depth === 0 ) ? ( get_post_meta( $item->ID, '_ra_is_megamenu', true ) === '1' ) : false;
+
+		$classes   = empty( $item->classes ) ? [] : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		if ( $depth === 0 && $is_mega ) {
+			$classes[] = 'ra-has-mega';
+		}
+
+		$class_names = $classes ? ' class="' . esc_attr( implode( ' ', array_filter( $classes ) ) ) . '"' : '';
+
+		$output .= '<li' . $class_names . '>';
+
+		// لینک آیتم
+		$atts           = [];
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+		$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
+		$atts['href']   = ! empty( $item->url ) ? $item->url : '';
+		if ( $depth === 0 && $is_mega ) {
+			$atts['class']         = 'ra-mega-toggle'; // برای JS موبایل
+			$atts['aria-expanded'] = 'false';
+		}
+
 		$attributes = '';
-		foreach ( $attrs as $attr => $value ) {
+		foreach ( $atts as $attr => $value ) {
 			if ( ! empty( $value ) ) {
-				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$value      = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
 				$attributes .= ' ' . $attr . '="' . $value . '"';
 			}
 		}
-		return $attributes;
+
+		$title       = apply_filters( 'the_title', $item->title, $item->ID );
+		$item_output = $args->before ?? '';
+		$item_output .= '<a' . $attributes . '>';
+		$item_output .= $args->link_before . $title . $args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $args->after ?? '';
+
+		$output .= $item_output;
+
+		// اگر این آیتم مگامنوست، سه ستون را رندر کنیم
+		if ( $depth === 0 && $is_mega ) {
+			$col1 = wp_nav_menu( [
+				'theme_location' => 'megamenu_col_1',
+				'container'      => false,
+				'menu_class'     => 'ra-mega-col-list',
+				'fallback_cb'    => '__return_empty_string',
+				'echo'           => false,
+				'depth'          => 1,
+			] );
+			$col2 = wp_nav_menu( [
+				'theme_location' => 'megamenu_col_2',
+				'container'      => false,
+				'menu_class'     => 'ra-mega-col-list',
+				'fallback_cb'    => '__return_empty_string',
+				'echo'           => false,
+				'depth'          => 1,
+			] );
+			$col3 = wp_nav_menu( [
+				'theme_location' => 'megamenu_col_3',
+				'container'      => false,
+				'menu_class'     => 'ra-mega-col-list',
+				'fallback_cb'    => '__return_empty_string',
+				'echo'           => false,
+				'depth'          => 1,
+			] );
+
+			// کانتینر عریض مگامنو
+			$output .= '<div class="ra-megamenu" role="group" aria-label="' . esc_attr( $title ) . '">';
+			$output .= '  <div class="ra-mega-grid">';
+			$output .= '    <div class="ra-mega-col ra-mega-col-1">' . $col1 . '</div>';
+			$output .= '    <div class="ra-mega-col ra-mega-col-2">' . $col2 . '</div>';
+			$output .= '    <div class="ra-mega-col ra-mega-col-3">' . $col3 . '</div>';
+			$output .= '  </div>';
+			$output .= '</div>';
+		}
 	}
 
-	public function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output) {
-		$is_megamenu_parent = ($depth === 0 && get_post_meta($element->ID, '_menu_item_is_megamenu', true) == '1');
-		if ($is_megamenu_parent) {
-			$element->has_children = true;
-			$children_elements[$element->ID] = array();
-		}
-		parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {
+		$output .= "</li>\n";
 	}
+}
+function ra_render_main_menu() {
+	wp_nav_menu([
+		'theme_location' => 'raman_primary_menu',
+		'container'      => 'nav',
+		'container_class'=> 'ra-nav',
+		'menu_class'     => 'ra-menu', // ul class
+		'fallback_cb'    => false,
+		'walker'         => new RA_Megamenu_Walker(),
+		'depth'          => 3, // برای آیتم‌های غیرمگا، زیرمنو ساده کار کند
+	]);
 }

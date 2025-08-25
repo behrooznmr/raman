@@ -609,7 +609,7 @@ a.glow-button:hover {
 }
 
 /* Mega Menu */
-.menu-large {
+/*.menu-large {
     position: static !important;
 }
 .megamenu {
@@ -625,6 +625,136 @@ a.glow-button:hover {
 
 .megamenu .dropdown-item {
     white-space: normal;
+}
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0;
+}*/
+/* کانتینر کلی ناوبری */
+.ra-nav {
+    position: relative;
+    width: 100%;
+}
+
+/* سطح-اول منو */
+.ra-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;           /* منوی افقی دسکتاپ */
+    gap: 24px;
+    align-items: center;
+    direction: rtl;
+}
+
+/* آیتم‌ها */
+.ra-menu > li {
+    position: relative;
+}
+
+/* لینک‌ها */
+.ra-menu a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 8px;
+    line-height: 1.2;
+}
+
+/* زیرمنوی ساده (برای آیتم‌هایی که مگا نیستند) */
+.ra-menu li ul.sub-menu {
+    position: absolute;
+    top: 100%;
+    inset-inline-start: 0;   /* برای RTL */
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all .2s ease;
+    z-index: 20;
+}
+
+.ra-menu li:hover > ul.sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* مگامنو: کانتینر عریض */
+.ra-has-mega > .ra-megamenu {
+    position: absolute;
+    top: 100%;
+    inset-inline-start: 0;
+    width: min(100vw, 1200px); /* عریض؛ می‌توانی تغییر دهی */
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    padding: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all .2s ease;
+    z-index: 30;
+}
+
+/* هاور دسکتاپ */
+.ra-has-mega:hover > .ra-megamenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* گرید سه‌ستونه */
+.ra-mega-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* لیست هر ستون */
+.ra-mega-col .ra-mega-col-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ra-mega-col .ra-mega-col-list > li > a {
+    display: block;
+    padding: 8px 0;
+    color: #111827;
+}
+
+/* ریسپانسیو موبایل: منو عمودی + مگامنو آکاردئونی */
+@media (max-width: 991.98px) {
+    .ra-menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    .ra-menu > li {
+        border-bottom: 1px solid #f3f4f6;
+    }
+    .ra-menu li ul.sub-menu,
+    .ra-has-mega > .ra-megamenu {
+        position: static;
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* پیش‌فرض بسته؛ با JS باز می‌کنیم */
+    }
+    .ra-menu li.open > ul.sub-menu,
+    .ra-menu li.open > .ra-megamenu {
+        display: block;
+        padding: 10px 12px;
+    }
 }
 
 .menu-item-image {

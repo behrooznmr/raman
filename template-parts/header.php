@@ -14,8 +14,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-				        <?php
-				        wp_nav_menu( array(
+				       <!-- --><?php
+/*				        wp_nav_menu( array(
 					        'theme_location'  => 'primary',
 					        'depth'           => 3,
 					        'container'       => false,
@@ -23,7 +23,8 @@
 					        'fallback_cb'     => '__return_false',
 					        'walker'          => new Mega_Menu_Walker()
 				        ) );
-				        ?>
+				        */?>
+	                    <?php if (function_exists('ra_render_main_menu')) { ra_render_main_menu(); } ?>
                     </div>
                 </div>
             </nav>
