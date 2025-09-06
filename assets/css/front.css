@@ -574,13 +574,13 @@ a.glow-button:hover {
     border: 1px solid transparent;
 }
 
-.ra-header.scrolled {
+/*.ra-header.scrolled {
     width: 90%;
     background-color: rgb(30 30 30 / 0%);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, .06);
     box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, .15);
-}
+}*/
 
 
 .ra-header-wrapper {
@@ -597,9 +597,10 @@ a.glow-button:hover {
     color: #fff;
     font-family: var(--font-family-base);
 }
+
 /* Custom styles for the navbar */
-.navbar {
-    background-color: #ccc6c6;
+.ra-header .navbar {
+    background-color: transparent;
 }
 .navbar .nav-link {
     color: #fff;
@@ -609,52 +610,28 @@ a.glow-button:hover {
 }
 
 /* Mega Menu */
-/*.menu-large {
-    position: static !important;
-}
-.megamenu {
-    padding: 20px 0px;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-.megamenu ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.megamenu .dropdown-item {
-    white-space: normal;
-}
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-.dropdown-menu {
-    margin-top: 0;
-}*/
-/* کانتینر کلی ناوبری */
 .ra-nav {
     position: relative;
     width: 100%;
 }
 
-/* سطح-اول منو */
+
 .ra-menu {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;           /* منوی افقی دسکتاپ */
+    display: flex;
     gap: 24px;
     align-items: center;
     direction: rtl;
 }
 
-/* آیتم‌ها */
+
 .ra-menu > li {
     position: relative;
 }
 
-/* لینک‌ها */
+
 .ra-menu a {
     text-decoration: none;
     display: inline-block;
@@ -662,11 +639,11 @@ a.glow-button:hover {
     line-height: 1.2;
 }
 
-/* زیرمنوی ساده (برای آیتم‌هایی که مگا نیستند) */
+
 .ra-menu li ul.sub-menu {
     position: absolute;
     top: 100%;
-    inset-inline-start: 0;   /* برای RTL */
+    inset-inline-start: 0;
     min-width: 220px;
     background: #fff;
     border: 1px solid #e5e7eb;
@@ -683,51 +660,119 @@ a.glow-button:hover {
     visibility: visible;
     transform: translateY(0);
 }
+.ra-header.scrolled {
+    width: 90%;
+    background-color: rgb(30 30 30 / 0%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .06);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, .15);
+}
+#wpadminbar{
+    display:none
+}
 
-/* مگامنو: کانتینر عریض */
-.ra-has-mega > .ra-megamenu {
+#ra-megamenu-container {
     position: absolute;
-    top: 100%;
-    inset-inline-start: 0;
-    width: min(100vw, 1200px); /* عریض؛ می‌توانی تغییر دهی */
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    padding: 18px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+
+.ra-megamenu {
+    position: fixed;
+    background-color: rgb(30 30 30 / 50%);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, .06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    min-width: 800px;
+    max-width: 1200px;
+    border-radius: 10px;
+    padding: 24px;
+
+
     opacity: 0;
     visibility: hidden;
-    transform: translateY(8px);
-    transition: all .2s ease;
-    z-index: 30;
+    transform: translateY(10px) scale(0.98);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    transform-origin: top center;
+    pointer-events: auto;
+
+    top:86px;
+    left:18%;
+    min-width:1000px
 }
 
-/* هاور دسکتاپ */
-.ra-has-mega:hover > .ra-megamenu {
+.ra-megamenu.is-visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
-/* گرید سه‌ستونه */
 .ra-mega-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
 }
 
-/* لیست هر ستون */
-.ra-mega-col .ra-mega-col-list {
+.ra-mega-list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.ra-mega-col .ra-mega-col-list > li > a {
-    display: block;
-    padding: 8px 0;
-    color: #111827;
+.ra-mega-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-base);
 }
 
+.ra-mega-list-item a {
+    color: #d0d0d0;
+    font-weight: 400;
+    font-size: 14px;
+    transition: 0.2s all ease;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.ra-mega-list-item a:hover {
+    color: #fff;
+    transform: translateX(5px);
+    font-weight: 400;
+}
+
+.ra-menu-icon {
+    margin-inline-end: 10px;
+}
+li::marker{
+    content: none!important;
+}
+.ra-menu .menu-item-has-children > a::after,
+.ra-menu .ra-has-mega > a::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-inline-start: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ra-menu .menu-item-has-children:hover > a::after,
+.ra-menu .ra-has-mega:hover > a::after {
+    transform: rotate(180deg);
+}
 /* ریسپانسیو موبایل: منو عمودی + مگامنو آکاردئونی */
 @media (max-width: 991.98px) {
     .ra-menu {
@@ -2276,15 +2321,21 @@ input#gform_submit_button_10:hover {
     transition: all 0.5s;
 }
 
-.footer-col-title:before {
+.footer-col-title:before,
+.ra-mega-col-title span:before{
     content: "";
     display: inline-block;
     width: 10px;
     height: 10px;
     background: var(--color-primary);
     border-radius: 50%;
+    margin-left: 6px;
+    margin-bottom: -2px;
+    font-family: var(--font-family-base);
 }
-
+.menu-item {
+    line-height: 32px;
+}
 .footer-col-title {
     color: #fff;
     font-weight: 700;
@@ -2297,23 +2348,27 @@ input#gform_submit_button_10:hover {
     padding: 0;
 }
 
-.footer-menu li a {
+.footer-menu li a,
+.ra-megamenu li.ra-mega-list-item a {
     color: #bababa;
     font-weight: 300;
     font-size: 13px;
     transition: 0.4s all;
 }
 
-.footer-menu li a:hover {
+.footer-menu li a:hover,
+.ra-megamenu li.ra-mega-list-item a:hover{
     color: #fff;
 }
 
-.footer-menu li a:hover::before {
+.footer-menu li a:hover::before,
+.ra-megamenu li.ra-mega-list-item a:hover::before{
     width: 15px;
     background: var(--color-primary);
 }
 
-.footer-menu li a:before {
+.footer-menu li a:before,
+.ra-megamenu li.ra-mega-list-item a:before {
     content: "";
     display: inline-block;
     width: 0px;

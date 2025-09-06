@@ -392,4 +392,60 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-})(jQuery);
+})(jQuery)
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof raMegaData === 'undefined' || Object.keys(raMegaData.menus).length === 0) {
+        return;
+    }
+
+    const megaContainer = document.createElement('div');
+    megaContainer.id = 'ra-megamenu-container';
+    document.body.appendChild(megaContainer);
+
+    for (const menuId in raMegaData.menus) {
+        const menuContent = raMegaData.menus[menuId];
+        const megaMenuWrapper = document.createElement('div');
+        megaMenuWrapper.className = 'ra-megamenu';
+        megaMenuWrapper.setAttribute('data-megamenu-for', menuId);
+        megaMenuWrapper.innerHTML = menuContent;
+        megaContainer.appendChild(megaMenuWrapper);
+    }
+
+    const megaTriggers = document.querySelectorAll('.ra-has-mega');
+    let activeMegaMenu = null;
+    let leaveTimeout;
+
+    megaTriggers.forEach(trigger => {
+        trigger.addEventListener('mouseenter', function () {
+            clearTimeout(leaveTimeout);
+            const menuId = this.getAttribute('data-megamenu-id');
+            const megaMenuToShow = document.querySelector(`.ra-megamenu[data-megamenu-for="${menuId}"]`);
+            if (!megaMenuToShow) return;
+
+            if (activeMegaMenu && activeMegaMenu !== megaMenuToShow) {
+                activeMegaMenu.classList.remove('is-visible');
+            }
+            activeMegaMenu = megaMenuToShow;
+
+            const rect = this.getBoundingClientRect();
+          /*  activeMegaMenu.style.top = `${rect.bottom}px`;
+            activeMegaMenu.style.left = `${rect.left}px`;*/
+            activeMegaMenu.style.setProperty('--trigger-width', `${rect.width}px`);
+
+            activeMegaMenu.classList.add('is-visible');
+        });
+
+        trigger.addEventListener('mouseleave', function () {
+            leaveTimeout = setTimeout(() => {
+                if (activeMegaMenu) activeMegaMenu.classList.remove('is-visible');
+            }, 200);
+        });
+    });
+
+    megaContainer.addEventListener('mouseenter', function() {
+        clearTimeout(leaveTimeout);
+    });
+    megaContainer.addEventListener('mouseleave', function() {
+        if (activeMegaMenu) activeMegaMenu.classList.remove('is-visible');
+    });
+});

@@ -25,6 +25,7 @@
 				        ) );
 				        */?>
 	                    <?php if (function_exists('ra_render_main_menu')) { ra_render_main_menu(); } ?>
+
                     </div>
                 </div>
             </nav>
