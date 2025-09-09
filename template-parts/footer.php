@@ -40,7 +40,7 @@
 						<?php
 						if ( has_nav_menu( 'footer-column-3' ) ) {
 							wp_nav_menu( array(
-								'theme_location' => 'footer-column-2',
+								'theme_location' => 'footer-column-3',
 								'menu_class'     => 'footer-menu footer-column-3 ',
 								'container'      => false,
 							) );
