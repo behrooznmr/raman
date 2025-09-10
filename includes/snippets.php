@@ -152,17 +152,26 @@ function add_custom_cursor() {
 
 add_action( 'wp_body_open', 'add_custom_cursor' );
 
-//add loading anim
 function add_loading_page() {
 	?>
     <div id="preloader">
-        <div class="preloader-percentage">0%</div>
-        <div class="line"></div>
+        <div class="loader">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66" height="150px" width="150px" class="spinner">
+                <circle stroke="url(#gradient)" r="30" cy="33" cx="33" stroke-width="1" fill="transparent" class="path"></circle>
+                <defs>
+                    <linearGradient id="gradient">
+                        <stop stop-opacity="1" stop-color="#fff" offset="0%"></stop>
+                        <stop stop-opacity="0" stop-color="#fff" offset="100%"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="preloader-percentage">0%</div>
+        </div>
     </div>
 	<?php
 }
-
 add_action( 'wp_body_open', 'add_loading_page', 1 );
+
 
 //mega menu
 

@@ -270,13 +270,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })();
 
-
-//preloader
+// preloader
 (function ($) {
     if ($('#preloader').length) {
         const $preloader = $('#preloader');
         const $percentageText = $preloader.find('.preloader-percentage');
-        const $progressLine = $preloader.find('.line');
 
         let currentTargetPercent = 0;
         let displayedPercent = 0;
@@ -288,33 +286,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function updateProgressUI(percent) {
             $percentageText.text(Math.round(percent) + '%');
-            $progressLine.css('--progress', percent + '%');
         }
 
         function animationLoop() {
             if (displayedPercent < currentTargetPercent) {
                 displayedPercent += (currentTargetPercent - displayedPercent) * 0.05;
             }
-
             if (currentTargetPercent - displayedPercent < 0.1) {
                 displayedPercent = currentTargetPercent;
             }
-
             updateProgressUI(displayedPercent);
-
             if (displayedPercent >= 100) {
                 finalizeLoader();
                 return;
             }
-
             animationFrameId = requestAnimationFrame(animationLoop);
         }
 
         function finalizeLoader() {
             updateProgressUI(100);
             cancelAnimationFrame(animationFrameId);
-
-            setTimeout(function() {
+            setTimeout(function () {
                 $preloader.addClass('preloader-hidden');
                 if ($('.animated-text').length) {
                     $('.animated-text').addClass('start-animation');
@@ -325,15 +317,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (totalImages === 0) {
             currentTargetPercent = 100;
         } else {
-            $images.each(function() {
-                $(this).on('load error', function() {
+            $images.each(function () {
+                $(this).on('load error', function () {
                     loadedImages++;
                     currentTargetPercent = (loadedImages / totalImages) * 100;
                 });
             });
         }
 
-        $(window).on('load', function() {
+        $(window).on('load', function () {
             currentTargetPercent = 100;
         });
 
@@ -449,3 +441,58 @@ document.addEventListener('DOMContentLoaded', function () {
         if (activeMegaMenu) activeMegaMenu.classList.remove('is-visible');
     });
 });
+
+//megamenu
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof raMegaData === 'undefined' || !raMegaData.menus) {
+        return;
+    }
+
+    const megaMenuContainer = document.createElement('div');
+    megaMenuContainer.id = 'ra-megamenu-container';
+    document.body.appendChild(megaMenuContainer);
+
+    const megaMenus = {};
+
+    for (const menuId in raMegaData.menus) {
+        const menuEl = document.createElement('div');
+        menuEl.classList.add('ra-megamenu');
+        menuEl.dataset.menuId = menuId;
+        menuEl.innerHTML = raMegaData.menus[menuId];
+
+        megaMenuContainer.appendChild(menuEl);
+        megaMenus[menuId] = menuEl;
+    }
+
+    const triggers = document.querySelectorAll('[data-megamenu-id]');
+    let hideTimeout;
+
+    triggers.forEach(trigger => {
+        const menuId = trigger.dataset.megamenuId;
+        const megaMenu = megaMenus[menuId];
+
+        if (!megaMenu) return;
+
+        trigger.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            document.querySelectorAll('.ra-megamenu.is-visible').forEach(m => m.classList.remove('is-visible'));
+            megaMenu.classList.add('is-visible');
+        });
+
+        trigger.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                megaMenu.classList.remove('is-visible');
+            }, 200);
+        });
+
+        megaMenu.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+        });
+
+        megaMenu.addEventListener('mouseleave', () => {
+            megaMenu.classList.remove('is-visible');
+        });
+    });
+});
+console.log('فایل front.js با موفقیت اجرا شد!');

@@ -14,16 +14,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-				       <!-- --><?php
-/*				        wp_nav_menu( array(
-					        'theme_location'  => 'primary',
-					        'depth'           => 3,
-					        'container'       => false,
-					        'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
-					        'fallback_cb'     => '__return_false',
-					        'walker'          => new Mega_Menu_Walker()
-				        ) );
-				        */?>
+
 	                    <?php if (function_exists('ra_render_main_menu')) { ra_render_main_menu(); } ?>
 
                     </div>
