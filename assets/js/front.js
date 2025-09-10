@@ -495,4 +495,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-console.log('فایل front.js با موفقیت اجرا شد!');

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c619d7bd-8613-48c5-94e8-aa12e02bac26" name="dev-raman" url="http://raman.agency">
+      <webServer id="c619d7bd-8613-48c5-94e8-aa12e02bac26" name="dev-raman" url="https://raman.agency">
         <fileTransfer rootFolder="/public_html/dev" host="raman.agency" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
