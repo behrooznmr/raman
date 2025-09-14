@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', function () {
+
 	register_post_type('products', [
 		'label'       => 'محصولات',
 		'public'      => true,
@@ -19,7 +19,6 @@ add_action('init', function () {
 		],
 	]);
 
-	// دسته‌بندی محصولات
 	register_taxonomy('products_category', 'products', [
 		'label'        => 'دسته‌بندی محصولات',
 		'hierarchical' => true,
@@ -30,4 +29,3 @@ add_action('init', function () {
 			'edit_item'     => 'ویرایش دسته',
 		],
 	]);
-});
