@@ -6,6 +6,8 @@ function initCustomCursor() {
 
     const cursorDot = cursor.querySelector('.cursor-dot');
     const cursorRing = cursor.querySelector('.cursor-ring');
+    const arrow = cursor.querySelector('.arrow-cursor-icon svg');
+    const swiperArea = document.querySelector('.swiper-container');
 
     const interactiveSelector = 'button, a, .ra-btn, .gform-button, .ra-step-work-button-next, .ra-step-work-button-prev, .menu-item a, .ra-mega-list-item';
 
@@ -42,6 +44,20 @@ function initCustomCursor() {
         requestAnimationFrame(animate);
     }
     animate();
+
+    if (swiperArea) {
+        swiperArea.addEventListener('mouseenter', () => cursor.classList.add('show-arrow'));
+        swiperArea.addEventListener('mouseleave', () => cursor.classList.remove('show-arrow'));
+
+        if (arrow) {
+            swiperArea.addEventListener('mousemove', (e) => {
+                const bounds = swiperArea.getBoundingClientRect();
+                const centerX = bounds.left + bounds.width / 2;
+                const rotateTo = e.clientX < centerX ? 180 : 0;
+                arrow.style.transform = `rotate(${rotateTo}deg)`;
+            });
+        }
+    }
 }
 
 // Parallax image in cta form
