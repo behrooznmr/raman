@@ -5,7 +5,7 @@
  * Version: 1.0
  */
 
-class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+/*class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		$indent = str_repeat("\t", $depth);
@@ -66,4 +66,4 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 	public function end_el( &$output, $item, $depth = 0, $args = null ) {
 		$output .= "</li>\n";
 	}
-}
+}*/

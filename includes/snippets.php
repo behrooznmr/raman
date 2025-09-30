@@ -158,7 +158,7 @@ function add_loading_page() {
     <div id="preloader">
         <div class="loader">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66" height="150px" width="150px" class="spinner">
-                <circle stroke="url(#gradient)" r="30" cy="33" cx="33" stroke-width="1" fill="transparent" class="path"></circle>
+                <circle stroke="url(#gradient)" r="30" cy="33" cx="33" stroke-width="0.3" fill="transparent" class="path"></circle>
                 <defs>
                     <linearGradient id="gradient">
                         <stop stop-opacity="1" stop-color="#fff" offset="0%"></stop>
