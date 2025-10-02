@@ -117,14 +117,17 @@ function register_raman_menus() {
 	register_nav_menus(
 		array(
 			'raman_primary_menu' => __( 'منوی اصلی رامان', 'ra' ),
+			'mobile-menu'        => __( 'منوی موبایل' ),
 			'megamenu_col_1'     => __( 'ستون ۱ مگامنو', 'ra' ),
 			'megamenu_col_2'     => __( 'ستون ۲ مگامنو', 'ra' ),
 			'megamenu_col_3'     => __( 'ستون ۳ مگامنو', 'ra' ),
-			'footer-column-1'  => 'ستون اول فوتر',
-			'footer-column-2'  => 'ستون دوم فوتر',
-			'footer-column-3'  => 'ستون سوم فوتر',
-			'footer-column-4'  => 'ستون چهارم فوتر',
-			'footer-copyright' => 'ردیف کپی رایت پایین سمت راست',
+			'footer-column-1'    => 'ستون اول فوتر',
+			'footer-column-2'    => 'ستون دوم فوتر',
+			'footer-column-3'    => 'ستون سوم فوتر',
+			'footer-column-4'    => 'ستون چهارم فوتر',
+			'footer-copyright'   => 'ردیف کپی رایت پایین سمت راست',
+			// نام جایگاه منو: منوی موبایل
+
 
 		)
 	);
@@ -158,7 +161,8 @@ function add_loading_page() {
     <div id="preloader">
         <div class="loader">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66" height="150px" width="150px" class="spinner">
-                <circle stroke="url(#gradient)" r="30" cy="33" cx="33" stroke-width="0.3" fill="transparent" class="path"></circle>
+                <circle stroke="url(#gradient)" r="30" cy="33" cx="33" stroke-width="0.3" fill="transparent"
+                        class="path"></circle>
                 <defs>
                     <linearGradient id="gradient">
                         <stop stop-opacity="1" stop-color="#fff" offset="0%"></stop>
@@ -171,6 +175,7 @@ function add_loading_page() {
     </div>
 	<?php
 }
+
 add_action( 'wp_body_open', 'add_loading_page', 1 );
 //mega menu
 
@@ -383,3 +388,91 @@ function ra_pass_megamenu_data_to_js() {
 }
 
 
+//gravity form customize error
+add_filter( 'gform_validation', 'change_specific_field_validation_message' );
+function change_specific_field_validation_message( $validation_result ) {
+
+	$form = $validation_result['form'];
+
+	$target_form_id  = 10;
+	$target_field_id = 1;
+
+	if ( $form['id'] == $target_form_id ) {
+		foreach ( $form['fields'] as &$field ) {
+			if ( $field->id == $target_field_id && $field->failed_validation ) {
+				$field->validation_message = 'لطفاً برای دریافت مشاوره، شماره تلفن خود را وارد کنید.';
+				break;
+			}
+		}
+	}
+
+	return $validation_result;
+}
+
+function convert_persian_to_english_numbers( $string ) {
+	$persian_digits = array( '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹' );
+	$arabic_digits  = array( '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩' );
+	$english_digits = array( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' );
+
+	$string = str_replace( $persian_digits, $english_digits, $string );
+	$string = str_replace( $arabic_digits, $english_digits, $string );
+
+	return $string;
+}
+
+add_filter( 'gform_validation', 'advanced_mobile_validation_fixed' );
+function advanced_mobile_validation_fixed( $validation_result ) {
+
+	$form = $validation_result['form'];
+
+	$target_form_id  = 10;
+	$target_field_id = 1;
+
+	if ( $form['id'] == $target_form_id ) {
+		foreach ( $form['fields'] as &$field ) {
+			if ( $field->id == $target_field_id ) {
+
+				$value = rgpost( "input_{$field->id}" );
+
+				if ( empty( $value ) ) {
+					continue;
+				}
+
+				$english_number = convert_persian_to_english_numbers( $value );
+
+				if ( ! ctype_digit( $english_number ) ) {
+					$field->failed_validation      = true;
+					$field->validation_message     = 'لطفاً فقط عدد برای شماره موبایل وارد کنید.';
+					$validation_result['is_valid'] = false;
+				} else {
+					$length = strlen( $english_number );
+
+					if ( $length < 11 ) {
+						$field->failed_validation      = true;
+						$field->validation_message     = 'تعداد ارقام شماره موبایل وارد شده کم است. لطفاً مجدد بررسی کنید.';
+						$validation_result['is_valid'] = false;
+					} elseif ( $length > 11 ) {
+						$field->failed_validation      = true;
+						$field->validation_message     = 'تعداد ارقام شماره موبایل وارد شده زیاد است. لطفاً مجدد بررسی کنید.';
+						$validation_result['is_valid'] = false;
+					} elseif ( substr( $english_number, 0, 2 ) !== '09' ) {
+						$field->failed_validation      = true;
+						$field->validation_message     = 'شماره موبایل باید با 09 شروع شود.';
+						$validation_result['is_valid'] = false;
+					}
+				}
+
+				break;
+			}
+		}
+	}
+
+	return $validation_result;
+}
+
+//disable note
+if ( is_admin_bar_showing() ) {
+	add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+		$wp_admin_bar->remove_node( 'elementor_notes' );
+	}, 201 );
+}

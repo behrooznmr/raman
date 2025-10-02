@@ -448,3 +448,40 @@ jQuery(function($) {
     // Counter history work
     initCounterHistoryWork($);
 });
+
+/* این کد را در فایل JS خود قرار دهید */
+jQuery(document).ready(function($) {
+    const mobileMenuOverlay = $('#mobileMenuOverlay');
+    const hamburgerButton = $('#customMenuToggler');
+    const closeButton = $('#closeMobileMenu');
+
+    hamburgerButton.on('click', function(e) {
+        e.preventDefault();
+        mobileMenuOverlay.addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
+
+    function closeMenu() {
+        mobileMenuOverlay.removeClass('active');
+        $('body').css('overflow', '');
+    }
+
+    closeButton.on('click', closeMenu);
+    mobileMenuOverlay.on('click', function(e) {
+        if ($(e.target).is(mobileMenuOverlay)) {
+            closeMenu();
+        }
+    });
+
+    $('.mobile-main-nav li.menu-item-has-children').each(function() {
+        $(this).children('a').prepend('<span class="dropdown-toggle">+</span>');
+    });
+
+    $('.mobile-main-nav li.menu-item-has-children > a').on('click', function(e) {
+        e.preventDefault();
+        const subMenu = $(this).siblings('.sub-menu');
+        const toggleIcon = $(this).find('.dropdown-toggle');
+        subMenu.toggleClass('open');
+        toggleIcon.toggleClass('toggled');
+    });
+});
