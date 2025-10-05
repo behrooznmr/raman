@@ -3,6 +3,7 @@
 		<div class="footer-gradient-top"></div>
 		<div class="footer-content-wrapper row custom-w-1250">
 			<div class="background-gradient-circle"></div>
+            <?php if( is_admin() ):?>
 			<div class="footer-menu-wrapper col-12">
 				<div class="row">
 					<div class="col-lg-3 col-md-6 col-6">
@@ -64,9 +65,10 @@
 				</div>
 			</div>
 			<hr>
+            <?php endif; ?>
 			<div class="footer-info-wrapper col-12">
 				<div class="row">
-					<div class="col-lg-4 contact p-0">
+					<div class="col-lg-4 col-md-4 contact p-0">
 						<div class="footer-contact-info-wrapper">
 
 							<div class="contact-info-item address">
@@ -115,7 +117,7 @@
 
 						</div>
 					</div>
-					<div class="col-lg-4 logo-wrapper p-0">
+					<div class="col-lg-4 col-md-4 logo-wrapper p-0">
 						<a href="https://raman.agency/">
 							<img class="ra-btn" src='<?php echo get_template_directory_uri(); ?>/assets/images/logo.png'
 							     alt="">
@@ -135,7 +137,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-4 cert-wrapper p-0">
+					<div class="col-lg-4 col-md-4 cert-wrapper p-0">
 						<div>
 							<a target="_blank"
 							   href="https://trustseal.enamad.ir/?id=240404&Code=0Ajw0EyjMnbJEsvAp7co">
