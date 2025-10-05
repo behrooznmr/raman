@@ -2575,6 +2575,7 @@ img#gform_ajax_spinner_10 {
 .brands-logo-title p{
     color:#fff!important
 }
+/*responsive menu*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
     /*.offcanvas.offcanvas-top {*/
@@ -2912,3 +2913,5 @@ img#gform_ajax_spinner_10 {
 
 
 }
+
+
