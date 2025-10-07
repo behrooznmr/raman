@@ -122,17 +122,33 @@ function initLogoCarouselSwiper() {
     if (typeof Swiper !== 'undefined' && logoSwiperEl) {
         new Swiper('.logo-swiper', {
             loop: true,
-            slidesPerView: 7,
             spaceBetween: 30,
+            allowTouchMove: false,
+            speed: 8000,
             autoplay: {
                 delay: 0,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
-            speed: 8000,
-            allowTouchMove: false,
+            breakpoints: {
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    speed: 5000,
+                },
+             /*   768: {
+                    slidesPerView: 5,
+                    spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 7,
+                    spaceBetween: 30
+                }*/
+            }
         });
     }
 }
+
 
 // Step carousel
 function stepCarouselSwiper() {
@@ -449,39 +465,48 @@ jQuery(function($) {
     initCounterHistoryWork($);
 });
 
-/* این کد را در فایل JS خود قرار دهید */
-jQuery(document).ready(function($) {
-    const mobileMenuOverlay = $('#mobileMenuOverlay');
-    const hamburgerButton = $('#customMenuToggler');
-    const closeButton = $('#closeMobileMenu');
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggler = document.getElementById('customMenuToggler');
+    const closeButton = document.getElementById('closeMobileMenu');
+    const menuOverlay = document.getElementById('mobileMenuOverlay');
+    const body = document.body;
 
-    hamburgerButton.on('click', function(e) {
-        e.preventDefault();
-        mobileMenuOverlay.addClass('active');
-        $('body').css('overflow', 'hidden');
-    });
+    if (menuToggler && menuOverlay && closeButton) {
+        function openMenu() {
+            menuOverlay.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
 
-    function closeMenu() {
-        mobileMenuOverlay.removeClass('active');
-        $('body').css('overflow', '');
+        function closeMenu() {
+            menuOverlay.classList.remove('active');
+            body.style.overflow = '';
+        }
+
+        menuToggler.addEventListener('click', openMenu);
+        closeButton.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', function (event) {
+            if (event.target === menuOverlay) {
+                closeMenu();
+            }
+        });
     }
 
-    closeButton.on('click', closeMenu);
-    mobileMenuOverlay.on('click', function(e) {
-        if ($(e.target).is(mobileMenuOverlay)) {
-            closeMenu();
+    const menuItemsWithChildren = document.querySelectorAll('.mobile-main-nav .menu-item-has-children');
+    menuItemsWithChildren.forEach(function (menuItem) {
+        let toggle = menuItem.querySelector('.dropdown-toggle');
+        if (!toggle) {
+            toggle = document.createElement('span');
+            toggle.classList.add('dropdown-toggle');
+            menuItem.querySelector('a').appendChild(toggle);
         }
-    });
 
-    $('.mobile-main-nav li.menu-item-has-children').each(function() {
-        $(this).children('a').prepend('<span class="dropdown-toggle">+</span>');
-    });
-
-    $('.mobile-main-nav li.menu-item-has-children > a').on('click', function(e) {
-        e.preventDefault();
-        const subMenu = $(this).siblings('.sub-menu');
-        const toggleIcon = $(this).find('.dropdown-toggle');
-        subMenu.toggleClass('open');
-        toggleIcon.toggleClass('toggled');
+        menuItem.querySelector('a').addEventListener('click', function (e) {
+            if (menuItem.classList.contains('menu-item-has-children')) {
+                e.preventDefault();
+                e.stopPropagation();
+                menuItem.classList.toggle('open');
+                toggle.classList.toggle('toggled');
+            }
+        });
     });
 });
