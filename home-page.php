@@ -54,18 +54,52 @@ get_header();
                         <div class="projects-gradient-bottom"></div>
                         <div class="logo-carousel-wrapper">
                             <div class="side-overlay">
-                                <div class="swiper logo-swiper">
-                                    <div class="swiper-wrapper">
-			                            <?php
-			                            $logo_numbers = range( 1, 10 );
-			                            foreach ( $logo_numbers as $num ): ?>
-                                            <div class="swiper-slide">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
-                                                     alt="tools-logo">
-                                            </div>
-			                            <?php endforeach; ?>
+                                <div class="logos">
+                                    <div class="logo_items">
+				                        <?php
+				                        $logo_numbers = range(1, 10);
+				                        foreach ($logo_numbers as $num): ?>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
+                                                 alt="tools-logo">
+				                        <?php endforeach; ?>
+				                        <?php
+				                        foreach ($logo_numbers as $num): ?>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
+                                                 alt="tools-logo">
+				                        <?php endforeach; ?>
                                     </div>
                                 </div>
+                                <style>
+                                    @keyframes slides {
+                                        from {
+                                            transform: translateX(0);
+                                        }
+                                        to {
+                                            transform: translateX(calc(-100% / 2));
+                                        }
+                                    }
+
+                                    .logos {
+                                        overflow: hidden;
+                                        padding: 30px 0px;
+                                        white-space: nowrap;
+                                        position: relative;
+                                    }
+
+                                    .logo_items {
+                                        display: inline-block;
+                                        animation: 75s slides infinite linear;
+                                    }
+
+                                    .logos:hover .logo_items {
+                                        animation-play-state: paused;
+                                    }
+
+                                    .logo_items img {
+                                        height: 50px;
+                                        margin: 0 50px;
+                                    }
+                                </style>
                             </div>
                         </div>
                     </div>

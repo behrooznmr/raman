@@ -3046,7 +3046,9 @@ img#gform_ajax_spinner_10 {
     .service-box .services-btn {
         opacity: 1;
     }
-
+    .ra-step-work-top .swiper-slide img {
+        padding: 8px;
+    }
     .left-service-box, .right-service-box {
         width: 100%;
     }
@@ -3125,13 +3127,13 @@ img#gform_ajax_spinner_10 {
 
     .brands-content-wrapper {
         gap: 10px;
-        row-gap: 20px;
+        row-gap: 30px;
         padding: 15px;
     }
 
     .brands-logo-item {
-        width: 180px;
-        height: 180px;
+        width: 175px;
+        height: 175px;
     }
 
     .brands-show-more {
