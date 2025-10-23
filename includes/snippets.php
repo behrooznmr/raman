@@ -157,6 +157,7 @@ add_action( 'wp_body_open', 'add_custom_cursor' );
 
 //add loading anim
 function add_loading_page() {
+    if(!is_404()){
 	?>
     <div id="preloader">
         <div class="loader">
@@ -174,6 +175,7 @@ function add_loading_page() {
         </div>
     </div>
 	<?php
+    }
 }
 
 add_action( 'wp_body_open', 'add_loading_page', 1 );
@@ -476,3 +478,4 @@ if ( is_admin_bar_showing() ) {
 		$wp_admin_bar->remove_node( 'elementor_notes' );
 	}, 201 );
 }
+

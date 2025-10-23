@@ -14,6 +14,7 @@ $includes = array(
 	'metabox',
 	'snippets',
 	'class-wp-bootstrap-navwalker',
+	'shortcodes',
 );
 foreach ( $includes as $file ) {
 	$path = RA_INCS . $file . '.php';
@@ -57,10 +58,10 @@ function raman_theme_scripts() {
 	wp_enqueue_style( 'raman-custom', RA_ASSETS . 'css/custom.css', ['raman-front'], RA_VER );
 	wp_enqueue_script( 'raman-custom', RA_ASSETS . 'js/custom.js', [ 'jquery', 'raman-front' ], RA_VER, true );
 }
-add_action( 'wp_enqueue_scripts', 'raman_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'raman_theme_scripts' , 99999999 );
 
 function raman_admin_enqueue_scripts() {
 	wp_enqueue_style( 'raman-admin', RA_ASSETS . 'css/admin.css', [], RA_VER );
 	wp_enqueue_script( 'raman-admin', RA_ASSETS . 'js/admin.js', [ 'jquery' ], RA_VER, true );
 }
-add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'raman_admin_enqueue_scripts',999 );
