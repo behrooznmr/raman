@@ -17,6 +17,18 @@ get_header();
                 <div class="ra-hero-section-wrapper min-vh-100 w-100 row p-0">
                     <div class="background-hero-sec col-12 p-0">
                         <div class="projects-gradient-top"></div>
+                        <div class="bc__video">
+                            <video autoplay="" muted="" loop="" playsinline="" preload="auto"><source src='<?php echo get_template_directory_uri(); ?>/assets/videos/hero-video.webm' type="video/webm"></video>
+                        </div>
+                        <svg width="100%" height="100vh" class="vertical-line" style="background-color: transparent;">
+                            <line x1="50%" y1="0" x2="50%" y2="100%" class="faint-line"></line>
+                            <line x1="35%" y1="0" x2="35%" y2="100%" class="faint-line"></line>
+                            <line x1="65%" y1="0" x2="65%" y2="100%" class="faint-line"></line>
+                            <line x1="20%" y1="0" x2="20%" y2="100%" class="faint-line"></line>
+                            <line x1="80%" y1="0" x2="80%" y2="100%" class="faint-line"></line>
+                            <line x1="5%" y1="0" x2="5%" y2="100%" class="faint-line"></line>
+                            <line x1="95%" y1="0" x2="95%" y2="100%" class="faint-line"></line>
+                        </svg>
                         <div class="content-wrapper custom-w-1250 min-vh-100">
                             <h1>
                                 آژانــس خلاقــیت <span>رامـــان</span>
@@ -43,6 +55,7 @@ get_header();
                                     <span class="animated-border-box-glow"></span>
                                     <span class="animated-border-box"></span>
                                 </a>
+
                             </div>
                             <div class="scroll-down-anim">
                                 <img width="60px" height="60px"

@@ -32,7 +32,7 @@ add_shortcode( 'raman_btn', 'create_glow_button_shortcode' );
 function create_consulting_form_shortcode() {
 	ob_start();
 	?>
-    <div id="ramanCtaForm" class="ra-cta-form-sec row row-mt ">
+    <div id="raCtaFrom" class="ra-cta-form-sec row row-mt ">
         <div class="ra-form-wrapper background-effect">
             <div class="left-column-img">
                 <div class="img-loop">

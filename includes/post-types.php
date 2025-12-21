@@ -33,7 +33,7 @@ function jd_portfolio_custom_post_type() {
 		'hierarchical'		=> true,
 		'menu_position'		=> 21,
 		'show_in_rest'		=> false,
-		'supports'		=> array( 'title', 'editor', 'thumbnail' ),
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 	);
 
 	register_post_type( 'portfolio', $args );

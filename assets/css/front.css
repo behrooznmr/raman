@@ -878,6 +878,9 @@ li::marker {
 }
 
 /*Home-page style*/
+.ra-hero-section-wrapper{
+    overflow:hidden
+}
 .content-wrapper.min-vh-100 {
     display: flex;
     flex-direction: column;
@@ -885,20 +888,38 @@ li::marker {
     justify-content: center;
     z-index: 6;
     position: relative;
+
 }
 
 .content-wrapper p {
     color: #bdbdbd;
 }
 
-.background-hero-sec {
+/*.background-hero-sec {
     background-image: url("../images/centerbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}*/
+.bc__video{
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+    opacity: 0.2;
+    z-index: 0;
 }
-
-
+.ra-hero-section-wrapper .vertical-line {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ra-hero-section-wrapper .vertical-line .faint-line {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1px;
+}
 .content-wrapper h1 {
     font-family: var(--font-family-base) !important;
     font-size: 64px;
@@ -907,6 +928,7 @@ li::marker {
     background: linear-gradient(262deg, rgba(255, 255, 255, 1) 36%, rgba(35, 148, 49, 1) 92%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
 .hero-section-overlay p {

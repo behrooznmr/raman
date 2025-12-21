@@ -1,4 +1,8 @@
 <?php
+/**
+ * بخش اول: متاباکس‌های استاندارد وردپرس
+ * این بخش ربطی به المنتور ندارد و همیشه باید اجرا شود.
+ */
 class InfoProjectMetaBox {
 
 	private $screen = array('post', 'portfolio');
@@ -130,6 +134,98 @@ class InfoProjectMetaBox {
 	}
 }
 
+// اجرای کلاس متاباکس
 if (class_exists('InfoProjectMetaBox')) {
 	new InfoProjectMetaBox();
 }
+
+
+/**
+ * بخش دوم: تگ‌های داینامیک المنتور
+ * اصلاح مهم: کل این بخش را داخل هوک elementor/init می‌بریم.
+ * این کار باعث می‌شود کد فقط زمانی اجرا شود که المنتور کاملاً لود شده باشد.
+ * این روش جلوی خطای Class not found را می‌گیرد.
+ */
+add_action( 'elementor/init', function() {
+
+	// اگر به هر دلیلی کلاس تگ المنتور وجود نداشت، خارج شو تا سایت کرش نکند
+	if ( ! class_exists( '\Elementor\Core\DynamicTags\Tag' ) ) {
+		return;
+	}
+
+	class Project_Image_Dynamic_Tag extends \Elementor\Core\DynamicTags\Tag {
+
+		public function get_name() {
+			return 'project-image-url';
+		}
+
+		public function get_group() {
+			return 'site';
+		}
+
+		public function get_title() {
+			return 'عکس پروژه (داینامیک)';
+		}
+
+		protected function register_controls() {
+			$this->add_control(
+				'field_key',
+				[
+					'label' => 'انتخاب فیلد عکس',
+					'type'  => \Elementor\Controls_Manager::SELECT,
+					'options' => [
+						'project_desktop_image' => 'عکس دسکتاپ',
+						'project_mobile_image'  => 'عکس موبایل',
+					],
+					'default' => 'project_desktop_image',
+				]
+			);
+		}
+
+		public function get_value( array $options = [] ) {
+			$field_key = $this->get_settings( 'field_key' );
+			$post_id   = get_the_ID();
+
+			if ( ! $post_id ) {
+				return [
+					'id'  => 0,
+					'url' => '',
+					'alt' => '',
+				];
+			}
+
+			$image_url = get_post_meta( $post_id, $field_key, true );
+
+			if ( empty( $image_url ) ) {
+				return [
+					'id'  => 0,
+					'url' => '',
+					'alt' => '',
+				];
+			}
+
+			$attachment_id = attachment_url_to_postid( $image_url );
+			$alt_text = '';
+			if ( $attachment_id ) {
+				$alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+				$alt_text = $alt ? $alt : get_the_title( $attachment_id );
+			}
+
+			return [
+				'id'  => (int) $attachment_id,
+				'url' => esc_url( $image_url ),
+				'alt' => sanitize_text_field( $alt_text ),
+			];
+		}
+
+		public function get_categories() {
+			return [ \Elementor\Modules\DynamicTags\Module::IMAGE_CATEGORY ];
+		}
+	}
+
+	// ثبت تگ در المنتور
+	add_action( 'elementor/dynamic_tags/register', function( $dynamic_tags ) {
+		$dynamic_tags->register( new Project_Image_Dynamic_Tag() );
+	} );
+
+} );
