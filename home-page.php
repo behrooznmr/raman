@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * Template Name: Home page
  *
@@ -14,22 +15,22 @@ get_header();
         <div class="main-wrapper d-flex flex-column">
             <div style="background-color:#030303" class="raman-container flex-grow-1 p-0">
                 <!--hero section-->
-                <div class="ra-hero-section-wrapper min-vh-100 w-100 row p-0">
+                <div class="ra-hero-section-wrapper w-100 row p-0">
                     <div class="background-hero-sec col-12 p-0">
                         <div class="projects-gradient-top"></div>
                         <div class="bc__video">
                             <video autoplay="" muted="" loop="" playsinline="" preload="auto"><source src='<?php echo get_template_directory_uri(); ?>/assets/videos/hero-video.webm' type="video/webm"></video>
                         </div>
-                        <svg width="100%" height="100vh" class="vertical-line" style="background-color: transparent;">
+                        <svg width="100%" height="80vh" class="vertical-line" style="background-color: transparent;">
                             <line x1="50%" y1="0" x2="50%" y2="100%" class="faint-line"></line>
-                            <line x1="35%" y1="0" x2="35%" y2="100%" class="faint-line"></line>
-                            <line x1="65%" y1="0" x2="65%" y2="100%" class="faint-line"></line>
+                            <line x1="35%" y1="0" x2="35%" y2="100%" class="faint-line only-desk"></line>
+                            <line x1="65%" y1="0" x2="65%" y2="100%" class="faint-line   only-desk"></line>
                             <line x1="20%" y1="0" x2="20%" y2="100%" class="faint-line"></line>
                             <line x1="80%" y1="0" x2="80%" y2="100%" class="faint-line"></line>
-                            <line x1="5%" y1="0" x2="5%" y2="100%" class="faint-line"></line>
-                            <line x1="95%" y1="0" x2="95%" y2="100%" class="faint-line"></line>
+                            <line x1="5%" y1="0" x2="5%" y2="100%" class="faint-line only-desk"></line>
+                            <line x1="95%" y1="0" x2="95%" y2="100%" class="faint-line only-desk"></line>
                         </svg>
-                        <div class="content-wrapper custom-w-1250 min-vh-100">
+                        <div class="content-wrapper custom-w-1250">
                             <h1>
                                 آژانــس خلاقــیت <span>رامـــان</span>
                             </h1>
@@ -43,7 +44,7 @@ get_header();
                             <p>ارائه دهنده خدمات طراحی سایت، سئو و بهینه سازی سایت، طراحی لندینگ پیج، افزایش امنیت
                                 سایت، افزایش سرعت سایت و مشاوره کسب و کار</p>
                             <div class="glow-button-wrapper">
-                                <a href="#" class="ra-btn glow-button">
+                                <a href="#raCtaFrom" class="ra-btn glow-button">
                                     دریافت مشاوره رایگان
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="#010101" stroke-width="2" stroke-linecap="round"
@@ -65,60 +66,21 @@ get_header();
                             </div>
                         </div>
                         <div class="projects-gradient-bottom"></div>
-                        <div class="logo-carousel-wrapper">
-                            <div class="side-overlay">
-                                <div class="logos">
-                                    <div class="logo_items">
-				                        <?php
-				                        $logo_numbers = range(1, 10);
-				                        foreach ($logo_numbers as $num): ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
-                                                 alt="tools-logo">
-				                        <?php endforeach; ?>
-				                        <?php
-				                        foreach ($logo_numbers as $num): ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
-                                                 alt="tools-logo">
-				                        <?php endforeach; ?>
+                        <div class="raman-scroller-wrap">
+                            <div class="raman-scroller-list" id="ramanScroller">
+			                    <?php
+			                    $logo_numbers = range(2, 8);
+			                    foreach ($logo_numbers as $num): ?>
+                                    <div class="raman-item">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tools-logo/<?php echo $num; ?>.png"
+                                             alt="tools-logo">
                                     </div>
-                                </div>
-                                <style>
-                                    @keyframes slides {
-                                        from {
-                                            transform: translateX(0);
-                                        }
-                                        to {
-                                            transform: translateX(calc(-100% / 2));
-                                        }
-                                    }
-
-                                    .logos {
-                                        overflow: hidden;
-                                        padding: 30px 0px;
-                                        white-space: nowrap;
-                                        position: relative;
-                                    }
-
-                                    .logo_items {
-                                        display: inline-block;
-                                        animation: 75s slides infinite linear;
-                                    }
-
-                                    .logos:hover .logo_items {
-                                        animation-play-state: paused;
-                                    }
-
-                                    .logo_items img {
-                                        height: 50px;
-                                        margin: 0 50px;
-                                    }
-                                </style>
+			                    <?php endforeach; ?>
                             </div>
                         </div>
-                    </div>
                 </div>
 
-                <div class="row-background row-mt row">
+                <div class="row-background row">
                     <div class="services-gradient-top"></div>
                     <div class="ra-serv-sec row">
                         <div class="custom-w-1250 section-title-wrapper">
@@ -148,7 +110,7 @@ get_header();
                                                 <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز
                                                     کسب‌وکار</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -157,7 +119,7 @@ get_header();
                                                 <h2 class="service-title">افزایش سرعت سایت</h2>
                                                 <p class="services-desc">بهینه‌سازی زمان بارگذاری و عملکرد سایت</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/increase-site-speed/">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -166,7 +128,7 @@ get_header();
                                                 <h2 class="service-title">افزایش امنیت سایت</h2>
                                                 <p class="services-desc">محافظت از داده‌ها و جلوگیری از نفوذ</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/increase-website-security/">مشاهده جزئیات</a>
 
                                         </div>
                                     </div>
@@ -177,7 +139,7 @@ get_header();
                                                 <h2 class="service-title">پشتیبانی سایت</h2>
                                                 <p class="services-desc">پشتیبانی روزانه، رفع خطا و نگهداری مداوم</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/site-support-services/">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -186,7 +148,7 @@ get_header();
                                                 <h2 class="service-title">طراحی UI/UX</h2>
                                                 <p class="services-desc">طراحی رابط کاربری جذاب و حرفه‌ای</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/single-page-site-design/">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-lg-height">
@@ -195,7 +157,7 @@ get_header();
                                                 <h2 class="service-title">سئو و بهینه سازی سایت</h2>
                                                 <p class="services-desc">بهبود رتبه در گوگل و جذب ترافیک هدفمند</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="#">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/what-is-seo-and-what-does-it-do/website-seo-services-in-mashhad/">مشاهده جزئیات</a>
 
 
                                         </div>
@@ -229,7 +191,7 @@ get_header();
 
                                         </p>
                                         <div class="glow-button-wrapper">
-                                            <a href="#" class="ra-btn glow-button">
+                                            <a href="https://raman.agency/dev/about-us/" class="ra-btn glow-button">
                                                 درباره رامان
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                      viewBox="0 0 24 24"
@@ -314,10 +276,10 @@ get_header();
                                                     تجربه‌کاربری توسط تیم ما و مشتری.</p>
                                             </div>
                                             <div class="swiper-slide">
-                                                <strong>6. تحویل نهایی و استقرار سایت</strong>
+                                                <strong>6. تحویل نهایی و انتقال سایت</strong>
                                                 <p>انتقال پروژه نهایی‌شده به هاست و دامنه اصلی، و تحویل کامل سایت همراه
                                                     با
-                                                    مستندات، پشتیبانی اولیه و آموزش مدیریت محتوا.</p>
+                                                    سورس کد، دسترسی ادمین در داشبورد و پشتیبانی اولیه</p>
                                             </div>
                                         </div>
 
@@ -443,56 +405,56 @@ get_header();
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/asoo.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/mond.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ahanresan.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/soodup.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/peyvandtel.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/ultima.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/spares.png'
                                      alt="">
                             </div>
                             <div class="brands-logo-item">
                                 <div class="background-gradient-circle"></div>
-                                <div class="background-gradient-circle-2"></div>
+
                                 <img class="img-fluid"
                                      src='<?php echo get_template_directory_uri(); ?>/assets/images/brands-logo/exir.png'
                                      alt="">
@@ -501,7 +463,7 @@ get_header();
                                 <div>+50</div>
                                 <div>برند دیگر</div>
                                 <div class="glow-button-wrapper">
-                                    <a href="#" class="ra-btn glow-button">
+                                    <a href="https://raman.agency/dev/portfolio/" class="ra-btn glow-button">
                                         برندهای دیگر
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24"
@@ -534,7 +496,9 @@ get_header();
                                 </div>
                             </div>
                             <div class="ra-data-report row p-0">
-                                <div class="data-report-item background-effect">
+
+                                <div class="data-report-item ">
+                                    <div class="background-gradient-circle"></div>
                                     <p class="data-pre-text">بیش از</p>
                                     <div class="data-num text-gr" data-target="100">0</div>
                                     <p class="data-title">پروژه موفق</p>
@@ -542,7 +506,8 @@ get_header();
                                         حضورشان در بازار آنلاین و جهانی</p>
                                 </div>
 
-                                <div class="data-report-item background-effect">
+                                <div class="data-report-item">
+                                    <div class="background-gradient-circle"></div>
                                     <p class="data-pre-text">بیش از</p>
                                     <div class="data-num text-gr" data-target="6">0</div>
                                     <p class="data-title">سال سابقه فعالیت</p>
@@ -550,7 +515,8 @@ get_header();
                                         دنیای دیجیتال</p>
                                 </div>
 
-                                <div class="data-report-item background-effect">
+                                <div class="data-report-item">
+                                    <div class="background-gradient-circle"></div>
                                     <p class="data-pre-text">بیش از</p>
                                     <div class="data-num text-gr" data-target="95">0%</div>
                                     <p class="data-title">رضایت مشتری</p>

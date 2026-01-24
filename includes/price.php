@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 class Price_Settings_Page {
 
 	public function __construct() {

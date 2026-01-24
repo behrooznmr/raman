@@ -1,3 +1,6 @@
+// =============================================================================
+// HELPER FUNCTIONS & MODULES
+// =============================================================================
 
 // Custom Cursor
 function initCustomCursor() {
@@ -105,6 +108,8 @@ function initPortfolioSwiper() {
         new Swiper('.swiper-container', {
             loop: true,
             slidesPerView: 1,
+            allowTouchMove: true,
+            grabCursor: true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -116,7 +121,7 @@ function initPortfolioSwiper() {
     }
 }
 
-// Logo carousel swiper
+// Logo carousel swiper (Standard Swiper)
 function initLogoCarouselSwiper() {
     var logoSwiperEl = document.querySelector('.logo-swiper');
     if (typeof Swiper !== 'undefined' && logoSwiperEl) {
@@ -136,19 +141,10 @@ function initLogoCarouselSwiper() {
                     spaceBetween: 20,
                     speed: 5000,
                 },
-             /*   768: {
-                    slidesPerView: 5,
-                    spaceBetween: 30
-                },
-                1024: {
-                    slidesPerView: 7,
-                    spaceBetween: 30
-                }*/
             }
         });
     }
 }
-
 
 // Step carousel
 function stepCarouselSwiper() {
@@ -420,52 +416,107 @@ function initCounterHistoryWork($) {
     }
 }
 
+// Mobile Drill Down Menu
+function initMobileDrillDown() {
+    const menuWrapper = document.querySelector('.mobile-menu-items-wrapper');
+    const backBtnHeader = document.getElementById('mobileHeaderBack');
+    const defaultHeader = document.getElementById('mobileHeaderDefault');
+    const backBtn = document.getElementById('mobileMenuBackBtn');
+    const currentTitle = document.getElementById('currentMenuTitle');
+    const closeBtn = document.getElementById('closeMobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
 
-// =============================================================================
-// SCRIPT EXECUTION
-// =============================================================================
+    if (!menuWrapper) return;
 
-// (Vanilla JS)
-document.addEventListener('DOMContentLoaded', () => {
+    // 1. Click to open submenu
+    menuWrapper.addEventListener('click', function(e) {
+        const clickedLink = e.target.closest('a');
+        if (!clickedLink || !clickedLink.parentElement.classList.contains('menu-item-has-children')) return;
 
-    // Custom Cursor
-    if (!document.body.classList.contains('elementor-editor-active')) {
-        initCustomCursor();
+        const parentLi = clickedLink.parentElement;
+        const subMenu = parentLi.querySelector('.sub-menu');
+        const currentUl = parentLi.closest('ul');
+
+        if (subMenu && currentUl) {
+            e.preventDefault();
+
+            // --- Remove duplicate links inside submenu ---
+            const linkHref = clickedLink.getAttribute('href');
+            subMenu.querySelectorAll('li > a').forEach(link => {
+                if(link.getAttribute('href') === linkHref) link.parentElement.style.display = 'none';
+            });
+            // ---------------------------------------
+
+            // A) Tell parent to slide out
+            currentUl.classList.add('menu-slid-out');
+
+            // B) Mark this item as "active branch"
+            parentLi.classList.add('active-branch');
+
+            // C) Show the submenu
+            subMenu.classList.add('is-active');
+
+            // D) Adjust header
+            if(defaultHeader) defaultHeader.style.display = 'none';
+            if(backBtnHeader) backBtnHeader.style.display = 'flex';
+            if(currentTitle) currentTitle.textContent = clickedLink.textContent.trim();
+        }
+    });
+
+    // 2. Back Button Logic
+    if(backBtn) {
+        backBtn.addEventListener('click', function() {
+            const activeSubMenus = menuWrapper.querySelectorAll('.sub-menu.is-active');
+            if (activeSubMenus.length > 0) {
+                const lastSubMenu = activeSubMenus[activeSubMenus.length - 1];
+
+                // Close submenu
+                lastSubMenu.classList.remove('is-active');
+
+                // Find parent to revert state
+                const parentLi = lastSubMenu.parentElement;
+                const parentUl = parentLi.closest('ul');
+
+                if (parentUl) parentUl.classList.remove('menu-slid-out');
+                if (parentLi) parentLi.classList.remove('active-branch');
+
+                // Reshow hidden duplicate links
+                lastSubMenu.querySelectorAll('li').forEach(li => li.style.display = '');
+
+                // Manage Title
+                if (activeSubMenus.length > 1) {
+                    const prevMenu = activeSubMenus[activeSubMenus.length - 2];
+                    const prevLink = prevMenu.parentElement.querySelector('a');
+                    if(currentTitle) currentTitle.textContent = prevLink ? prevLink.textContent.trim() : '';
+                } else {
+                    if(defaultHeader) defaultHeader.style.display = 'block';
+                    if(backBtnHeader) backBtnHeader.style.display = 'none';
+                    if(currentTitle) currentTitle.textContent = '';
+                }
+            }
+        });
     }
 
-    // Parallax img in cta form
-    parallaxImageCtaFrom();
+    // 3. Full Reset
+    function resetMenu() {
+        menuWrapper.querySelectorAll('.is-active').forEach(el => el.classList.remove('is-active'));
+        menuWrapper.querySelectorAll('.menu-slid-out').forEach(el => el.classList.remove('menu-slid-out'));
+        menuWrapper.querySelectorAll('.active-branch').forEach(el => el.classList.remove('active-branch'));
 
-    // Portfolio Swiper
-    initPortfolioSwiper();
+        // Reset Display
+        menuWrapper.querySelectorAll('li').forEach(li => li.style.display = '');
 
-    // Logo Carousel Swiper
-    initLogoCarouselSwiper();
+        if(defaultHeader) defaultHeader.style.display = 'block';
+        if(backBtnHeader) backBtnHeader.style.display = 'none';
+        if(currentTitle) currentTitle.textContent = '';
+    }
 
-    // Add mega menu
-    addMegaMenu();
+    if(closeBtn) closeBtn.addEventListener('click', () => setTimeout(resetMenu, 300));
+    if(overlay) overlay.addEventListener('click', (e) => { if(e.target === overlay) setTimeout(resetMenu, 300); });
+}
 
-    // Effect tel number in header
-    telNumberHeaderEffect();
-
-    // Step Carousel Swiper
-    stepCarouselSwiper();
-
-    // Header scroll effect
-    initHeaderScrollEffect();
-
-});
-
-// (jQuery)
-jQuery(function($) {
-    // Preloader
-    initPreloader($);
-
-    // Counter history work
-    initCounterHistoryWork($);
-});
-
-document.addEventListener('DOMContentLoaded', function () {
+// Mobile Menu Toggler & Overlay
+function initMobileMenuToggler() {
     const menuToggler = document.getElementById('customMenuToggler');
     const closeButton = document.getElementById('closeMobileMenu');
     const menuOverlay = document.getElementById('mobileMenuOverlay');
@@ -474,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuToggler && menuOverlay && closeButton) {
         function openMenu() {
             menuOverlay.classList.add('active');
-            body.style.overflow = 'hidden';
+            body.style.overflow = 'hidden'; // Prevent body scroll
         }
 
         function closeMenu() {
@@ -490,23 +541,103 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+}
 
-    const menuItemsWithChildren = document.querySelectorAll('.mobile-main-nav .menu-item-has-children');
-    menuItemsWithChildren.forEach(function (menuItem) {
-        let toggle = menuItem.querySelector('.dropdown-toggle');
-        if (!toggle) {
-            toggle = document.createElement('span');
-            toggle.classList.add('dropdown-toggle');
-            menuItem.querySelector('a').appendChild(toggle);
+// Infinite Logo Scroller (JS Based)
+function initInfiniteLogoScroller() {
+    const scroller = document.getElementById('ramanScroller');
+
+    if (!scroller) return;
+
+    // 1. Clone content for infinite effect
+    const originalContent = scroller.innerHTML;
+    scroller.innerHTML += originalContent;
+
+    // 2. Control variables
+    const speed = 0.5;
+    let currentPos = 0;
+
+    // 3. Calculate width of single set (before cloning)
+    // We use scrollWidth which gives total width, then divide by 2
+    let totalWidth = scroller.scrollWidth;
+    let resetPoint = totalWidth / 2;
+
+    // Update widths on resize
+    window.addEventListener('resize', () => {
+        totalWidth = scroller.scrollWidth;
+        resetPoint = totalWidth / 2;
+    });
+
+    function animate() {
+        currentPos += speed;
+
+        // 4. Loop Condition
+        // If position exceeds the single set width, reset to 0
+        if (currentPos >= resetPoint) {
+            currentPos -= resetPoint;
         }
 
-        menuItem.querySelector('a').addEventListener('click', function (e) {
-            if (menuItem.classList.contains('menu-item-has-children')) {
-                e.preventDefault();
-                e.stopPropagation();
-                menuItem.classList.toggle('open');
-                toggle.classList.toggle('toggled');
-            }
-        });
-    });
+        // Apply movement
+        scroller.style.transform = `translateX(-${currentPos}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animate();
+}
+
+
+// =============================================================================
+// SCRIPT EXECUTION
+// =============================================================================
+
+// 1. Vanilla JS - DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Custom Cursor
+    if (!document.body.classList.contains('elementor-editor-active')) {
+        initCustomCursor();
+    }
+
+    // Parallax img in cta form
+    parallaxImageCtaFrom();
+
+    // Portfolio Swiper
+    initPortfolioSwiper();
+
+    // Logo Carousel Swiper (Standard)
+    initLogoCarouselSwiper();
+
+    // Add mega menu
+    addMegaMenu();
+
+    // Effect tel number in header
+    telNumberHeaderEffect();
+
+    // Step Carousel Swiper
+    stepCarouselSwiper();
+
+    // Header scroll effect
+    initHeaderScrollEffect();
+
+    // Mobile Menu
+    initMobileDrillDown();
+    initMobileMenuToggler();
+
+});
+
+// 2. Vanilla JS - Window Load (For precise dimension calculations)
+window.addEventListener('load', function() {
+    // Infinite Scroller requires fully loaded images for width calculation
+    initInfiniteLogoScroller();
+});
+
+// 3. jQuery
+jQuery(function($) {
+    // Preloader
+    initPreloader($);
+
+    // Counter history work
+    initCounterHistoryWork($);
 });

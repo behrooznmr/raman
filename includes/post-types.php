@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 //create custom post type portfolio
 function jd_portfolio_custom_post_type() {
 

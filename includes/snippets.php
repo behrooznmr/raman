@@ -1,6 +1,6 @@
 <?php
 
-
+defined( 'ABSPATH' ) || exit;
 //customize login page
 function my_login_logo() { ?>
     <style type="text/css">
@@ -178,7 +178,7 @@ function add_loading_page() {
     }
 }
 
-add_action( 'wp_body_open', 'add_loading_page', 1 );
+//add_action( 'wp_body_open', 'add_loading_page', 1 );
 //mega menu
 
 

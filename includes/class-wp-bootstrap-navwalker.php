@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * Class Name: WP_Bootstrap_Navwalker
  * Description: A custom WordPress nav walker class to implement the Bootstrap 5 navigation style.

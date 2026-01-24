@@ -2,12 +2,11 @@
     <div class="ra-header-wrapper">
         <div class="site-logo">
             <a href="<?php echo home_url( '/' ); ?>">
-
 				<?php if ( wp_is_mobile() ): ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-3.png" alt="raman-logo">
 				<?php else: ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.png" alt="raman-logo">
-                <?php endif; ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.png" alt="raman-logo">
+				<?php endif; ?>
             </a>
         </div>
         <div class="menu-wrapper">
@@ -38,27 +37,47 @@
                           fill="#10B358"/>
                 </svg>
                 <span>
-                     <div>مشاوره رایگان</div>
-                 <?php if ( !wp_is_mobile() ): ?>
+                     <div class="text-wrapper">
+                        مشاوره رایگان
+                     </div>
+                 <?php if ( ! wp_is_mobile() ): ?>
                      <strong>09306625562</strong>
                  <?php endif; ?>
-
                 </span>
             </a>
         </div>
     </div>
 </header>
+
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-    <div class="mobile-menu-content">
+    <div class="mobile-menu-content glass-effect">
         <div class="menu-content-header">
-            <div class="site-logo">
-                <a href="<?php echo home_url( '/' ); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.png" alt="raman-logo">
-                </a>
+            <div class="mobile-header-default" id="mobileHeaderDefault">
+                <div class="site-logo">
+                    <a href="<?php echo home_url( '/' ); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.png" alt="raman-logo">
+                    </a>
+                </div>
             </div>
-            <button class="close-btn" id="closeMobileMenu">&times;</button>
+
+            <div class="mobile-header-back" id="mobileHeaderBack" style="display: none;">
+                <button class="back-btn" id="mobileMenuBackBtn" aria-label="بازگشت">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                <span class="current-menu-title" id="currentMenuTitle"></span>
+            </div>
+
+            <button class="close-btn" id="closeMobileMenu" aria-label="بستن منو">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
         </div>
-        <div class="mobile-menu-items-wrapper">
+
+        <div class="mobile-menu-items-wrapper drill-down-container">
 			<?php
 			if ( has_nav_menu( 'mobile-menu' ) ) {
 				wp_nav_menu( array(

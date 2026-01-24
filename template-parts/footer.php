@@ -159,7 +159,7 @@
 			<div class="background-gradient-circle-2"></div>
 		</div>
 		<div class="copyright-wrapper row">
-			<div class="col-12 text-center">تمامی حقوق این وبسایت متعلق به آژانس دیجیتال مارکتینگ رامان
+			<div class="col-12 text-center">تمامی حقوق این وبسایت متعلق به آژانس خلاقیت رامان
 				می باشد
 			</div>
 		</div>
