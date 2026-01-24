@@ -10,7 +10,7 @@ class Raman_En_Title_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-text-title';
+		return 'eicon-t-letter';
 	}
 
 	public function get_categories() {
@@ -46,7 +46,7 @@ class Raman_En_Title_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$title = $settings['title_text'];
 		?>
-		<div class="section-en-title glass-bc">
+		<div class="section-en-title section-en-title-other-page glass-bc">
 			<img src="https://raman.agency/dev/wp-content/themes/raman/assets/images/green-light.png.webp" alt="Raman Icon">
 			<?php echo esc_html( $title ); ?>
 		</div>

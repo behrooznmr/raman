@@ -3116,6 +3116,18 @@ article.portfolio-card:hover .portfolio-arrow {
     width: 80%;
 }
 
+.raman-btn-action.elementor-button {
+    background: transparent;
+    border: none;
+    display: inline-block;
+    width: fit-content;
+    padding: 0;
+    color: var(--color-primary);
+}
+#readMoreBox H2,
+#readMoreBox H3{
+    font-size: 20px!important;
+}
 
 /*Responsive Media Query*/
 

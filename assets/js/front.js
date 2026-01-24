@@ -587,10 +587,35 @@ function initInfiniteLogoScroller() {
     animate();
 }
 
+//Read more box in elementor text widget
+function readMoreBoxElementor($) {
+    setTimeout(function() {
+        $('.raman-read-more-box').each(function() {
+            var $widgetScope = $(this);
+            var $contentBox = $widgetScope.find('.elementor-widget-container');
+            if ($contentBox.length === 0) { $contentBox = $widgetScope; }
 
-// =============================================================================
-// SCRIPT EXECUTION
-// =============================================================================
+            $contentBox.css({
+                'height': '200px',
+                'overflow': 'hidden',
+                'position': 'relative',
+                'transition': 'all 0.4s ease-in-out'
+            });
+
+            var $btn = $('<button class="raman-btn-action elementor-button" style="margin-top: 15px; cursor: pointer; position: relative; z-index: 9999;">مشاهده بیشتر</button>');
+            $contentBox.after($btn);
+        });
+    }, 500);
+
+    $(document).on('click', '.raman-btn-action', function(e) {
+        e.preventDefault();
+        var $prevBox = $(this).prev();
+        $prevBox.css({'height': 'auto', 'overflow': 'visible'});
+        $(this).fadeOut(300, function(){ $(this).remove(); });
+    });
+}
+
+
 
 // 1. Vanilla JS - DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -640,4 +665,7 @@ jQuery(function($) {
 
     // Counter history work
     initCounterHistoryWork($);
+
+    //Read more box in elementor text widget
+    readMoreBoxElementor($);
 });

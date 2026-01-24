@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 date_default_timezone_set( 'Asia/Tehran' );
 
 define( 'RA_VER', filemtime( get_template_directory() . '/assets/css/front.css' ) );
@@ -9,11 +10,12 @@ define( 'RA_ASSETS', trailingslashit( RA_URI ) . 'assets/' );
 define( 'RA_INCS', trailingslashit( RA_DIR ) . 'includes/' );
 
 $includes = array(
+	'menu',
 	'post-types',
 	'price',
 	'metabox',
 	'snippets',
-	'class-wp-bootstrap-navwalker',
+	'shortcodes',
 	'shortcodes',
 );
 foreach ( $includes as $file ) {
