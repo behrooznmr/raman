@@ -20,8 +20,8 @@ function info_project_meta_box_callback($post) {
 
     $fields = array(
         array('label' => 'موضوع وبسایت', 'id' => 'project_subject', 'type' => 'text'),
-        array('label' => 'نوع وبسایت', 'id' => 'project_type', 'type' => 'text'),
-        array('label' => 'امکانات اختصاصی', 'id' => 'project_feature', 'type' => 'textarea'),
+        array('label' => 'پلن/مدت زمان همکاری', 'id' => 'project_type', 'type' => 'text'),
+        array('label' => 'ابزار استفاده شده', 'id' => 'project_feature', 'type' => 'textarea'),
         array('label' => 'لینک وبسایت', 'id' => 'project_url', 'type' => 'url'),
         array('label' => 'کد رنگ 1', 'id' => 'color_code1', 'type' => 'text'),
         array('label' => 'کد رنگ 2', 'id' => 'color_code2', 'type' => 'text'),

@@ -89,7 +89,7 @@ function my_class_names( $classes ) {
 	return $classes;
 }
 
-
+;
 
 function itsme_disable_feed() {
 	wp_die( __( 'No feed available, please visit the <a href="' . esc_url( home_url( '/' ) ) . '">homepage</a>!' ) );

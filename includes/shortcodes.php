@@ -426,8 +426,7 @@ function raman_portfolio_shortcode( $atts ) {
 	ob_start();
 
 	if ( $query->have_posts() ) : ?>
-        <div class="p-0 container-fluid portfolio-container">
-            <div class="p-0 row">
+        <div class="p-0 row g-4 portfolio-container">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="portfolio-card">
@@ -468,7 +467,6 @@ function raman_portfolio_shortcode( $atts ) {
 				<?php endwhile;
 				wp_reset_postdata(); ?>
             </div>
-        </div>
 	<?php endif;
 
 	return ob_get_clean();

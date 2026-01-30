@@ -3127,6 +3127,44 @@ article.portfolio-card:hover .portfolio-arrow {
 #readMoreBox H2,
 #readMoreBox H3{
     font-size: 20px!important;
+    color:#fff!important;
+}
+
+
+#price-table .sec-table.project-overview:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(to BOTTOM, rgb(0 255 53 / 23%), #ffffff12);
+    -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: .6s;
+}
+#price-table .sec-table.project-overview:hover:before{
+
+    background: linear-gradient(to BOTTOM, #00ff357d, rgba(255, 255, 255, 0)) !important;
+
+}
+#price-table .sec-table .elementor-ribbon-inner {
+    background: #f16e22;
+    left: 0;
+    line-height: 2.2;
+    margin-block-start: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transform: none;
+    width: fit-content;
+    padding: 0px 15px;
+    background-color: hsla(0, 0%, 100%, .025);
+    box-shadow: inset 0 0 0 calc(1px + 0px) hsla(0, 0%, 100%, .075), inset 0 0 5vw hsla(0, 0%, 100%, .05);
+    border-radius: 15px;
+}
+#price-table .sec-table .elementor-ribbon{
+    width: 130px;
 }
 
 /*Responsive Media Query*/
