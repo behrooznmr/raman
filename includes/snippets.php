@@ -256,22 +256,21 @@ add_action( 'elementor/widgets/register', 'register_raman_en_title_widget' );
 
 //cdn gravatar
 
-function raman_agency_fix_gravatar_backend( $data_or_url ) {
-	$official_url = 'secure.gravatar.com';
-	$mirror_url   = 'cravatar.cn';
 
-	if ( is_array( $data_or_url ) && isset( $data_or_url['url'] ) ) {
-		$data_or_url['url'] = str_replace( $official_url, $mirror_url, $data_or_url['url'] );
-		return $data_or_url;
-	}
 
-	if ( is_string( $data_or_url ) ) {
-		return str_replace( $official_url, $mirror_url, $data_or_url );
-	}
+add_filter( 'option_show_avatars', '__return_false' );
 
-	return $data_or_url;
+
+function raman_agency_disable_gravatar_use_local( $avatar, $id_or_email, $size, $default, $alt ) {
+
+
+    $svg_icon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23cccccc'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
+
+    $new_avatar = "<img alt='{$alt}' src='{$svg_icon}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' style='background:#f0f0f0; border-radius:50%; padding:2px;' />";
+
+    return $new_avatar;
 }
 
-add_filter( 'get_avatar', 'raman_agency_fix_gravatar_backend', 9999, 1 );
-add_filter( 'get_avatar_url', 'raman_agency_fix_gravatar_backend', 9999, 1 );
-add_filter( 'get_avatar_data', 'raman_agency_fix_gravatar_backend', 9999, 1 );
+
+add_filter( 'get_avatar', 'raman_agency_disable_gravatar_use_local', 99999, 5 );
+add_filter( 'get_avatar_url', '__return_false' );
