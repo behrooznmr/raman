@@ -253,3 +253,12 @@ function register_raman_en_title_widget( $widgets_manager ) {
 }
 add_action( 'elementor/widgets/register', 'register_raman_en_title_widget' );
 
+
+//cdn gravatar
+function raman_agency_fix_gravatar_mirror( $avatar ) {
+	$official_url = 'secure.gravatar.com';
+	$mirror_url = 'cravatar.cn';
+	return str_replace( $official_url, $mirror_url, $avatar );
+}
+add_filter( 'get_avatar', 'raman_agency_fix_gravatar_mirror', 10, 1 );
+add_filter( 'get_avatar_url', 'raman_agency_fix_gravatar_mirror', 10, 1 );
