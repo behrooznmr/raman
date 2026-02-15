@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 function my_login_logo() { ?>
     <style type="text/css">
         body.login.js.login-action-login.wp-core-ui.rtl.locale-fa-ir {
-            background-image: url("https://raman.agency/wp-content/uploads/2023/03/1-1-1.jpg");
+            /*background-image: url("https://raman.agency/wp-content/uploads/2023/03/1-1-1.jpg");*/
             height: auto;
             width: 100%;
             background-size: cover;
@@ -13,17 +13,19 @@ function my_login_logo() { ?>
 
         }
 
+
+
         .login form {
             margin-top: 20px !important;
             margin-right: 0 !important;
             padding: 26px 24px 34px !important;
             font-weight: 400;
             overflow: hidden;
-            background: #ffffff24 !important;
+            background: #00000066 !important;
             border: 1px solid #496a57 !important;
             box-shadow: 0 1px 3px rgb(0 0 0 / 4%) !important;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-            backdrop-filter: blur(3.1px) !important;
+            backdrop-filter: blur(12.1px) !important;
             -webkit-backdrop-filter: blur(3.1px) !important;
             border: 1px solid rgba(255, 255, 255, 0.3) !important;
             border-radius: 10px !important;
@@ -75,10 +77,46 @@ function my_login_logo() { ?>
             background-repeat: no-repeat;
             padding-bottom: 30px;
         }
+        #login-video-bg {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        body.login {
+            background: transparent !important;
+        }
     </style>
 <?php }
 
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+function custom_login_background_video() {
+	$video_url = get_template_directory_uri() . '/assets/videos/hero-video.webm';
+	echo '
+    <div class="video-overlay"></div>
+    <video autoplay muted loop id="login-video-bg">
+        <source src="' . $video_url . '" type="video/webm">
+    </video>';
+}
+add_action('login_header', 'custom_login_background_video');
+
+
 // Add specific CSS class by filter
 add_filter( 'body_class', 'my_class_names' );
 function my_class_names( $classes ) {
@@ -274,3 +312,52 @@ function raman_agency_disable_gravatar_use_local( $avatar, $id_or_email, $size, 
 
 add_filter( 'get_avatar', 'raman_agency_disable_gravatar_use_local', 99999, 5 );
 add_filter( 'get_avatar_url', '__return_false' );
+
+
+function raman_load_more_portfolio_ajax() {
+    check_ajax_referer( 'ra_ajax_nonce', 'nonce' );
+
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    // دریافت ID دسته بندی به جای Slug
+    $term_id = isset($_POST['term_id']) ? $_POST['term_id'] : 'all';
+
+    $args = array(
+        'post_type'      => 'portfolio',
+        'post_status'    => 'publish',
+        'posts_per_page' => 12,
+        'paged'          => $page,
+    );
+
+    // شرط فیلتر: اگر 'all' نبود و یک عدد معتبر بود
+    if ( $term_id !== 'all' && is_numeric($term_id) ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'portfolio_filter',
+                'field'    => 'term_id', // تغییر مهم: جستجو بر اساس ID
+                'terms'    => intval($term_id),
+            ),
+        );
+    }
+
+    $query = new WP_Query( $args );
+
+    ob_start();
+
+    if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post();
+            get_template_part( 'template-parts/portfolio-card-loop' );
+        endwhile;
+    endif;
+
+    $html = ob_get_clean();
+
+    wp_send_json_success( array(
+        'html' => $html,
+        'max_page' => $query->max_num_pages,
+        'found' => $query->found_posts
+    ) );
+}
+
+add_action( 'wp_ajax_filter_portfolio', 'raman_load_more_portfolio_ajax' );
+add_action( 'wp_ajax_nopriv_filter_portfolio', 'raman_load_more_portfolio_ajax' );
+

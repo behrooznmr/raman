@@ -669,3 +669,105 @@ jQuery(function($) {
     //Read more box in elementor text widget
     readMoreBoxElementor($);
 });
+
+jQuery(document).ready(function($) {
+
+    // متغیرهای سراسری
+    var currentTermId = 'all';
+    var currentPage = 1;
+
+    function fetch_portfolio_posts(append = false) {
+        var $loadMoreBtn = $('#raman-load-more');
+        var $spinner = $loadMoreBtn.find('.spinner-border');
+
+        $spinner.removeClass('d-none');
+        $loadMoreBtn.prop('disabled', true);
+
+        if (!append) {
+            $('#portfolio-results').css('opacity', '0.5');
+        }
+
+        console.log('Sending AJAX Request with:', {
+            page: currentPage,
+            term_id: currentTermId
+        });
+
+        $.ajax({
+            url: ra_object.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'filter_portfolio',
+                nonce: ra_object.nonce,
+                page: currentPage,
+                // اطمینان از اینکه مقدار خالی ارسال نمی‌شود
+                term_id: currentTermId || 'all'
+            },
+            success: function(response) {
+                if (response.success) {
+                    var data = response.data;
+                    console.log('Response Found:', data.found); // لاگ تعداد پیدا شده
+
+                    if (append) {
+                        $('#portfolio-results').append(data.html);
+                    } else {
+                        $('#portfolio-results').html(data.html);
+                        $('#portfolio-results').css('opacity', '1');
+                    }
+
+                    $loadMoreBtn.data('page', currentPage);
+
+                    // مدیریت نمایش دکمه
+                    if (currentPage >= data.max_page || data.max_page === 0) {
+                        $('.portfolio-pagination').hide();
+                    } else {
+                        $('.portfolio-pagination').show();
+                    }
+
+                    if(data.found === 0 && !append) {
+                        $('#portfolio-results').html('<div class="col-12"><p class="text-center alert alert-warning">در این دسته‌بندی نمونه‌کاری یافت نشد.</p></div>');
+                    }
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('AJAX Error:', textStatus, errorThrown);
+            },
+            complete: function() {
+                $spinner.addClass('d-none');
+                $loadMoreBtn.prop('disabled', false);
+            }
+        });
+    }
+
+    // رویداد کلیک روی تب‌های فیلتر
+    $('.filter-btn').on('click', function(e) {
+        e.preventDefault();
+
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        // استفاده از attr برای اطمینان بیشتر در خواندن DOM
+        var clickedId = $(this).attr('data-id');
+
+        // لاگ برای اینکه ببینیم چی خونده میشه
+        console.log('Button Clicked. Raw Data-ID:', clickedId);
+
+        if (typeof clickedId === 'undefined' || clickedId === false) {
+            console.warn('Warning: data-id attribute is missing on this button! Defaulting to "all". Check your PHP shortcode.');
+            currentTermId = 'all';
+        } else {
+            currentTermId = clickedId;
+        }
+
+        currentPage = 1;
+        fetch_portfolio_posts(false);
+    });
+
+    // رویداد کلیک روی دکمه لود مور
+    $(document).on('click', '#raman-load-more', function(e) {
+        e.preventDefault();
+        currentPage++;
+        fetch_portfolio_posts(true);
+    });
+
+});

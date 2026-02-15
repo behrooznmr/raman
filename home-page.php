@@ -293,7 +293,7 @@ get_header();
 
                                 </div>
                             </div>
-                            <div class="step-box background-effect col-12 col-md-6">
+                            <div class="ra-idea-work step-box background-effect col-12 col-md-6">
                                 <div class="step-3-col-title section-title">
                                     از ایده تا اجرا
                                 </div>

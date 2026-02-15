@@ -23,6 +23,8 @@ function info_project_meta_box_callback($post) {
 		array('label' => 'پلن/مدت زمان همکاری', 'id' => 'project_type', 'type' => 'text'),
 		array('label' => 'ابزار استفاده شده', 'id' => 'project_feature', 'type' => 'textarea'),
 		array('label' => 'لینک وبسایت', 'id' => 'project_url', 'type' => 'url'),
+		array('label' => 'امکان فروش', 'id' => 'is_project_for_sale', 'type' => 'checkbox'),
+		array('label' => 'قیمت پروژه (تومان)', 'id' => 'project_price', 'type' => 'text'),
 		array('label' => 'کد رنگ 1', 'id' => 'color_code1', 'type' => 'text'),
 		array('label' => 'کد رنگ 2', 'id' => 'color_code2', 'type' => 'text'),
 		array('label' => 'کد رنگ 3', 'id' => 'color_code3', 'type' => 'text'),
@@ -43,7 +45,7 @@ function info_project_meta_box_callback($post) {
 		<?php foreach ($fields as $field) :
 			$meta_value = get_post_meta($post->ID, $field['id'], true); ?>
             <tr class="project-field-row">
-                <th><label for="<?php echo esc_attr($field['id']); ?>"><?php echo esc_html($field['label']); ?></label></th>
+                <th scope="row"><label for="<?php echo esc_attr($field['id']); ?>"><?php echo esc_html($field['label']); ?></label></th>
                 <td>
 					<?php if ($field['type'] === 'textarea') : ?>
                         <textarea class="large-text" id="<?php echo esc_attr($field['id']); ?>" name="<?php echo esc_attr($field['id']); ?>" rows="4"><?php echo esc_textarea($meta_value); ?></textarea>
@@ -51,14 +53,17 @@ function info_project_meta_box_callback($post) {
 					<?php elseif ($field['type'] === 'image') : ?>
                         <div class="ip-uploader-wrapper">
                             <input type="hidden" id="<?php echo esc_attr($field['id']); ?>" name="<?php echo esc_attr($field['id']); ?>" value="<?php echo esc_url($meta_value); ?>">
-
                             <div class="ip-image-preview" style="<?php echo empty($meta_value) ? 'display:none;' : ''; ?>">
                                 <img src="<?php echo esc_url($meta_value); ?>" alt="Preview">
                             </div>
-
                             <button type="button" class="button ip-upload-btn">انتخاب عکس</button>
                             <button type="button" class="button ip-remove-btn" style="<?php echo empty($meta_value) ? 'display:none;' : ''; ?>">حذف عکس</button>
                         </div>
+
+					<?php elseif ($field['type'] === 'checkbox') : ?>
+                        <input type="checkbox" id="<?php echo esc_attr($field['id']); ?>" name="<?php echo esc_attr($field['id']); ?>" value="1" <?php checked($meta_value, '1'); ?>>
+                        <span class="description">اگر فعال باشد، لیبل فروش نمایش داده می‌شود.</span>
+
 					<?php else : ?>
                         <input class="regular-text" id="<?php echo esc_attr($field['id']); ?>" name="<?php echo esc_attr($field['id']); ?>" type="<?php echo esc_attr($field['type']); ?>" value="<?php echo esc_attr($meta_value); ?>">
 					<?php endif; ?>
@@ -119,9 +124,17 @@ function info_project_save_fields($post_id) {
 	if (!isset($_POST['project_settings_nonce']) || !wp_verify_nonce($_POST['project_settings_nonce'], 'project_settings_save_data')) return;
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
-	// اضافه شدن project_other_pages_image به لیست ذخیره
-	$fields = array('project_subject', 'project_type', 'project_feature', 'project_url', 'color_code1', 'color_code2', 'color_code3', 'color_code4', 'project_desktop_image', 'project_mobile_image', 'project_other_pages_image');
-
+	$fields = array(
+		'project_subject', 'project_type', 'project_feature', 'project_url',
+		'color_code1', 'color_code2', 'color_code3', 'color_code4',
+		'project_desktop_image', 'project_mobile_image', 'project_other_pages_image',
+		'project_price'
+	);
+	if (isset($_POST['is_project_for_sale'])) {
+		update_post_meta($post_id, 'is_project_for_sale', '1');
+	} else {
+		update_post_meta($post_id, 'is_project_for_sale', '0');
+	}
 	foreach ($fields as $field) {
 		if (isset($_POST[$field])) {
 			update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
@@ -145,7 +158,7 @@ add_action('elementor/init', function() {
 				'options' => [
 					'project_desktop_image' => 'عکس دسکتاپ',
 					'project_mobile_image' => 'عکس موبایل',
-					'project_other_pages_image' => 'عکس سایر صفحات', // اضافه شده
+					'project_other_pages_image' => 'عکس سایر صفحات',
 				],
 				'default' => 'project_desktop_image',
 			]);

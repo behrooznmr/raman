@@ -345,58 +345,69 @@ function raman_create_brands_logo_shortcode() {
 
 add_shortcode( 'raman_brands_logo', 'raman_create_brands_logo_shortcode' );
 
-//Archive Loop Shortcode
 function raman_theme_portfolio_archive_loop_shortcode() {
 
-	global $wp_query;
-
-	// فقط آرشیو
-	if ( ! is_archive() ) {
-		return '';
-	}
-
-	// تنظیم تعداد پست
-	$args = array_merge(
-		$wp_query->query_vars,
-		[
-			'posts_per_page' => 12,
-			'paged'          => max( 1, get_query_var( 'paged' ) ),
-		]
-	);
-
-	$query = new WP_Query( $args );
+	$terms = get_terms( array(
+		'taxonomy'   => 'portfolio_filter',
+		'hide_empty' => true,
+	) );
 
 	ob_start();
+	?>
+    <div class="raman-portfolio-wrapper">
 
-	if ( $query->have_posts() ) :
-		?>
-        <div class="row g-4 portfolio-archive-loop">
+        <div class="portfolio-filters mb-4 text-center">
+            <button class="btn btn-outline-primary active filter-btn" data-id="all">
+				<?php _e('همه', 'raman'); ?>
+            </button>
 			<?php
-			while ( $query->have_posts() ) :
-				$query->the_post();
-				get_template_part( 'template-parts/portfolio-card-loop' );
-			endwhile;
+			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+				foreach ( $terms as $term ) : ?>
+                    <button class="btn btn-outline-primary filter-btn" data-id="<?php echo esc_attr( $term->term_id ); ?>">
+						<?php echo esc_html( $term->name ); ?>
+                    </button>
+				<?php endforeach;
+			endif;
 			?>
         </div>
 
-        <!-- Pagination -->
-        <div class="portfolio-pagination mt-5">
+        <div class="row g-4 portfolio-archive-loop" id="portfolio-results">
 			<?php
-			echo paginate_links( [
-				'total'   => $query->max_num_pages,
-				'current' => max( 1, get_query_var( 'paged' ) ),
-				'type'    => 'list',
-			] );
+			$args = array(
+				'post_type'      => 'portfolio',
+				'posts_per_page' => 12,
+				'post_status'    => 'publish',
+				'paged'          => 1,
+			);
+
+			$query = new WP_Query( $args );
+
+			if ( $query->have_posts() ) :
+				while ( $query->have_posts() ) : $query->the_post();
+					get_template_part( 'template-parts/portfolio-card-loop' );
+				endwhile;
+			else :
+				echo '<p class="text-center">موردی یافت نشد.</p>';
+			endif;
+			wp_reset_postdata();
 			?>
         </div>
+
+		<?php if ( $query->max_num_pages > 1 ) : ?>
+            <div class="portfolio-pagination mt-5 text-center">
+                <button id="raman-load-more" class="btn btn-primary"
+                        data-page="1"
+                        data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
+					<?php _e('بارگذاری بیشتر', 'raman'); ?>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
+            </div>
+		<?php endif; ?>
+
+    </div>
 	<?php
-	endif;
-
-	wp_reset_postdata();
-
 	return ob_get_clean();
 }
-
 add_shortcode( 'raman_archive_loop', 'raman_theme_portfolio_archive_loop_shortcode' );
 
 //Archive Loop Select Post & Post type
@@ -428,7 +439,7 @@ function raman_portfolio_shortcode( $atts ) {
 	if ( $query->have_posts() ) : ?>
         <div class="p-0 row g-4 portfolio-container">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <article class="portfolio-card">
                             <a href="<?php the_permalink(); ?>" class="portfolio-card-link"
                                aria-label="<?php the_title_attribute(); ?>"></a>
