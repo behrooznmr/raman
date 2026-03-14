@@ -243,7 +243,6 @@ function raman_create_consulting_form_shortcode() {
 
 add_shortcode( 'raman_cta_form', 'raman_create_consulting_form_shortcode' );
 
-
 //Brands Logo shortcode
 function raman_create_brands_logo_shortcode() {
 	ob_start();
@@ -345,7 +344,7 @@ function raman_create_brands_logo_shortcode() {
 
 add_shortcode( 'raman_brands_logo', 'raman_create_brands_logo_shortcode' );
 
-function raman_theme_portfolio_archive_loop_shortcode() {
+function raman_portfolio_loop_shortcode() {
 
 	$terms = get_terms( array(
 		'taxonomy'   => 'portfolio_filter',
@@ -395,7 +394,7 @@ function raman_theme_portfolio_archive_loop_shortcode() {
 
 		<?php if ( $query->max_num_pages > 1 ) : ?>
             <div class="portfolio-pagination mt-5 text-center">
-                <button id="raman-load-more" class="btn btn-primary"
+                <button id="raman-load-more" class="archive-load-more-btn ra-btn"
                         data-page="1"
                         data-max="<?php echo esc_attr( $query->max_num_pages ); ?>">
 					<?php _e('بارگذاری بیشتر', 'raman'); ?>
@@ -408,14 +407,15 @@ function raman_theme_portfolio_archive_loop_shortcode() {
 	<?php
 	return ob_get_clean();
 }
-add_shortcode( 'raman_archive_loop', 'raman_theme_portfolio_archive_loop_shortcode' );
+add_shortcode( 'raman_portfolio_loop', 'raman_portfolio_loop_shortcode' );
 
 //Archive Loop Select Post & Post type
-function raman_portfolio_shortcode( $atts ) {
+function raman_manual_selection_portfolio_post( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'post_type' => 'post',
-			'ids'       => '',
+			'post_type'      => 'post',
+			'ids'            => '',
+			'posts_per_page' => 4,
 		),
 		$atts,
 		'my_portfolio'
@@ -423,7 +423,7 @@ function raman_portfolio_shortcode( $atts ) {
 
 	$args = array(
 		'post_type'      => $atts['post_type'],
-		'posts_per_page' => - 1,
+		'posts_per_page' => $atts['posts_per_page'],
 		'post_status'    => 'publish',
 	);
 
@@ -437,7 +437,8 @@ function raman_portfolio_shortcode( $atts ) {
 	ob_start();
 
 	if ( $query->have_posts() ) : ?>
-        <div class="p-0 row g-4 portfolio-container">
+        <div class="raman-loop-wrapper">
+            <div class="p-0 row g-4 portfolio-container" id="portfolio-loop-results">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
                     <div class="col-12 col-md-6 col-lg-3">
                         <article class="portfolio-card">
@@ -462,25 +463,104 @@ function raman_portfolio_shortcode( $atts ) {
                                     </p>
                                 </div>
                                 <span class="portfolio-arrow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
-                                     fill="none">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M17 17L7 7M7 7V16M7 7H16" stroke="#05f36f" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
-                            </span>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path d="M17 17L7 7M7 7V16M7 7H16" stroke="#05f36f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </a>
+                                    </span>
                             </div>
                         </article>
                     </div>
 				<?php endwhile;
 				wp_reset_postdata(); ?>
             </div>
+
+        </div>
 	<?php endif;
 
 	return ob_get_clean();
 }
+add_shortcode( 'raman_loop', 'raman_manual_selection_portfolio_post' );
 
-add_shortcode( 'raman_loop', 'raman_portfolio_shortcode' );
+//Archive Loop Select Post & Post type
+function raman_blog_loop( ) {
+
+
+	$args = array(
+		'post_type'      => 'post',
+		'ids'            => '',
+		'posts_per_page' => 12,
+	);
+
+
+	$query = new WP_Query( $args );
+
+	ob_start();
+
+	if ( $query->have_posts() ) : ?>
+        <div class="raman-loop-wrapper">
+            <div class="p-0 row g-4 portfolio-container" id="portfolio-loop-results">
+				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="portfolio-card">
+                            <a href="<?php the_permalink(); ?>" class="portfolio-card-link"
+                               aria-label="<?php the_title_attribute(); ?>"></a>
+
+                            <div class="portfolio-image">
+								<?php if ( has_post_thumbnail() ) : ?>
+									<?php the_post_thumbnail( 'medium_large', [ 'class' => 'img-fluid' ] ); ?>
+								<?php endif; ?>
+                            </div>
+
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-loop-content">
+                                    <h2 class="portfolio-title">
+                                        <a href="<?php the_permalink(); ?>">
+											<?php the_title(); ?>
+                                        </a>
+                                    </h2>
+                                    <p class="portfolio-excerpt">
+										<?php echo wp_trim_words( get_the_excerpt(), 18 ); ?>
+                                    </p>
+                                </div>
+                                <span class="portfolio-arrow">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path d="M17 17L7 7M7 7V16M7 7H16" stroke="#05f36f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </a>
+                                    </span>
+                            </div>
+                        </article>
+                    </div>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
+            </div>
+
+			<?php if ( $query->max_num_pages > 1 ) : ?>
+                <div class="portfolio-loop-pagination mt-5 text-center">
+                    <button id="raman-loop-load-more" class="archive-load-more-btn ra-btn"
+                            data-page="1"
+                            data-max="<?php echo esc_attr( $query->max_num_pages ); ?>"
+                            data-post-type="<?php echo esc_attr( $atts['post_type'] ); ?>"
+                            data-ids="<?php echo esc_attr( $atts['ids'] ); ?>">
+						<?php _e('بارگذاری بیشتر', 'raman'); ?>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+			<?php endif; ?>
+        </div>
+	<?php endif;
+
+	return ob_get_clean();
+}
+add_shortcode( 'raman_blog_loop', 'raman_blog_loop' );

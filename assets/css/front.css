@@ -3220,14 +3220,21 @@ span.badge-sale{
     color: #42f36e;
     border-color: var(--color-primary);
 }
-button#raman-load-more{
-    background-color: rgba(40, 40, 40, 0.65);
-    border-color: #c4c4c4;
-    padding: 5px 18px;
-    border-radius:50px
+button.archive-load-more-btn:active,
+button.archive-load-more-btn:focus,
+button.archive-load-more-btn:focus-visible,
+button.archive-load-more-btn:hover,
+button.archive-load-more-btn{
+    background-color: rgba(40, 40, 40, 0.65) !important;
+    border-color: #c4c4c4!important;
+    color: #fff!important;
+    padding: 5px 18px!important;
+    border-radius:50px!important;
+    outline:none!important;
+    box-shadow: none!important;
 }
 .portfolio-pagination a, .portfolio-pagination span {
-    padding: 0px 1px;
+    padding: 0 1px;
     border-radius: 59px;
     background: #f1f1f100;
     text-decoration: none;
@@ -3237,8 +3244,40 @@ button#raman-load-more{
     margin-bottom: -2px;
     border-width: 1px;
 }
+div#readMoreBox:after {
+    content: "";
+    background: red;
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgb(0 0 0) 53%, rgb(0 0 0 / 89%) 65%, rgba(0, 0, 0, 0) 98%);
+}
 /*Responsive Media Query*/
+ul.wp-block-list ,
+.elementor-widget-text-editor ul{
+    list-style: none !important;
+    padding-right: 0 !important;
+    margin: 0;
+}
+ul.wp-block-list li ,
+.elementor-widget-text-editor ul li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
 
+.elementor-widget-text-editor ul li::before ,
+ul.wp-block-list li::before {
+    content: "✔";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--color-primary);
+    font-size: 16px;
+}
 /*Responsive Menu & Header*/
 @media (min-width: 1025px) {
 
@@ -3841,5 +3880,24 @@ button#raman-load-more{
         min-width: fit-content;
         margin-left: 2px;
     }
-
+    .projects-loop-wrapper  .swiper-button{
+        top: 69%;
+        width: 45px;
+        height: 45px;
+        background: #4848488f;
+        border-radius: 50px;
+        border: 1px solid #4b4b4b;
+    }
+    .swiper-button-next, .swiper-rtl .swiper-button-prev {
+        right: 0;
+    }
+    .swiper-button-prev, .swiper-rtl .swiper-button-next {
+        left: 0;
+    }
+    .projects-gradient-bottom, .projects-gradient-top {
+        height: 15vh;
+    }
+    .swiper-button.swiper-button-next {
+        transform: rotate(180deg);
+    }
 }

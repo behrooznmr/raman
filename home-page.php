@@ -106,11 +106,11 @@ get_header();
                                         <div class="service-box service-box-lg-height">
                                             <div class="services-overlay"></div>
                                             <div class="services-content">
-                                                <h2 class="service-title">طراحی سایت فروشگاهی و شرکتی</h2>
+                                                <h2 class="service-title">طراحی سایت فروشگاهی </h2>
                                                 <p class="services-desc">راه‌اندازی سایت اختصاصی متناسب با نیاز
                                                     کسب‌وکار</p>
                                             </div>
-                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/">مشاهده جزئیات</a>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/price-of-store-site-design/">مشاهده جزئیات</a>
 
                                         </div>
                                         <div class="service-box service-box-sm-height">
@@ -136,21 +136,22 @@ get_header();
                                         <div class="service-box service-box-sm-height">
                                             <div class="services-overlay"></div>
                                             <div class="services-content">
+                                                <h2 class="service-title">طراحی سایت شرکتی</h2>
+                                                <p class="services-desc">مناسب برندینگ، معرفی محصول یا نمونه کار</p>
+                                            </div>
+                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/corporate-site-design/">مشاهده جزئیات</a>
+
+                                        </div>
+                                        <div class="service-box service-box-sm-height">
+                                            <div class="services-overlay"></div>
+                                            <div class="services-content">
                                                 <h2 class="service-title">پشتیبانی سایت</h2>
                                                 <p class="services-desc">پشتیبانی روزانه، رفع خطا و نگهداری مداوم</p>
                                             </div>
                                             <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/site-support-services/">مشاهده جزئیات</a>
 
                                         </div>
-                                        <div class="service-box service-box-sm-height">
-                                            <div class="services-overlay"></div>
-                                            <div class="services-content">
-                                                <h2 class="service-title">طراحی UI/UX</h2>
-                                                <p class="services-desc">طراحی رابط کاربری جذاب و حرفه‌ای</p>
-                                            </div>
-                                            <a class="ra-btn services-btn general-btn" href="https://raman.agency/dev/web-design/single-page-site-design/">مشاهده جزئیات</a>
 
-                                        </div>
                                         <div class="service-box service-box-lg-height">
                                             <div class="services-overlay"></div>
                                             <div class="services-content">
@@ -364,24 +365,71 @@ get_header();
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img class="img-fluid"
-                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heave.webp"/>
+	                                <?php if ( ! wp_is_mobile() ): ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/ultima-home.png"/>
+	                                <?php else: ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/mobile/ultima-home.png"/>
+	                                <?php endif; ?>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img class="img-fluid"
-                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/heavemax.webp"/>
+	                                <?php if ( ! wp_is_mobile() ): ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/exir-home.png"/>
+	                                <?php else: ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/mobile/exir-home.png"/>
+	                                <?php endif; ?>
+
                                 </div>
                                 <div class="swiper-slide">
-                                    <img class="img-fluid"
-                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/kinimatic.webp"/>
+
+	                                <?php if ( ! wp_is_mobile() ): ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/harim-home.png"/>
+	                                <?php else: ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/mobile/harim-home.png"/>
+	                                <?php endif; ?>
                                 </div>
                                 <div class="swiper-slide">
-                                    <img class="img-fluid"
-                                         src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/portfolio.png"/>
+
+	                                <?php if ( ! wp_is_mobile() ): ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/spares-home.png"/>
+	                                <?php else: ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/mobile/spares-home.png"/>
+	                                <?php endif; ?>
+                                </div>
+
+                                <div class="swiper-slide">
+
+	                                <?php if ( ! wp_is_mobile() ): ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/asoo-home.png"/>
+	                                <?php else: ?>
+                                        <img class="img-fluid"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/mobile/asoo-home.png"/>
+	                                <?php endif; ?>
                                 </div>
                             </div>
+                            <?php if ( ! wp_is_mobile() ): ?>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
+                                <?php else: ?>
+                                     <div class="swiper-button swiper-button-next"> <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
+                                                                           xmlns="http://www.w3.org/2000/svg">
+                                             <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#dedddd" stroke-width="2"
+                                                   stroke-linecap="round" stroke-linejoin="round"/>
+                                         </svg></div>
+                            <div class="swiper-button swiper-button-prev"> <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
+                                                                  xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#dedddd" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg></div>
+                            <?php endif; ?>
                         </div>
 
                     </div>

@@ -672,7 +672,6 @@ jQuery(function($) {
 
 jQuery(document).ready(function($) {
 
-    // متغیرهای سراسری
     var currentTermId = 'all';
     var currentPage = 1;
 
@@ -700,13 +699,12 @@ jQuery(document).ready(function($) {
                 action: 'filter_portfolio',
                 nonce: ra_object.nonce,
                 page: currentPage,
-                // اطمینان از اینکه مقدار خالی ارسال نمی‌شود
                 term_id: currentTermId || 'all'
             },
             success: function(response) {
                 if (response.success) {
                     var data = response.data;
-                    console.log('Response Found:', data.found); // لاگ تعداد پیدا شده
+                    console.log('Response Found:', data.found);
 
                     if (append) {
                         $('#portfolio-results').append(data.html);
@@ -717,7 +715,6 @@ jQuery(document).ready(function($) {
 
                     $loadMoreBtn.data('page', currentPage);
 
-                    // مدیریت نمایش دکمه
                     if (currentPage >= data.max_page || data.max_page === 0) {
                         $('.portfolio-pagination').hide();
                     } else {
@@ -739,17 +736,14 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // رویداد کلیک روی تب‌های فیلتر
     $('.filter-btn').on('click', function(e) {
         e.preventDefault();
 
         $('.filter-btn').removeClass('active');
         $(this).addClass('active');
 
-        // استفاده از attr برای اطمینان بیشتر در خواندن DOM
         var clickedId = $(this).attr('data-id');
 
-        // لاگ برای اینکه ببینیم چی خونده میشه
         console.log('Button Clicked. Raw Data-ID:', clickedId);
 
         if (typeof clickedId === 'undefined' || clickedId === false) {
@@ -763,11 +757,62 @@ jQuery(document).ready(function($) {
         fetch_portfolio_posts(false);
     });
 
-    // رویداد کلیک روی دکمه لود مور
     $(document).on('click', '#raman-load-more', function(e) {
         e.preventDefault();
         currentPage++;
         fetch_portfolio_posts(true);
     });
 
+    $(document).on('click', '#raman-loop-load-more', function(e) {
+        e.preventDefault();
+
+        var $btn = $(this);
+        var $spinner = $btn.find('.spinner-border');
+
+        var loopCurrentPage = parseInt($btn.attr('data-page'), 10) || 1;
+        var postType = $btn.attr('data-post-type') || 'post';
+        var ids = $btn.attr('data-ids') || '';
+        var nextPage = loopCurrentPage + 1;
+
+        console.log('Loop AJAX Request Data:', { page: nextPage, postType: postType, ids: ids });
+
+        $spinner.removeClass('d-none');
+        $btn.prop('disabled', true);
+
+        $.ajax({
+            url: ra_object.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'raman_loop_load_more_action',
+                nonce: ra_object.nonce,
+                page: nextPage,
+                post_type: postType,
+                ids: ids
+            },
+            success: function(response) {
+                console.log('Loop AJAX Response:', response);
+
+                if (response.success) {
+                    $('#portfolio-loop-results').append(response.data.html);
+                    $btn.attr('data-page', nextPage);
+
+                    if (nextPage >= response.data.max_page || response.data.max_page === 0) {
+                        $('.portfolio-loop-pagination').hide();
+                    }
+                } else {
+                    console.error('AJAX Logic Error: Server returned success false.');
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Loop AJAX Network Error:', textStatus, errorThrown);
+            },
+            complete: function() {
+                $spinner.addClass('d-none');
+                $btn.prop('disabled', false);
+            }
+        });
+    });
+
 });
+

@@ -120,10 +120,7 @@ add_action('login_header', 'custom_login_background_video');
 // Add specific CSS class by filter
 add_filter( 'body_class', 'my_class_names' );
 function my_class_names( $classes ) {
-	// add 'class-name' to the $classes array
 	$classes[] = 'preloader-visible';
-
-	// return the $classes array
 	return $classes;
 }
 
@@ -285,19 +282,18 @@ if ( is_admin_bar_showing() ) {
 }
 
 //register elementor widget
-function register_raman_en_title_widget( $widgets_manager ) {
+function register_raman_exclusive_widget( $widgets_manager ) {
 	require_once( get_template_directory() . '/template-parts/raman-en-title-widget.php' );
+	require_once( get_template_directory() . '/template-parts/raman-button-widget.php' );
+
 	$widgets_manager->register( new \Raman_En_Title_Widget() );
+	$widgets_manager->register( new \Custom_Glow_Button_Widget() );
 }
-add_action( 'elementor/widgets/register', 'register_raman_en_title_widget' );
+add_action( 'elementor/widgets/register', 'register_raman_exclusive_widget' );
 
 
 //cdn gravatar
-
-
-
 add_filter( 'option_show_avatars', '__return_false' );
-
 
 function raman_agency_disable_gravatar_use_local( $avatar, $id_or_email, $size, $default, $alt ) {
 
@@ -309,7 +305,6 @@ function raman_agency_disable_gravatar_use_local( $avatar, $id_or_email, $size, 
     return $new_avatar;
 }
 
-
 add_filter( 'get_avatar', 'raman_agency_disable_gravatar_use_local', 99999, 5 );
 add_filter( 'get_avatar_url', '__return_false' );
 
@@ -318,7 +313,7 @@ function raman_load_more_portfolio_ajax() {
     check_ajax_referer( 'ra_ajax_nonce', 'nonce' );
 
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    // دریافت ID دسته بندی به جای Slug
+
     $term_id = isset($_POST['term_id']) ? $_POST['term_id'] : 'all';
 
     $args = array(
@@ -328,12 +323,11 @@ function raman_load_more_portfolio_ajax() {
         'paged'          => $page,
     );
 
-    // شرط فیلتر: اگر 'all' نبود و یک عدد معتبر بود
     if ( $term_id !== 'all' && is_numeric($term_id) ) {
         $args['tax_query'] = array(
             array(
                 'taxonomy' => 'portfolio_filter',
-                'field'    => 'term_id', // تغییر مهم: جستجو بر اساس ID
+                'field'    => 'term_id',
                 'terms'    => intval($term_id),
             ),
         );
@@ -361,3 +355,71 @@ function raman_load_more_portfolio_ajax() {
 add_action( 'wp_ajax_filter_portfolio', 'raman_load_more_portfolio_ajax' );
 add_action( 'wp_ajax_nopriv_filter_portfolio', 'raman_load_more_portfolio_ajax' );
 
+
+
+function raman_loop_load_more_ajax_handler() {
+	$page      = isset($_POST['page']) ? intval($_POST['page']) : 1;
+	$post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : 'post';
+	$ids       = isset($_POST['ids']) ? sanitize_text_field($_POST['ids']) : '';
+
+	$args = array(
+		'post_type'      => $post_type,
+		'posts_per_page' => 12,
+		'post_status'    => 'publish',
+		'paged'          => $page,
+	);
+
+	if ( ! empty( $ids ) ) {
+		$args['post__in'] = explode( ',', $ids );
+		$args['orderby']  = 'post__in';
+	}
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) {
+		ob_start();
+		while ( $query->have_posts() ) : $query->the_post(); ?>
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="portfolio-card">
+                    <a href="<?php the_permalink(); ?>" class="portfolio-card-link" aria-label="<?php the_title_attribute(); ?>"></a>
+                    <div class="portfolio-image">
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php the_post_thumbnail( 'medium_large', [ 'class' => 'img-fluid' ] ); ?>
+						<?php endif; ?>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-loop-content">
+                            <h2 class="portfolio-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            <p class="portfolio-excerpt"><?php echo wp_trim_words( get_the_excerpt(), 18 ); ?></p>
+                        </div>
+                        <span class="portfolio-arrow">
+                            <a href="<?php the_permalink(); ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 17L7 7M7 7V16M7 7H16" stroke="#05f36f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </span>
+                    </div>
+                </article>
+            </div>
+		<?php endwhile;
+		$html = ob_get_clean();
+
+		wp_send_json_success(array(
+			'html' => $html,
+			'max_page' => $query->max_num_pages
+		));
+	} else {
+		wp_send_json_error();
+	}
+}
+
+add_action('wp_ajax_raman_loop_load_more_action', 'raman_loop_load_more_ajax_handler');
+add_action('wp_ajax_nopriv_raman_loop_load_more_action', 'raman_loop_load_more_ajax_handler');
+
+
+add_action( 'elementor/widgets/register', 'register_custom_glow_button_widget' );
+
+function register_custom_glow_button_widget( $widgets_manager ) {
+
+}
